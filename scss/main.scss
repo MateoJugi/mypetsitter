@@ -1,0 +1,78 @@
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+	overflow-x: hidden;
+	margin: 0;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+$blue: #474fa0;
+$blue-hover: #363c79;
+$orange: #fd7034;
+$orange-hover: #ca5d2e;
+$orange-dark: #fe6536;
+$gray: #f2f2f2;
+$box-shadow: rgba( 149, 157, 165, 0.2 ) 0 0 20px;
+$box-shadow-hover: rgba( 19, 20, 20, 0.2 ) 0 0 20px;
+$box-shadow-orange: #fe6536 0 0 20px;
+
+.position-relative {
+	position: relative;
+}
+
+.display-flex {
+	display: flex;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.flex--align-self-end {
+	align-self: flex-end;
+}
+
+@import 'hero';
+@import 'site-header';
+@import 'social-media-buttons';
+@import 'sponsors-list';
+@import 'icon-wrapper';
+@import 'card-list';
+@import 'section';
+@import 'social-media-list';
+@import 'filter-form';
+@import 'pop-up';
+@import 'footer';
+@import 'form';
+@import 'buttons';
+@import 'text';

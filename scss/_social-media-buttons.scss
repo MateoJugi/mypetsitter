@@ -1,0 +1,28 @@
+.social-media-buttons {
+	display: flex;
+
+	a + a {
+		margin-left: 15px;
+	}
+}
+
+.social-media-buttons__item {
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	box-shadow: $box-shadow;
+	transition: .3s;
+	border-radius: 8px;
+	padding-top: 14px;
+	padding-right: 20px;
+	padding-bottom: 14px;
+	padding-left: 20px;
+
+	&:hover {
+		box-shadow: rgba(19, 20, 20, 0.2) 0 0 24px;
+	}
+}
+
+.social-media-buttons__logo {
+	margin-right: 10px;
+}

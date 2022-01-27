@@ -1,0 +1,35 @@
+.social-media-list {
+	display: inherit;
+}
+
+.social-media-list__item {
+	svg {
+		height: 25px;
+		width: 25px;
+	}
+
+	a {
+		border: 1px solid #bebebe;
+		border-radius: 100%;
+		box-shadow: $box-shadow;
+		transition: .3s;
+		padding-top: 12px;
+		padding-right: 15px;
+		padding-bottom: 12px;
+		padding-left: 15px;
+
+		&:hover {
+			box-shadow: $box-shadow-hover;
+			background-color: $orange-dark;
+			border-color: transparent;
+
+			svg {
+				fill: #fff;
+			}
+		}
+	}
+
+	& + .social-media-list__item {
+		margin-left: 10px;
+	}
+}
