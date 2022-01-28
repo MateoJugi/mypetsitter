@@ -361,7 +361,7 @@
 										<div class="filter-form__main">
 											<div class="position-relative">
 												<select type="option" class="filter-form__item js-filter-location">
-													<option value="" selected>Choose your location:</option>
+													<option value="" selected>Choose location:</option>
 
 													<option value="Zagreb">Zagreb</option>
 
@@ -370,21 +370,6 @@
 													<option value="Split">Split</option>
 
 													<option value="Rijeka">Rijeka</option>
-												</select>
-
-												<svg class="filter-form__arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
-												</svg>
-											</div>
-
-											<div class="position-relative">
-												<select type="option" class="filter-form__item js-filter-pet">
-													<option value="" selected>Choose your pet:</option>
-
-													<option value="No preference">No preference</option>
-
-													<option value="Dog">Dog</option>
-
-													<option value="Cat">Cat</option>
 												</select>
 
 												<svg class="filter-form__arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
@@ -467,8 +452,7 @@
 						<div class="row">
 							<div class="col-12">
 								<div class="card-list">
-									<div class="row js-pull-request">
-									</div>
+									<div class="row js-pull-request"></div>
 
 									<div class="row">
 										<ul class="card-list__pagination js-pagination-buttons">

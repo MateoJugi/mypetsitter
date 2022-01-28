@@ -47,6 +47,10 @@
 	}
 }
 
+.form__input--textarea {
+	resize: none;
+}
+
 .form__input--orange:focus {
 	border-color: $orange;
 	color: $orange;
@@ -66,6 +70,11 @@
 
 .form__icon--lg {
 	height: 20px;
+}
+
+.form__icon--top {
+	top: 0;
+	bottom: 0;
 }
 
 .form-icon-fill {

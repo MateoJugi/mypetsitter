@@ -33,7 +33,7 @@
 }
 
 .white-pop-up--bg-img {
-	padding-top: 100px;
+	padding-top: 90px;
 
 	&::before {
 		display: none;
@@ -81,6 +81,7 @@
 
 .white-pop-up__main {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
+	align-items: baseline;
 	margin-bottom: 50px;
 }

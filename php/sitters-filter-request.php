@@ -3,7 +3,7 @@
 
 	$andArray = [];
 
-	foreach ( [ 'sitterLocation', 'sitterPreferedPet', 'sitterService' ] as $key ) {if ( $_GET[$key] ) {
+	foreach ( [ 'sitterLocation', 'sitterService' ] as $key ) {if ( $_GET[$key] ) {
 		$andArray[] = "$key = '$_GET[$key]'";
 	} }
 
@@ -23,22 +23,16 @@
 					<div class="card-list-item__main">
 						<p class="text text--sm text--border text--mb-xs">'.$row["sitterLocation"].'</p>
 
-						<h5 class="title title--md title--mb-xs">'.$row["sitterName"]." ".$row["sitterSurname"].'</h5>
+						<h5 class="title title--md title--mb-xs">'.$row["sitterFullName"].'</h5>
 
 						<p class="text text--md text--orange">$'.$row["sitterPrice"].'<span class="text text--md"> /day</span></p>
 					</div>
 
-					<ul class="card-list-item__footer">
-						<div>
-							<p class="text text--sm">'.$row["sitterPreferedPet"].'</p>
-						</div>
+					<div class="card-list-item__footer">
+						<p class="text text--sm">'.$row["sitterService"].'</p>
+					</div>
 
-						<div>
-							<p class="text text--sm">'.$row["sitterService"].'</p>
-						</div>
-					</ul>
-
-					<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterID="'.$row["sitterID"].'" data-sitterName="'.$row["sitterName"].'" data-sitterSurname="'.$row["sitterSurname"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'" data-sitterImage="'.$row["sitterImage"].'">Meet up</a>
+					<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterID="'.$row["sitterID"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'"  data-sitterPrice="'.$row["sitterPrice"].'"data-sitterImage="'.$row["sitterImage"].'">Meet up</a>
 				</div>
 			</div>';
 	}

@@ -1,9 +1,9 @@
 <?php
-	include 'connection.php';
+/* 	include 'connection.php';
 
 	$result = mysqli_query( $con, "INSERT INTO appointments (customerName, customerSurname, customerEmail, customerContactNumber, startDate, endDate, sitterID) VALUES ('$_GET[customerName]', '$_GET[customerSurname]', '$_GET[customerEmail]', '$_GET[customerContactNumber]', '$_GET[startDate]', '$_GET[endDate]', '$_GET[sitterID]')" );
 
-	$con->close();
+	$con->close(); */
 
 	/* $htmlContent = "
 		<h2>Thank you for sending your rental request!</h2>

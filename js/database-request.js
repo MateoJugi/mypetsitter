@@ -39,30 +39,30 @@ $( '.js-filter-button' ).click( function ( e ) {
 	};
 
 	let sitterLocation = $( '.js-filter-location' ).find( ':selected' ).attr( 'value' );
-	let sitterPreferedPet = $( '.js-filter-pet' ).find( ':selected' ).attr( 'value' );
 	let sitterService = $( '.js-filter-service' ).find( ':selected' ).attr( 'value' );
 
-	xmlhttp.open( "GET", "php/sitters-filter-request.php?sitterLocation="+sitterLocation+"&sitterPreferedPet="+sitterPreferedPet+"&sitterService="+sitterService, true );
+	xmlhttp.open( "GET", "php/sitters-filter-request.php?sitterLocation="+sitterLocation+"&sitterService="+sitterService, true );
 	xmlhttp.send();
 } );
 
-$( document ).on( 'click', '.js-form-submit', function () {
+/* $( document ).on( 'click', '.js-form-submit', function () {
 	var xmlhttp = new XMLHttpRequest();
 
 	let sitterID = $( this ).attr( 'data-sitterID' );
-	let customerName = $( '.js-popup-customerName' ).val();
-	let customerSurname = $( '.js-popup-customerSurname' ).val();
+	let customerFullName = $( '.js-popup-customerFullName' ).val();
 	let customerEmail = $( '.js-popup-customerEmail' ).val();
 	let customerContactNumber = $( '.js-popup-customerContactNumber' ).val();
+	let customerPet = $( '.js-popup-customerPet ).val();
 	let startDate = $( '.js-popup-startDate' ).val();
 	let endDate = $( '.js-popup-endDate' ).val();
+	let customerNotes = $( '.js-popup-customerNotes' ).val();
 
-	if ( customerName && customerSurname && customerEmail && customerContactNumber && startDate && endDate && sitterID ) {
-		xmlhttp.open( "GET", "php/appointments.php?sitterID="+sitterID+"&customerName="+customerName+"&customerSurname="+customerSurname+"&customerEmail="+customerEmail+"&customerContactNumber="+customerContactNumber+"&startDate="+startDate+"&endDate="+endDate, true );
+	if ( customerFullName && customerEmail && customerContactNumber && customerPet && startDate && endDate && customerNotes && sitterID ) {
+		xmlhttp.open( "GET", "php/email.php?sitterID="+sitterID+"&customerFullName="+customerFullName+"&customerEmail="+customerEmail+"&customerContactNumber="+customerContactNumber+"&customerPet="+customerPet+"&startDate="+startDate+"&endDate="+endDate+"&customerNotes="+customerNotes, true );
 		xmlhttp.send();
 	} else {
 	}
-} );
+} ); */
 /* 
 $( document ).on( 'click', '.button', function ( e ) {
 	e.preventDefault();
