@@ -18,7 +18,7 @@
 	</head>
 
 	<body>
-		<div class="site-header js-site-header">
+		<div class="site-header site-header--bg-none js-site-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
@@ -42,7 +42,7 @@
 							</div> -->
 
 							<a href="#" class="site-header__menu">
-								<img src="images/icons/hamburger-menu-icon.png" class="site-header__menu-icon js-site-header-menu">
+								<img src="images/icons/hamburger-menu-icon-white.png" class="site-header__menu-icon js-site-header-menu">
 							</a>
 						</div>
 					</div>
@@ -56,12 +56,6 @@
 					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
 					<li class="site-navigation__item site-navigation__item--filled site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
-
-					<!-- <li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile site-navigation__item--buttons js-site-navigation-item-mobile">
-						<a href="#sign-up-pop-up" class="button button--sm js-pop-up">Sign up</a>
-
-						<a href="#sign-in-pop-up" class="button button--filled button--ml-md js-pop-up">Sign in</a>
-					</li> -->
 				</div>
 			</ul>
 		</div>
@@ -83,12 +77,6 @@
 								<li class="site-navigation__item site-navigation__item--filled"><a href="#sitters">Find sitter</a></li>
 							</ul>
 
-							<!-- <div class="site-header__navigation">
-								<a href="#sign-up-pop-up" class="button button--sm js-pop-up">Sign up</a>
-
-								<a href="#sign-in-pop-up" class="button button--filled button--ml-md js-pop-up">Sign in</a>
-							</div> -->
-
 							<a href="#" class="site-header__menu">
 								<img src="images/icons/hamburger-menu-icon.png" class="site-header__menu-icon js-site-header-menu">
 							</a>
@@ -104,12 +92,6 @@
 					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
 					<li class="site-navigation__item site-navigation__item--filled site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
-
-					<!-- <li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
-						<a href="#sign-up-pop-up" class="button button--sm js-pop-up">Sign up</a>
-
-						<a href="#sign-in-pop-up" class="button button--filled button--ml-md js-pop-up">Sign in</a>
-					</li> -->
 				</div>
 			</ul>
 		</div>
@@ -120,41 +102,11 @@
 					<div class="col-12 col-7-lg">
 						<div class="hero__wrapper">
 							<div class="hero__inner">
-								<h1 class="title title--xl title--mb-md">Looking for someone to take care of your pet?</h1>
+								<h1 class="title title--xl title--white title--mb-sm">Looking for someone to take care of your pet?</h1>
 
-								<div class="text text--lg text--mb-sm">
-									<p class="text--mb-xs">Meet local sitters who will treat your pets like family.</p>
+								<div class="text text--lg text--white text--mb-sm">
+									<p>Meet local sitters who will treat your pets like family.</p>
 								</div>
-
-								<!-- <div class="social-media-buttons">
-									<a href="#">
-										<div class="social-media-buttons__item">
-											<div class="social-media-buttons__logo">
-												<img src="images/icons/apple-logo.png" style="width: 22px;">
-											</div>
-
-											<div class="social-media-buttons__main">
-												<p class="text text--sm text--mb-xs">Download on the</p>
-
-												<p class="text text--black">Apple Store</p>
-											</div>
-										</div>
-									</a>
-
-									<a href="#">
-										<div class="social-media-buttons__item">
-											<div class="social-media-buttons__logo">
-												<img src="images/icons/trg-play-logo.png" style="width: 25px;">
-											</div>
-
-											<div class="social-media-buttons__main">
-												<p class="text text--sm text--mb-xs">Download on the</p>
-
-												<p class="text text--black">Google Play</p>
-											</div>
-										</div>
-									</a>
-								</div> -->
 
 								<a href="#sitters" class="button button--filled">Find sitters</a>
 							</div>
@@ -333,7 +285,7 @@
 				</div>
 			</div>
 
-			<div class="section__image section__image--audi-white" style="background-image: url( images/content/audi-white.png );"></div>
+			<!-- <div class="section__image section__image--audi-white" style="background-image: url( images/content/audi-white.png );"></div> -->
 		</div>
 
 		<div class="section">
@@ -512,7 +464,7 @@
 						</div>
 					</div>
 
-					<div class="section__image section__image--cars-in-line" style="background-image: url( images/content/cars.jpg );"></div>
+					<!-- <div class="section__image section__image--cars-in-line" style="background-image: url( images/content/cars.jpg );"></div> -->
 				</div>
 			</div>
 		</div>
@@ -567,66 +519,6 @@
 				<input type="submit" value="Sign in" class="button button--xl button--filled button--mt-sm button--mr-ml-none" name="signInSubmit">
 			</form>
 		</div>
-
-		<!-- <div class="white-pop-up white-pop-up--bg-img mfp-hide">
-			<div class="white-pop-up__image" style="background-image: url(images/content/audi-a3-black-5doors.jpg);"></div>
-
-			<div class="position-relative">
-				<p class="text text--sm text--border text--white text--mb-xs">2020</p>
-
-				<h5 class="title title--md title--white title--mb-xs">Audi A3</h5>
-			</div>
-
-			<div class="white-pop-up__main">
-				<div>
-					<p class="text text--sm text--white">5 doors</p>
-				</div>
-
-				<div>
-					<p class="text text--sm text--white">Manual</p>
-				</div>
-
-				<div>
-					<p class="text text--sm text--white">Petrol</p>
-				</div>
-			</div>
-
-			<form class="form">
-				<div class="form__item">
-					<svg class="form__icon" data-name="Layer 1" id="Layer_1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><title/><path class="form-icon-fill" d="M24,21A10,10,0,1,1,34,11,10,10,0,0,1,24,21ZM24,5a6,6,0,1,0,6,6A6,6,0,0,0,24,5Z"/><path class="form-icon-fill" d="M42,47H6a2,2,0,0,1-2-2V39A16,16,0,0,1,20,23h8A16,16,0,0,1,44,39v6A2,2,0,0,1,42,47ZM8,43H40V39A12,12,0,0,0,28,27H20A12,12,0,0,0,8,39Z"/></svg>
-
-					<input type="text" class="form__input" placeholder="Name" required>
-				</div>
-
-				<div class="form__item">
-					<svg class="form__icon" data-name="Layer 1" id="Layer_1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><title/><path class="form-icon-fill" d="M24,21A10,10,0,1,1,34,11,10,10,0,0,1,24,21ZM24,5a6,6,0,1,0,6,6A6,6,0,0,0,24,5Z"/><path class="form-icon-fill" d="M42,47H6a2,2,0,0,1-2-2V39A16,16,0,0,1,20,23h8A16,16,0,0,1,44,39v6A2,2,0,0,1,42,47ZM8,43H40V39A12,12,0,0,0,28,27H20A12,12,0,0,0,8,39Z"/></svg>
-
-					<input type="text" class="form__input" placeholder="Surname" required>
-				</div>
-
-				<div class="form__item">
-					<svg class="form__icon" fill="none" height="24" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-					</svg>
-
-					<input type="email" class="form__input" placeholder="Email" required>
-				</div>
-
-				<div class="form__item">
-					<svg class="form__icon" enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="50" width="50"/><path class="form-icon-stroke" d="M30.217,35.252c0,0,4.049-2.318,5.109-2.875  c1.057-0.559,2.152-0.7,2.817-0.294c1.007,0.616,9.463,6.241,10.175,6.739c0.712,0.499,1.055,1.924,0.076,3.32  c-0.975,1.396-5.473,6.916-7.379,6.857c-1.909-0.062-9.846-0.236-24.813-15.207C1.238,18.826,1.061,10.887,1,8.978  C0.939,7.07,6.459,2.571,7.855,1.595c1.398-0.975,2.825-0.608,3.321,0.078c0.564,0.781,6.124,9.21,6.736,10.176  c0.419,0.66,0.265,1.761-0.294,2.819c-0.556,1.06-2.874,5.109-2.874,5.109s1.634,2.787,7.16,8.312  C27.431,33.615,30.217,35.252,30.217,35.252z" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="4"/>
-					</svg>
-
-					<input type="number" class="form__input" placeholder="Contact number" required>
-				</div>
-
-				<div class="form__item display-flex">
-					<input type="datetime-local" class="form__input form__input--md form__input--date" min="2022-1-1" required>
-
-					<input type="datetime-local" class="form__input form__input--md form__input--date" min="2022-1-1" required>
-				</div>
-
-				<input type="submit" value="Rent" class="button button--xl button--filled button--mt-sm ovaj button--mr-ml-none">
-			</form>
-		</div> -->
 
 		<div class="footer">
 			<div class="container">

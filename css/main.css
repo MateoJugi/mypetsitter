@@ -66,51 +66,30 @@ ul {
 }
 
 .hero {
-  background-color: #eeeff1;
   position: relative;
+  background-image: url(../images/content/bg1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-@media (min-width: 991px) {
-  .hero::after {
-    content: '';
-    background: linear-gradient(180deg, #090979 0%, #eeeff1 95%);
-    height: 80%;
-    width: 500px;
-    border-radius: 20px;
-    position: absolute;
-    top: 15%;
-    right: -250px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .hero::after {
-    right: -200px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .hero::after {
-    right: -100px;
-  }
-}
-
-@media (min-width: 1600px) {
-  .hero::after {
-    right: 0;
-  }
-}
-
-@media (min-width: 1800px) {
-  .hero::after {
-    right: 100px;
-  }
+.hero::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .hero__inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.hero__inner * {
+  z-index: 1;
 }
 
 .hero__inner .button {
@@ -163,10 +142,23 @@ ul {
   background-color: #fff;
   box-shadow: 0px 15px 10px -15px rgba(17, 17, 17, 0.164);
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.site-header--bg-none {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.site-header--bg-none * {
+  color: #fff;
+}
+
+.site-header--bg-blur {
+  filter: blur(5px);
 }
 
 .site-header--sticky {
@@ -264,7 +256,6 @@ ul {
 }
 
 .site-header__navigation--mobile {
-  background: #fff;
   height: 100vh;
   width: 100%;
   display: none;
