@@ -9,6 +9,16 @@
 	}
 }
 
+.section--pt-pb-lg {
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	@media ( min-width: 992px ) {
+		padding-top: 150px;
+		padding-bottom: 150px;
+	}
+}
+
 .section--text-align-left {
 	text-align: left;
 }
@@ -22,51 +32,15 @@
 
 	@media ( min-width: 992px ) {
 		display: block;
-		background-size: cover;
-		background-position: center;
-		height: 60vh;
-		width: 100%;
-		position: absolute;
 	}
 }
 
-.section__image--audi-white {
-	width: 820px;
-
-	@media ( min-width: 992px ) {
-		top: 130px;
-		left: -350px;
-	}
-
-	@media ( min-width: 1200px ) {
-		left: -250px;
-	}
-
-	@media ( min-width: 1400px ) {
-		left: -150px;
-	}
-
-	@media ( min-width: 1600px ) {
-		left: -50px;
-	}
-
-	@media ( min-width: 1800px ) {
-		left: 50px;
-	}
-}
-
-.section__image--cars-in-line {
-	@media ( min-width: 992px ) {
-		height: 60vh;
-		width: 100%;
-		margin-top: 40px;
-		position: absolute;
-		top: -20px;
-		right: -450px;
-		margin-top: 0;
-	}
-
-	@media ( min-width: 991px ) {
-		right: -550px;
-	}
+.section__image--dog-on-bed {
+	background-size: cover;
+	background-position: 50% 70%;
+	height: 100%;
+	width: 45%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }

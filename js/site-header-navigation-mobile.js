@@ -1,11 +1,13 @@
 $( '.js-site-header-menu' ).click( function( e ) {
 	e.preventDefault();
 
+	$( this ).toggleClass( 'open' );
+
 	$( '.js-site-header__navigation--mobile' ).slideToggle();
 
 	$( 'body' ).toggleClass( 'overflow-hidden' );
 
-	$( '.hero, .section' ).toggleClass( 'site-header--bg-blur' );
+	$( '.js-blur' ).toggleClass( 'background-blur' );
 } );
 
 $( '.js-site-navigation-item-mobile' ).click( function () { 
@@ -13,5 +15,5 @@ $( '.js-site-navigation-item-mobile' ).click( function () {
 
 	$( 'body' ).toggleClass( 'overflow-hidden' );
 
-	$( '.hero, .section' ).toggleClass( 'site-header--bg-blur' );
+	$( '.js-blur' ).toggleClass( 'background-blur' );
 } );

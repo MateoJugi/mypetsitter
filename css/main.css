@@ -44,12 +44,21 @@ ul {
   display: flex;
 }
 
+.display-flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
 
 .flex--align-self-end {
   align-self: flex-end;
+}
+
+.background-blur {
+  filter: blur(5px);
 }
 
 .hero__wrapper {
@@ -67,7 +76,6 @@ ul {
 
 .hero {
   position: relative;
-  background-image: url(../images/content/bg1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -155,10 +163,6 @@ ul {
 
 .site-header--bg-none * {
   color: #fff;
-}
-
-.site-header--bg-blur {
-  filter: blur(5px);
 }
 
 .site-header--sticky {
@@ -466,7 +470,7 @@ ul {
   width: 100%;
   border-radius: 10px;
   background-size: cover;
-  background-position: center;
+  background-position: 50% 35%;
   margin-bottom: 20px;
 }
 
@@ -548,6 +552,18 @@ ul {
   }
 }
 
+.section--pt-pb-lg {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 992px) {
+  .section--pt-pb-lg {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+}
+
 .section--text-align-left {
   text-align: left;
 }
@@ -563,65 +579,17 @@ ul {
 @media (min-width: 992px) {
   .section__image {
     display: block;
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    width: 100%;
-    position: absolute;
   }
 }
 
-.section__image--audi-white {
-  width: 820px;
-}
-
-@media (min-width: 992px) {
-  .section__image--audi-white {
-    top: 130px;
-    left: -350px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .section__image--audi-white {
-    left: -250px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .section__image--audi-white {
-    left: -150px;
-  }
-}
-
-@media (min-width: 1600px) {
-  .section__image--audi-white {
-    left: -50px;
-  }
-}
-
-@media (min-width: 1800px) {
-  .section__image--audi-white {
-    left: 50px;
-  }
-}
-
-@media (min-width: 992px) {
-  .section__image--cars-in-line {
-    height: 60vh;
-    width: 100%;
-    margin-top: 40px;
-    position: absolute;
-    top: -20px;
-    right: -450px;
-    margin-top: 0;
-  }
-}
-
-@media (min-width: 991px) {
-  .section__image--cars-in-line {
-    right: -550px;
-  }
+.section__image--dog-on-bed {
+  background-size: cover;
+  background-position: 50% 70%;
+  height: 100%;
+  width: 45%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .social-media-list {
@@ -840,6 +808,33 @@ ul {
   margin-top: 20px;
 }
 
+.form__item.display-flex {
+  flex-direction: column;
+}
+
+.form__item.display-flex .form__input--md {
+  width: 100%;
+}
+
+.form__item.display-flex .form__input--md + .form__input--md {
+  margin-top: 20px;
+}
+
+@media (min-width: 440px) {
+  .form__item.display-flex .form__input--md {
+    width: 50%;
+  }
+  .form__item.display-flex .form__input--md + .form__input--md {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 440px) {
+  .form__item.display-flex {
+    flex-direction: row;
+  }
+}
+
 .form__input {
   width: 100%;
   font-size: 16px;
@@ -914,6 +909,99 @@ ul {
   stroke: #808080;
 }
 
+.image-galery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 50px;
+}
+
+@media (min-width: 992px) {
+  .image-galery {
+    margin-top: 0;
+  }
+}
+
+.image-galery__item {
+  width: calc( 33.33% - 4px);
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 1 / 1;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+@media (min-width: 450px) {
+  .image-galery__item {
+    width: calc( 25% - 4px);
+  }
+}
+
+.site-header__menu-icon {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .site-header__menu-icon {
+    display: none;
+  }
+}
+
+.site-header__menu-icon span {
+  display: block;
+  position: absolute;
+  height: 7px;
+  width: 100%;
+  background: #fff;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.site-header__menu-icon--black span {
+  background: #000;
+}
+
+.site-header__menu-icon span:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.site-header__menu-icon span:nth-child(2) {
+  top: 18px;
+  transform-origin: left center;
+}
+
+.site-header__menu-icon span:nth-child(3) {
+  top: 36px;
+  transform-origin: left center;
+}
+
+.site-header__menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 3px;
+  left: 7px;
+}
+
+.site-header__menu-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.site-header__menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 35px;
+  left: 6px;
+}
+
 .button {
   border-radius: 8px;
   font-size: 20px;
@@ -983,7 +1071,7 @@ ul {
 }
 
 .title--xl {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 @media (min-width: 576px) {
@@ -1011,7 +1099,7 @@ ul {
 }
 
 .title--lg {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 @media (min-width: 768px) {

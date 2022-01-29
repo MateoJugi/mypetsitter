@@ -54,12 +54,21 @@ $box-shadow-orange: #fe6536 0 0 20px;
 	display: flex;
 }
 
+.display-flex-align-center {
+	display: flex;
+	align-items: center;
+}
+
 .overflow-hidden {
 	overflow: hidden;
 }
 
 .flex--align-self-end {
 	align-self: flex-end;
+}
+
+.background-blur {
+	filter: blur( 5px );
 }
 
 @import 'hero';
@@ -74,5 +83,7 @@ $box-shadow-orange: #fe6536 0 0 20px;
 @import 'pop-up';
 @import 'footer';
 @import 'form';
+@import 'image-galery';
+@import 'site-header-menu-icon';
 @import 'buttons';
 @import 'text';

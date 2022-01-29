@@ -9,6 +9,30 @@
 	& + .form__item {
 		margin-top: 20px;
 	}
+
+	&.display-flex {
+		flex-direction: column;
+
+		.form__input--md {
+			width: 100%;
+
+			& + .form__input--md {
+				margin-top: 20px;
+			}
+
+			@media ( min-width: 440px ) {
+				width: 50%;
+
+				& + .form__input--md {
+					margin-top: 0;
+				}
+			}
+		}
+
+		@media ( min-width: 440px ) {
+			flex-direction: row;
+		}
+	}
 }
 
 .form__input {
