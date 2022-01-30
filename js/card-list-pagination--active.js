@@ -1,4 +1,4 @@
-$( document ).hover( function () {
+$( document ).scroll( function () {
 	$( '.js-card-list-pagination-item' ).first().addClass( 'card-list-pagination__item--active' );
 } );
 
