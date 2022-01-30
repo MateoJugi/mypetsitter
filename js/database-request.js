@@ -37,7 +37,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-$( '.js-card-list-pagination-item' ).click( function () {
+$( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
