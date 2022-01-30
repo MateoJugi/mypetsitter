@@ -3,7 +3,7 @@
 
 	$perPage = 4;
 
-	$offset = ( ( (int) $_GET['page'] ) - 1 ) * $perPage;
+	$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $perPage;
 
 	$result = mysqli_query( $con, "SELECT * FROM sitters ORDER BY sitterPrice LIMIT $offset, $perPage" );
 

@@ -3,12 +3,16 @@ window.onscroll = function () {
 
 	if ( prevScrollpos >= 875 ) {
 		let currentScrollPos = window.scrollY;
-		document.getElementsByClassName( "site-header--sticky" )[0].style.zIndex = "2"
-		document.getElementsByClassName( "site-header--sticky" )[0].style.opacity = "1";
+
+		document.getElementsByClassName( 'site-header--sticky' )[0].style.zIndex = '2'
+
+		document.getElementsByClassName( 'site-header--sticky' )[0].style.opacity = '1';
+
 		prevScrollpos = currentScrollPos;
 	}
 	else {
-		document.getElementsByClassName( "site-header--sticky" )[0].style.zIndex = "0"
-		document.getElementsByClassName( "site-header--sticky" )[0].style.opacity = "0";
+		document.getElementsByClassName( 'site-header--sticky' )[0].style.zIndex = '0'
+
+		document.getElementsByClassName( 'site-header--sticky' )[0].style.opacity = '0';
 	}
 }

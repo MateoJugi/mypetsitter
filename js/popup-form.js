@@ -11,21 +11,21 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 	$.magnificPopup.open( {
 		items: {
 			src: '<div class="white-pop-up white-pop-up--bg-img">'+
-			'<div class="white-pop-up__image" style="background-image: url(images/content/'+sitterImage+'.jpg);"></div>'+
+			'<div class="white-pop-up__image" style="background-image: url(images/content/' + sitterImage + '.jpg);"></div>'+
 
 			'<div class="position-relative">'+
-				'<p class="text text--sm text--border text--white text--mb-xs">'+sitterLocation+'</p>'+
+				'<p class="text text--sm text--border text--white text--mb-xs">' + sitterLocation + '</p>'+
 
-				'<h5 class="title title--md title--white title--mb-xs">'+sitterFullName+'</h5>'+
+				'<h5 class="title title--md title--white title--mb-xs">' + sitterFullName + '</h5>'+
 			'</div>'+
 
 			'<div class="white-pop-up__main">'+
 				'<div>'+
-					'<p class="text text--sm text--white">'+sitterService+'</p>'+
+					'<p class="text text--sm text--white">' + sitterService + '</p>'+
 				'</div>'+
 
 				'<div>'+
-					'<p class="text text--md text--orange">'+sitterPrice+'<span class="text text--md text--white"> /day</span></p>'+
+					'<p class="text text--md text--orange">' + sitterPrice + '<span class="text text--md text--white"> /day</span></p>'+
 				'</div>'+
 			'</div>'+
 
@@ -71,7 +71,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 					'<textarea class="form__input form__input--textarea js-popup-customerNotes" placeholder="Additional notes" rows="5" required></textarea>'+
 				'</div>'+
 
-				'<input type="submit" value="Send" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-form-submit" data-sitterID="'+sitterID+'">'+
+				'<input type="submit" value="Send" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-form-submit" data-sitterID="' + sitterID + '">'+
 			'</form>'+
 		'</div>',
 		},

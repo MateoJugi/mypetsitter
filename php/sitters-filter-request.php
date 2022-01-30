@@ -3,7 +3,7 @@
 
 	$andArray = [];
 
-	foreach ( [ 'sitterLocation', 'sitterService' ] as $key ) {if ( $_GET[$key] ) {
+	foreach ( [ 'sitterLocation', 'sitterService' ] as $key ) { if ( $_GET[$key] ) {
 		$andArray[] = "$key = '$_GET[$key]'";
 	} }
 
