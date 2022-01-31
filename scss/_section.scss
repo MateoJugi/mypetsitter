@@ -25,6 +25,10 @@
 
 .section--pb-lg {
 	padding-bottom: 100px;
+
+	@media ( min-width: 992px ) {
+		padding-bottom: 140px;
+	}
 }
 
 .section__image {

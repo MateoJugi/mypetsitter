@@ -31,6 +31,8 @@ $( window ).ready( function () {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pagination-buttons' ).html( this.responseText );
 		}
+
+		$( '.js-card-list-pagination-item' ).first().addClass( 'card-list-pagination__item--active' );
 	};
 
 	xmlhttp.open( 'GET', 'php/pagination.php', true );
@@ -50,12 +52,15 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 
 	xmlhttp.open( 'GET', 'php/sitters-pagination-request.php?page=' + pageNumber, true );
 	xmlhttp.send();
+
+	$( '.js-filter-location' ).val( 'selected' );
+	$( '.js-filter-service' ).val( 'selected' );
 } );
 
-$( '.js-filter-button' ).click( function ( e ) {
+$( document ).on( 'click', '.js-filter-button', function ( e ) {
 	e.preventDefault();
 
-	$( '.js-card-list-pagination-item ' ).removeClass( 'card-list-pagination__item--active' );
+	$( '.js-card-list-pagination-item' ).removeClass( 'card-list-pagination__item--active' );
 
 	var xmlhttp = new XMLHttpRequest();
 

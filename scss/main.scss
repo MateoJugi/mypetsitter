@@ -42,6 +42,7 @@ $orange: #fd7034;
 $orange-hover: #ca5d2e;
 $orange-dark: #fe6536;
 $gray: #f2f2f2;
+$gray-dark: #808080;
 $box-shadow: rgba( 149, 157, 165, 0.2 ) 0 0 20px;
 $box-shadow-hover: rgba( 19, 20, 20, 0.2 ) 0 0 20px;
 $box-shadow-orange: #fe6536 0 0 20px;
@@ -69,6 +70,10 @@ $box-shadow-orange: #fe6536 0 0 20px;
 
 .background-blur {
 	filter: blur( 5px );
+}
+
+.width-100 {
+	width: 100%
 }
 
 @import 'hero';
