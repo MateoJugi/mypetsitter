@@ -53,8 +53,8 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	xmlhttp.open( 'GET', 'php/sitters-pagination-request.php?page=' + pageNumber, true );
 	xmlhttp.send();
 
-	$( '.js-filter-location' ).val( 'selected' );
-	$( '.js-filter-service' ).val( 'selected' );
+	$( '.js-filter-location' ).val( '' );
+	$( '.js-filter-service' ).val( '' );
 } );
 
 $( document ).on( 'click', '.js-filter-button', function ( e ) {
