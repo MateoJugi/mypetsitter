@@ -39,6 +39,19 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
+$( window ).ready( function () {
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			$( '.js-filter-location' ).append( this.responseText );
+		}
+	};
+
+	xmlhttp.open( 'GET', 'php/filter-location-request.php', true );
+	xmlhttp.send();
+} );
+
 $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	var xmlhttp = new XMLHttpRequest();
 
