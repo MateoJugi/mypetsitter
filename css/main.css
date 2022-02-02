@@ -188,7 +188,7 @@ ul {
 }
 
 .site-logo a {
-  font-size: 40px;
+  font-size: 30px;
   position: relative;
 }
 
@@ -206,6 +206,12 @@ ul {
   width: 6px;
   border-radius: 99px;
   background-color: #474fa0;
+}
+
+@media (min-width: 768px) {
+  .site-logo a {
+    font-size: 40px;
+  }
 }
 
 .site-logo--sm a {

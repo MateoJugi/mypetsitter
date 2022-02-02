@@ -36,7 +36,7 @@
 }
 
 .site-logo a {
-	font-size: 40px;
+	font-size: 30px;
 	position: relative;
 
 	&:hover::after {
@@ -53,6 +53,10 @@
 		width: 6px;
 		border-radius: 99px;
 		background-color: $blue;
+	}
+	
+	@media ( min-width: 768px ) {
+		font-size: 40px;
 	}
 }
 
