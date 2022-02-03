@@ -1,7 +1,7 @@
 $( '.js-site-header-menu' ).click( function( e ) {
 	e.preventDefault();
 
-	$( this ).toggleClass( 'open' );
+	$( '.js-site-header-menu' ).toggleClass( 'open' );
 
 	$( '.js-site-header__navigation--mobile' ).slideToggle();
 
