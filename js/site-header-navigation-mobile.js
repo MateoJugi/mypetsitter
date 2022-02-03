@@ -17,5 +17,5 @@ $( '.js-site-navigation-item-mobile' ).click( function () {
 
 	$( '.js-blur' ).toggleClass( 'background-blur' );
 
-	$( '.js-site-header-menu' ).removeClass( 'open' );
+	$( '.js-site-header-menu' ).toggleClass( 'open' );
 } );

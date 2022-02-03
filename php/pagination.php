@@ -10,7 +10,7 @@
 	$numberOfButtons = $numberOfSitters / $perPage;
 
 	for ( $i = 1; $i <= ceil( $numberOfButtons ); $i++ ) {
-		echo '<li class="card-list-pagination__item js-card-list-pagination-item">'.$i.'</li>';
+		echo '<a href="#sitters" class="card-list-pagination__item js-card-list-pagination-item">'.$i.'</a>';
 	}
 
 	$con->close();

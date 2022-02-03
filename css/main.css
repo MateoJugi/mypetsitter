@@ -401,13 +401,11 @@ ul {
 }
 
 .card-list__pagination {
-  display: inherit;
   margin-right: auto;
   margin-left: auto;
 }
 
 .card-list-pagination__item {
-  cursor: pointer;
   font-size: 16px;
   border: 1px solid #808080;
   color: #808080;
