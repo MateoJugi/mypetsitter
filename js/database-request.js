@@ -85,7 +85,9 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 
 	let sitterLocation = $( '.js-filter-location' ).find( ':selected' ).attr( 'value' );
 	let sitterService = $( '.js-filter-service' ).find( ':selected' ).attr( 'value' );
+	let sitterMinPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'min' );
+	let sitterMaxPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'max' );
 
-	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService, true );
+	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
 } );

@@ -13,6 +13,12 @@
 		$filter = "WHERE ".$filter;
 	}
 
+	if ( strpos( $filter, 'WHERE' ) !== false && $_GET['sitterMaxPrice'] ) {
+		$filter .= " AND sitterPrice BETWEEN ". $_GET['sitterMinPrice'] ." AND ". $_GET['sitterMaxPrice'];
+	} else if ( strpos( $filter, 'WHERE' ) !== true && $_GET['sitterMaxPrice'] ) {
+		$filter .= " WHERE sitterPrice BETWEEN ". $_GET['sitterMinPrice'] ." AND ". $_GET['sitterMaxPrice'];
+	}
+
 	$result = mysqli_query( $con, "SELECT * FROM sitters $filter ORDER BY sitterPrice" );
 
 	if ( $result && $result->num_rows ) {
