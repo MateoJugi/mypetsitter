@@ -40,7 +40,7 @@
 	background: #000;
 }
 
-.site-header__menu-icon span:nth-child(1) {
+.site-header__menu-icon span:nth-child( 1 ) {
 	top: 0px;
 	-webkit-transform-origin: left center;
 	-moz-transform-origin: left center;
@@ -48,7 +48,7 @@
 	transform-origin: left center;
 }
 
-.site-header__menu-icon span:nth-child(2) {
+.site-header__menu-icon span:nth-child( 2 ) {
 	top: 18px;
 	-webkit-transform-origin: left center;
 	-moz-transform-origin: left center;
@@ -56,7 +56,7 @@
 	transform-origin: left center;
 }
 
-.site-header__menu-icon span:nth-child(3) {
+.site-header__menu-icon span:nth-child( 3 ) {
 	top: 36px;
 	-webkit-transform-origin: left center;
 	-moz-transform-origin: left center;
@@ -64,7 +64,7 @@
 	transform-origin: left center;
 }
 
-.site-header__menu-icon.open span:nth-child(1) {
+.site-header__menu-icon.open span:nth-child( 1 ) {
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
 	-o-transform: rotate(45deg);
@@ -73,12 +73,12 @@
 	left: 7px;
 }
 
-.site-header__menu-icon.open span:nth-child(2) {
+.site-header__menu-icon.open span:nth-child( 2 ) {
 	width: 0%;
 	opacity: 0;
 }
 
-.site-header__menu-icon.open span:nth-child(3) {
+.site-header__menu-icon.open span:nth-child( 3 ) {
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);

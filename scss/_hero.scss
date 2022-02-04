@@ -38,35 +38,3 @@
 		align-self: baseline;
 	}
 }
-
-.hero__image {
-	display: none;
-
-	@media ( min-width: 992px ) {
-		display: block;
-		background-size: cover;
-		background-position: center;
-		z-index: 1;
-		height: 50vh;
-		width: 905px;
-		position: absolute;
-		top: 28%;
-		right: -450px;
-	}
-
-	@media ( min-width: 1200px ) {
-		right: -400px;
-	}
-
-	@media ( min-width: 1400px ) {
-		right: -300px;
-	}
-
-	@media ( min-width: 1600px ) {
-		right: -200px;
-	}
-
-	@media ( min-width: 1800px ) {
-		right: -100px;
-	}
-}

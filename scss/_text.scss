@@ -43,10 +43,6 @@
 	margin-top: 30px;
 }
 
-.title--mb-xl {
-	margin-bottom: 150px;
-}
-
 .title--mb-lg {
 	margin-bottom: 60px;
 }
@@ -78,10 +74,6 @@
 	font-weight: 600;
 }
 
-.text--xs {
-	font-size: 10px
-}
-
 .text--border {
 	width: fit-content;
 	border: 1px solid $gray-dark;
@@ -92,29 +84,8 @@
 	padding-left: 8px;
 }
 
-.text--black {
-	color: #000;
-}
-
 .text--orange {
 	color: $orange;
-}
-
-.text--blue {
-	color: $blue;
-	transition: .3s;
-
-	&:hover {
-		color: $blue-hover;
-	}
-}
-
-.text--mt-sm {
-	margin-top: 10px;
-}
-
-.text--mb-lg {
-	margin-bottom: 80px;
 }
 
 .text--mb-md {

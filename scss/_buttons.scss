@@ -25,14 +25,6 @@
 	}
 }
 
-.button--orange {
-	background-color: $orange;
-
-	&:hover {
-		background-color: $orange-hover;
-	}
-}
-
 .button--xl {
 	display: flex;
 	justify-content: center;
@@ -40,17 +32,6 @@
 	padding-left: 0;
 	margin-right: 15px;
 	margin-left: 15px;
-}
-
-.button--sm {
-	padding-top: 14px;
-	padding-right: 8px;
-	padding-bottom: 14px;
-	padding-left: 8px;
-}
-
-.button--ml-md {
-	margin-left: 20px;
 }
 
 .button--ml-sm {

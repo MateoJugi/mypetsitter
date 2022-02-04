@@ -75,15 +75,6 @@
 	resize: none;
 }
 
-.form__input--orange:focus {
-	border-color: $orange;
-	color: $orange;
-
-	&::placeholder {
-		color: $orange;
-	}
-}
-
 .form__icon {
 	height: 16px;
 	width: 20px;
