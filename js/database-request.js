@@ -112,7 +112,7 @@ $( document ).on( 'click', '.js-form-submit', function () {
 	xmlhttp.open( 'GET', 'php/customer-sitter-email-contact.php?customerFullName=' + customerFullName + '&customerEmail=' + customerEmail + '&customerContactNumber=' + customerContactNumber + '&customerPet=' + customerPet + '&startDate=' + startDate + '&endDate=' + endDate + '&customerNotes=' + customerNotes + '&sitterEmail=' + sitterEmail, true );
 	xmlhttp.send();
 
-	if( customerFullName && customerEmail && customerContactNumber && customerPet && startDate && endDate ) {
+	if( customerFullName && customerEmail && customerEmail.includes( '@' ) && customerEmail.split( '@' ).pop() && customerContactNumber && customerPet && startDate && endDate ) {
 		$( '.js-form-footer' ).slideDown();
 	}
 } );

@@ -984,6 +984,7 @@ ul {
 .text--success {
   font-size: 20px;
   width: fit-content;
+  text-align: center;
   color: #00ff00;
   border: 2px dotted #00ff00;
   border-radius: 8px;
