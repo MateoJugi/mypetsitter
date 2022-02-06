@@ -747,6 +747,10 @@ ul {
   stroke: #808080;
 }
 
+.form__footer {
+  display: none;
+}
+
 .image-galery {
   display: flex;
   flex-wrap: wrap;
@@ -975,6 +979,21 @@ ul {
 .text--sm {
   font-size: 14px;
   font-weight: 600;
+}
+
+.text--success {
+  font-size: 20px;
+  width: fit-content;
+  color: #00ff00;
+  border: 2px dotted #00ff00;
+  border-radius: 8px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .text--border {

@@ -92,9 +92,7 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	xmlhttp.send();
 } );
 
-$( document ).on( 'click', '.js-form-submit', function ( e ) {
-	e.preventDefault();
-
+$( document ).on( 'click', '.js-form-submit', function () {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -113,4 +111,8 @@ $( document ).on( 'click', '.js-form-submit', function ( e ) {
 
 	xmlhttp.open( 'GET', 'php/customer-sitter-email-contact.php?customerFullName=' + customerFullName + '&customerEmail=' + customerEmail + '&customerContactNumber=' + customerContactNumber + '&customerPet=' + customerPet + '&startDate=' + startDate + '&endDate=' + endDate + '&customerNotes=' + customerNotes + '&sitterEmail=' + sitterEmail, true );
 	xmlhttp.send();
+
+	if( customerFullName && customerEmail && customerContactNumber && customerPet && startDate && endDate ) {
+		$( '.js-form-footer' ).slideDown();
+	}
 } );
