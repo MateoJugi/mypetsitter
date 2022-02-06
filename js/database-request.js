@@ -91,3 +91,26 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
 } );
+
+$( document ).on( 'click', '.js-form-submit', function ( e ) {
+	e.preventDefault();
+
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+		}
+	};
+
+	let customerFullName = $( '.js-popup-customerFullName' ).val();
+	let customerEmail = $( '.js-popup-customerEmail' ).val();
+	let customerContactNumber = $( '.js-popup-customerContactNumber' ).val();
+	let customerPet = $( '.js-popup-customerPet' ).val();
+	let startDate = $( '.js-popup-startDate' ).val();
+	let endDate = $( '.js-popup-endDate' ).val();
+	let customerNotes = $( '.js-popup-customerNotes' ).val();
+	let sitterEmail = $( this ).attr( 'data-sitterEmail' );
+
+	xmlhttp.open( 'GET', 'php/customer-sitter-email-contact.php?customerFullName=' + customerFullName + '&customerEmail=' + customerEmail + '&customerContactNumber=' + customerContactNumber + '&customerPet=' + customerPet + '&startDate=' + startDate + '&endDate=' + endDate + '&customerNotes=' + customerNotes + '&sitterEmail=' + sitterEmail, true );
+	xmlhttp.send();
+} );

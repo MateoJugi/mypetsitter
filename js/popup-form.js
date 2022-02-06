@@ -1,12 +1,12 @@
 $( document ).on( 'click', '.js-popup-form', function( e ) {
 	e.preventDefault();
 
-	let sitterID = $( this ).attr( 'data-sitterID' );
 	let sitterImage = $( this ).attr( 'data-sitterImage' );
 	let sitterFullName = $( this ).attr( 'data-sitterFullName' );
 	let sitterLocation = $( this ).attr( 'data-sitterLocation' );
 	let sitterService = $( this ).attr( 'data-sitterService' );
 	let sitterPrice = $( this ).attr( 'data-sitterPrice' );
+	let sitterEmail = $( this ).attr( 'data-sitterEmail' );
 
 	$.magnificPopup.open( {
 		items: {
@@ -71,7 +71,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 					'<textarea class="form__input form__input--textarea js-popup-customerNotes" placeholder="Additional notes" rows="5"></textarea>'+
 				'</div>'+
 
-				'<input type="submit" value="Send" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-form-submit" data-sitterID="' + sitterID + '">'+
+				'<input type="submit" value="Send" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-form-submit" data-sitterEmail="' + sitterEmail + '">'+
 			'</form>'+
 		'</div>',
 		},

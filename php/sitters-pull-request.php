@@ -20,7 +20,7 @@
 							<p class="text text--sm">'.$row["sitterService"].'</p>
 						</div>
 
-						<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterID="'.$row["sitterID"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'"  data-sitterPrice="'.$row["sitterPrice"].'"data-sitterImage="'.$row["sitterImage"].'">Meet up</a>
+						<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'"  data-sitterPrice="'.$row["sitterPrice"].'"data-sitterImage="'.$row["sitterImage"].'">Meet up</a>
 					</div>
 				</div>';
 	}
