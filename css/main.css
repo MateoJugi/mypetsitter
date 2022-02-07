@@ -384,6 +384,17 @@ ul {
   margin-left: 10px;
 }
 
+.card-list-pagination__item--border-none {
+  border: 0;
+  cursor: default;
+  pointer-events: none;
+  display: none;
+}
+
+.card-list-pagination__item--border-none:hover {
+  color: #808080;
+}
+
 .card-list-pagination__item--active {
   border-color: #fd7034;
   background-color: #fd7034;

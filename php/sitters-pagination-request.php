@@ -1,7 +1,7 @@
 <?php
 	include 'connection.php';
 
-	$perPage = 4;
+	$perPage = 2;
 
 	$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $perPage;
 

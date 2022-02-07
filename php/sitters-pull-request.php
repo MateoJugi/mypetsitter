@@ -1,7 +1,7 @@
 <?php
 	include 'connection.php';
 
-	$result = mysqli_query( $con, "SELECT * FROM sitters ORDER BY sitterPrice LIMIT 0, 4" );
+	$result = mysqli_query( $con, "SELECT * FROM sitters ORDER BY sitterPrice LIMIT 0, 2" );
 
 	while( $row = mysqli_fetch_array( $result ) ) {
 		echo '<div class="col-12 col-6-sm col-4-lg col-3-xl">

@@ -11,6 +11,8 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
+/* ------------------------------------------------------------ */
+
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
 
@@ -24,6 +26,8 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
+/* ------------------------------------------------------------ */
+
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
 
@@ -32,12 +36,24 @@ $( window ).ready( function () {
 			$( '.js-pagination-buttons' ).html( this.responseText );
 		}
 
-		$( '.js-card-list-pagination-item' ).first().addClass( 'card-list-pagination__item--active' );
+		$( '.js-card-list-paginatin-item-active' ).first().addClass( 'card-list-pagination__item--active' );
+
+		$('.js-card-list-pagination-item').slice( 3 ).css( 'display', 'none' );
+
+		let pageNumberr = $( '.card-list-pagination__item--active' ).html();
+
+		if ( pageNumberr < 5 ) {
+			$( '.js-pagination-dots-after' ).css( 'display', 'inline-flex' );
+		} else {
+			$( '.js-pagination-dots-after' ).css( 'display', 'none' );
+		}
 	};
 
 	xmlhttp.open( 'GET', 'php/pagination.php', true );
 	xmlhttp.send();
 } );
+
+/* ------------------------------------------------------------ */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -52,7 +68,17 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-$( document ).on( 'click', '.js-card-list-pagination-item', function () {
+/* ------------------------------------------------------------ */
+
+let pageNumberConditionForPageUp = 3;
+let pageNumberConditionForPageDown = 1;
+
+let a = 0;
+let b = 3;
+let c = 1;
+let d = 4;
+
+$( document ).on( 'click', '.js-card-list-pagination-item', function ( lastPage ) {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -68,7 +94,48 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 
 	$( '.js-filter-location' ).val( '' );
 	$( '.js-filter-service' ).val( '' );
+	$( '.js-filter-price' ).val( '' )
+
+	if ( pageNumber == 1 ) {
+		$('.js-card-list-pagination-item').slice( 3 ).css( 'display', 'none' );
+	} else if ( pageNumber == pageNumberConditionForPageUp ) {
+		$('.js-card-list-pagination-item').slice( a, b ).css( 'display', 'none' );
+		$('.js-card-list-pagination-item').slice( c, d ).css( 'display', 'inline-flex' );
+
+		a++;
+		b++;
+		c++;
+		d++;
+
+		pageNumberConditionForPageUp++;
+		pageNumberConditionForPageDown++;
+	} else if ( pageNumber == pageNumberConditionForPageDown ) {
+		a--;
+		b--;
+		c--;
+		d--;
+
+		$('.js-card-list-pagination-item').slice( c, d ).css( 'display', 'none' );
+		$('.js-card-list-pagination-item').slice( a, b ).css( 'display', 'inline-flex' );
+
+		pageNumberConditionForPageUp--;
+		pageNumberConditionForPageDown--;
+	}
+
+	if ( pageNumber > 2 ) {
+		$( '.js-pagination-dots-before' ).css( 'display', 'inline-flex' );
+	} else {
+		$( '.js-pagination-dots-before' ).css( 'display', 'none' );
+	}
+
+	if ( pageNumber < 5 ) {
+		$( '.js-pagination-dots-after' ).css( 'display', 'inline-flex' );
+	} else {
+		$( '.js-pagination-dots-after' ).css( 'display', 'none' );
+	}
 } );
+
+/* ------------------------------------------------------------ */
 
 $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	e.preventDefault();
@@ -91,6 +158,8 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
 } );
+
+/* ------------------------------------------------------------ */
 
 $( document ).on( 'click', '.js-form-submit', function () {
 	var xmlhttp = new XMLHttpRequest();

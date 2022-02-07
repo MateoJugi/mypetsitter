@@ -74,6 +74,17 @@
 	}
 }
 
+.card-list-pagination__item--border-none {
+	border: 0;
+	cursor: default;
+	pointer-events: none;
+	display: none;
+
+	&:hover {
+		color: $gray-dark;
+	}
+}
+
 .card-list-pagination__item--active {
 	border-color: $orange;
 	background-color: $orange;
