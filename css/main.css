@@ -708,6 +708,10 @@ ul {
   width: 50%;
 }
 
+.form__input--pl-sm {
+  padding-left: 26px;
+}
+
 .form__input--date {
   position: relative;
 }
