@@ -1,7 +1,8 @@
 <?php
 	include 'connection.php';
+	include 'number-of-sitters-per-page.php';
 
-	$result = mysqli_query( $con, "SELECT * FROM sitters ORDER BY sitterPrice LIMIT 0, 2" );
+	$result = mysqli_query( $con, "SELECT * FROM sitters ORDER BY sitterPrice LIMIT 0, $perPage" );
 
 	while( $row = mysqli_fetch_array( $result ) ) {
 		echo '<div class="col-12 col-6-sm col-4-lg col-3-xl">

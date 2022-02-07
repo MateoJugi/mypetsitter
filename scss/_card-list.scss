@@ -78,11 +78,18 @@
 	border: 0;
 	cursor: default;
 	pointer-events: none;
-	display: none;
+	opacity: 0;
+	transition: .3s;
 
 	&:hover {
 		color: $gray-dark;
 	}
+}
+
+.card-list-pagination__item--conditional {
+	opacity: 0;
+	transition: .3s;
+	pointer-events: none;
 }
 
 .card-list-pagination__item--active {

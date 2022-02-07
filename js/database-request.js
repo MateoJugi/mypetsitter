@@ -38,16 +38,31 @@ $( window ).ready( function () {
 
 		$( '.js-card-list-paginatin-item-active' ).first().addClass( 'card-list-pagination__item--active' );
 
-		$('.js-card-list-pagination-item').slice( 3 ).css( 'display', 'none' );
+		$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
 
-		let pageNumberr = $( '.card-list-pagination__item--active' ).html();
+		let pageNumber = $( '.card-list-pagination__item--active' ).html();
 
-		if ( pageNumberr < 5 ) {
-			$( '.js-pagination-dots-after' ).css( 'display', 'inline-flex' );
+		let lastPage = $( '.js-card-list-pagination-item' ).last().html();
+
+		let lastPageMinusTwo = lastPage - 2;
+
+		if ( pageNumber < lastPageMinusTwo ) {
+			$( '.js-pagination-dots-after' ).css( 'opacity', '1' );
 		} else {
-			$( '.js-pagination-dots-after' ).css( 'display', 'none' );
+			$( '.js-pagination-dots-after' ).css( 'opacity', '0' );
+		}
+
+		/* ----- Adding last page after dots and pagination items ----- */
+
+		if ( pageNumber < lastPageMinusTwo ) {
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '1' );
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'all' );
+		} else {
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '0' );
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'none' );
 		}
 	};
+
 
 	xmlhttp.open( 'GET', 'php/pagination.php', true );
 	xmlhttp.send();
@@ -78,7 +93,7 @@ let b = 3;
 let c = 1;
 let d = 4;
 
-$( document ).on( 'click', '.js-card-list-pagination-item', function ( lastPage ) {
+$( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -87,7 +102,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function ( lastPage 
 		}
 	};
 
-	var pageNumber = $( this ).html();
+	let pageNumber = $( this ).html();
 
 	xmlhttp.open( 'GET', 'php/sitters-pagination-request.php?page=' + pageNumber, true );
 	xmlhttp.send();
@@ -96,42 +111,123 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function ( lastPage 
 	$( '.js-filter-service' ).val( '' );
 	$( '.js-filter-price' ).val( '' )
 
-	if ( pageNumber == 1 ) {
-		$('.js-card-list-pagination-item').slice( 3 ).css( 'display', 'none' );
-	} else if ( pageNumber == pageNumberConditionForPageUp ) {
-		$('.js-card-list-pagination-item').slice( a, b ).css( 'display', 'none' );
-		$('.js-card-list-pagination-item').slice( c, d ).css( 'display', 'inline-flex' );
+	/* ----- Changing pagination if first page before dots is clicked ----- */
 
-		a++;
-		b++;
-		c++;
-		d++;
+	$( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', function () {
+		$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
+		$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
 
-		pageNumberConditionForPageUp++;
-		pageNumberConditionForPageDown++;
-	} else if ( pageNumber == pageNumberConditionForPageDown ) {
-		a--;
-		b--;
-		c--;
-		d--;
+		$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
 
-		$('.js-card-list-pagination-item').slice( c, d ).css( 'display', 'none' );
-		$('.js-card-list-pagination-item').slice( a, b ).css( 'display', 'inline-flex' );
+		$( '.js-card-list-pagination-item-removable' ).first().addClass( 'card-list-pagination__item--active' );
 
-		pageNumberConditionForPageUp--;
-		pageNumberConditionForPageDown--;
+		pageNumberConditionForPageUp = 3;
+		pageNumberConditionForPageDown = 1;
+
+		a = 0;
+		b = 3;
+		c = 1;
+		d = 4;
+	} )
+
+	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
+
+	let lastPageMinusOne = parseInt( lastPage ) - 1;
+
+	let lastPageMinusTwo = parseInt( lastPage ) - 2;
+
+	/* ----- Changing pagination if last page after dots is clicked ----- */
+
+	$( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', function () {
+		$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
+		$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
+
+		$( '.js-card-list-pagination-item-removable' ).slice( 0, lastPageMinusTwo ).css( 'display', 'none' );
+
+		$( '.js-card-list-pagination-item-removable' ).last().addClass( 'card-list-pagination__item--active' );
+
+		pageNumberConditionForPageUp = parseInt( lastPage ) + 2;
+		pageNumberConditionForPageDown = lastPageMinusOne;
+
+		a = parseInt( lastPage ) - 2;
+		b = parseInt( lastPage ) + 1;
+		c = parseInt( lastPage ) - 1;
+		d = parseInt( lastPage ) + 2;
+
+		console.log("aaaa");
+	} )
+
+	/* ----- Changing pagination depending on clicked one ----- */
+
+	if ( lastPage > 3 ) {
+		if ( pageNumber == 1 ) {
+			$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
+		} else if ( pageNumber == pageNumberConditionForPageUp ) {
+			$( '.js-card-list-pagination-item-removable' ).slice( a, b ).css( 'display', 'none' );
+			$( '.js-card-list-pagination-item-removable' ).slice( c, d ).css( 'display', 'inline-flex' );
+	
+			a++;
+			b++;
+			c++;
+			d++;
+	
+			pageNumberConditionForPageUp++;
+			pageNumberConditionForPageDown++;
+		} else if ( pageNumber == pageNumberConditionForPageDown ) {
+			a--;
+			b--;
+			c--;
+			d--;
+	
+			$( '.js-card-list-pagination-item-removable' ).slice( c, d ).css( 'display', 'none' );
+			$( '.js-card-list-pagination-item-removable' ).slice( a, b ).css( 'display', 'inline-flex' );
+	
+			pageNumberConditionForPageUp--;
+			pageNumberConditionForPageDown--;
+		}
+	} else {
+		
 	}
 
-	if ( pageNumber > 2 ) {
-		$( '.js-pagination-dots-before' ).css( 'display', 'inline-flex' );
-	} else {
-		$( '.js-pagination-dots-before' ).css( 'display', 'none' );
-	}
+	/* ----- Adding dots before pagination items ----- */
 
-	if ( pageNumber < 5 ) {
-		$( '.js-pagination-dots-after' ).css( 'display', 'inline-flex' );
+	if ( lastPage > 3 ) {
+		if ( pageNumber > 2 ) {
+			$( '.js-pagination-dots-before' ).css( 'opacity', '1' );
+		} else {
+			$( '.js-pagination-dots-before' ).css( 'opacity', '0' );
+		}
+	
+		/* ----- Adding dots after pagination items ----- */
+	
+		if ( pageNumber < lastPageMinusOne ) {
+			$( '.js-pagination-dots-after' ).css( 'opacity', '1' );
+		} else {
+			$( '.js-pagination-dots-after' ).css( 'opacity', '0' );
+		}
+	
+		/* ----- Adding first page before dots and pagination items ----- */
+	
+		if ( pageNumber > 2 ) {
+			$( '.js-card-list-pagination-item-conditional-first' ).css( 'opacity', '1' );
+			$( '.js-card-list-pagination-item-conditional-first' ).css( 'pointer-events', 'all' );
+	
+		} else {
+			$( '.js-card-list-pagination-item-conditional-first' ).css( 'opacity', '0' );
+			$( '.js-card-list-pagination-item-conditional-first' ).css( 'pointer-events', 'none' );
+		}
+	
+		/* ----- Adding last page after dots and pagination items ----- */
+	
+		if ( pageNumber < lastPageMinusOne ) {
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '1' );
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'all' );
+		} else {
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '0' );
+			$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'none' );
+		}
 	} else {
-		$( '.js-pagination-dots-after' ).css( 'display', 'none' );
+		
 	}
 } );
 
@@ -157,6 +253,31 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 
 	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
+
+	/* ----- Refreshing pagination if filter is clicked ----- */
+
+	pageNumberConditionForPageUp = 3;
+	pageNumberConditionForPageDown = 1;
+
+	a = 0;
+	b = 3;
+	c = 1;
+	d = 4;
+
+	$( '.js-pagination-dots-before' ).css( 'opacity', '0' );
+	$( '.js-pagination-dots-after' ).css( 'opacity', '1' );
+
+
+	$( '.js-card-list-pagination-item-conditional-first' ).css( 'opacity', '0' );
+	$( '.js-card-list-pagination-item-conditional-first' ).css( 'pointer-events', 'none' );
+
+	$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '1' );
+	$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'all' );
+
+	$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
+	$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
+
+	$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
 } );
 
 /* ------------------------------------------------------------ */

@@ -388,11 +388,18 @@ ul {
   border: 0;
   cursor: default;
   pointer-events: none;
-  display: none;
+  opacity: 0;
+  transition: .3s;
 }
 
 .card-list-pagination__item--border-none:hover {
   color: #808080;
+}
+
+.card-list-pagination__item--conditional {
+  opacity: 0;
+  transition: .3s;
+  pointer-events: none;
 }
 
 .card-list-pagination__item--active {

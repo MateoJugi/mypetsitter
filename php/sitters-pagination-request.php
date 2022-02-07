@@ -1,7 +1,6 @@
 <?php
 	include 'connection.php';
-
-	$perPage = 2;
+	include 'number-of-sitters-per-page.php';
 
 	$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $perPage;
 
