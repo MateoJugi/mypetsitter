@@ -19,13 +19,13 @@
 		$filter .= " WHERE sitterPrice BETWEEN ". $_GET['sitterMinPrice'] ." AND ". $_GET['sitterMaxPrice'];
 	}
 
-	if ( strpos( $filter, 'WHERE' ) !== false && $_GET['petType'] ) {
-		$filter .= ' AND petType LIKE "%'. $_GET['petType'] .'%"';
-	} else if ( strpos( $filter, 'WHERE' ) !== true && $_GET['petType'] ) {
-		$filter .= ' WHERE petType LIKE "%'. $_GET['petType'] .'%"';
+	if ( strpos( $filter, 'WHERE' ) !== false && $_GET['sitterPreferedPet'] ) {
+		$filter .= ' AND sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
+	} else if ( strpos( $filter, 'WHERE' ) !== true && $_GET['sitterPreferedPet'] ) {
+		$filter .= ' WHERE sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
 	}
 
-	$result = mysqli_query( $con, "SELECT sitters.sitterID, sitters.sitterFullName, sitters.sitterService, sitters.sitterPrice, sitters.sitterEmail, sitters.sitterLocation, sitters.sitterImage, GROUP_CONCAT(petType) AS sitterPreferedPet FROM sitterspreferedpets INNER JOIN sitters ON sitterspreferedpets.sitterID=sitters.sitterID INNER JOIN pets ON sitterspreferedpets.petID=pets.petID $filter GROUP BY sitterID ORDER BY sitterPrice" );
+	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType) AS sitterPreferedPet FROM sitterspreferedpets INNER JOIN sitters ON sitterspreferedpets.sitterID=sitters.sitterID INNER JOIN pets ON sitterspreferedpets.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID $filter" );
 
 	if ( $result && $result->num_rows ) {
 		while( $row = mysqli_fetch_array( $result ) ) {
