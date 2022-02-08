@@ -269,7 +269,7 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	let sitterMinPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'min' );
 	let sitterMaxPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'max' );
 
-	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterPreferedPet=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
+	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&petType=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
 
 	/* ----- Refreshing pagination if filter is clicked ----- */
