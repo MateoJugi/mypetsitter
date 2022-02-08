@@ -84,6 +84,21 @@ $( window ).ready( function () {
 
 /* ------------------------------------------------------------ */
 
+$( window ).ready( function () {
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			$( '.js-filter-prefered-pets' ).append( this.responseText );
+		}
+	};
+
+	xmlhttp.open( 'GET', 'php/filter-prefered-pets-request.php', true );
+	xmlhttp.send();
+} );
+
+/* ------------------------------------------------------------ */
+
 let pageNumberConditionForPageUp = 3;
 let pageNumberConditionForPageDown = 1;
 
@@ -108,6 +123,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 
 	$( '.js-filter-location' ).val( '' );
 	$( '.js-filter-service' ).val( '' );
+	$( '.js-filter-prefered-pets' ).val( '' );
 	$( '.js-filter-price' ).val( '' )
 
 	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
@@ -211,8 +227,6 @@ $( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', fun
 	b = parseInt( lastPage ) + 1;
 	c = parseInt( lastPage ) - 1;
 	d = parseInt( lastPage ) + 2;
-
-	console.log("a= "+a, "b= "+b, "c= "+c, "d= "+d, "Up= "+pageNumberConditionForPageUp, "Down= "+pageNumberConditionForPageDown);
 } );
 
 /* ----- Changing pagination if first page before dots is clicked ----- */
@@ -251,13 +265,16 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 
 	let sitterLocation = $( '.js-filter-location' ).find( ':selected' ).attr( 'value' );
 	let sitterService = $( '.js-filter-service' ).find( ':selected' ).attr( 'value' );
+	let sitterPreferedPet = $( '.js-filter-prefered-pets' ).find( ':selected' ).attr( 'value' );
 	let sitterMinPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'min' );
 	let sitterMaxPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'max' );
 
-	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
+	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterPreferedPet=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
 
 	/* ----- Refreshing pagination if filter is clicked ----- */
+
+	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
 
 	pageNumberConditionForPageUp = 3;
 	pageNumberConditionForPageDown = 1;
@@ -268,14 +285,18 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	d = 4;
 
 	$( '.js-pagination-dots-before' ).css( 'opacity', '0' );
-	$( '.js-pagination-dots-after' ).css( 'opacity', '1' );
 
+	if ( lastPage > 3 ) {
+		$( '.js-pagination-dots-after' ).css( 'opacity', '1' );
+	}
 
 	$( '.js-card-list-pagination-item-conditional-first' ).css( 'opacity', '0' );
 	$( '.js-card-list-pagination-item-conditional-first' ).css( 'pointer-events', 'none' );
 
-	$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '1' );
-	$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'all' );
+	if ( lastPage > 3 ) {
+		$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '1' );
+		$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'all' );
+	}
 
 	$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
 	$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );

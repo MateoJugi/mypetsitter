@@ -1,3 +1,3 @@
 <?php
-	$perPage = 2;
+	$perPage = 4;
 ?>
