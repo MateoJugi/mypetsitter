@@ -57,6 +57,15 @@
 	}
 }
 
+.form__input--orange:focus {
+	border-color: $orange;
+	color: $orange;
+
+	&::placeholder {
+		color: $orange;
+	}
+}
+
 .form__input--md {
 	width: 50%;
 }

@@ -30,8 +30,14 @@
 
 								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
 
-								<li class="site-navigation__item site-navigation__item--filled"><a href="#sitters">Find sitter</a></li>
+								<li class="site-navigation__item"><a href="#sitters">Find sitter</a></li>
 							</ul>
+
+							<div class="site-header__navigation">
+								<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
+
+								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
+							</div>
 
 							<div class="site-header__menu-icon js-site-header-menu">
 								<span></span>
@@ -50,6 +56,12 @@
 					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
 					<li class="site-navigation__item site-navigation__item--filled site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
+
+					<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
+						<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
+
+						<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -71,6 +83,12 @@
 								<li class="site-navigation__item site-navigation__item--filled"><a href="#sitters">Find sitter</a></li>
 							</ul>
 
+							<div class="site-header__navigation">
+								<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
+
+								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
+							</div>
+
 							<div class="site-header__menu-icon site-header__menu-icon--black js-site-header-menu">
 								<span></span>
 								<span></span>
@@ -88,6 +106,12 @@
 					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
 					<li class="site-navigation__item site-navigation__item--filled site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
+
+					<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
+						<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
+
+						<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -393,6 +417,57 @@
 				</div>
 			</div>
 
+			<div class="white-pop-up white-pop-up--orange-before mfp-hide" id="sign-up-pop-up">
+				<form class="form" method="post" action="php/sign-Up.php">
+					<h3 class="title title--lg title--white title--mb-xl">Create<br> Account</h3>
+	
+					<div class="form__item">
+						<svg class="form__icon" data-name="Layer 1" id="Layer_1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><title/><path class="form-icon-fill" d="M24,21A10,10,0,1,1,34,11,10,10,0,0,1,24,21ZM24,5a6,6,0,1,0,6,6A6,6,0,0,0,24,5Z"/><path class="form-icon-fill" d="M42,47H6a2,2,0,0,1-2-2V39A16,16,0,0,1,20,23h8A16,16,0,0,1,44,39v6A2,2,0,0,1,42,47ZM8,43H40V39A12,12,0,0,0,28,27H20A12,12,0,0,0,8,39Z"/></svg>
+	
+						<input type="text" class="form__input form__input--orange" placeholder="Name" name="adminNameSignUp" required>
+					</div>
+	
+					<div class="form__item">
+						<svg class="form__icon form-icon-stroke" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+						</svg>
+	
+						<input type="text" class="form__input form__input--orange" placeholder="Email" name="adminEmailSignUp" required>
+					</div>
+	
+					<div class="form__item">
+						<svg class="form__icon form__icon--lg" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path class="form-icon-fill" d="M36 16h-2v-4c0-5.52-4.48-10-10-10s-10 4.48-10 10v4h-2c-2.21 0-4 1.79-4 4v20c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4v-20c0-2.21-1.79-4-4-4zm-12-10.2c3.42 0 6.2 2.78 6.2 6.2v4h-12.2v-4h-.2c0-3.42 2.78-6.2 6.2-6.2zm12 34.2h-24v-20h24v20zm-12-6c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
+						</svg>
+	
+						<input type="password" class="form__input form__input--orange" placeholder="Password" name="adminPasswordSignUp" required>
+					</div>
+	
+					<input type="submit" value="Sign up" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none" name="signUpSubmit">
+				</form>
+			</div>
+
+			<div class="white-pop-up" id="sign-in-pop-up">
+				<form class="form" method="post" action="php/sign-in.php">
+					<h3 class="title title--lg title--white title--mb-xl">Welcome<br> Back</h3>
+	
+					<div class="form__item">
+						<svg class="form__icon" fill="none" height="24" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+						</svg>
+	
+						<input type="text" class="form__input" placeholder="Email" name="adminNameSignIn" required>
+					</div>
+	
+					<div class="form__item">
+						<svg class="form__icon form__icon--lg" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path fill="#808080" d="M36 16h-2v-4c0-5.52-4.48-10-10-10s-10 4.48-10 10v4h-2c-2.21 0-4 1.79-4 4v20c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4v-20c0-2.21-1.79-4-4-4zm-12-10.2c3.42 0 6.2 2.78 6.2 6.2v4h-12.2v-4h-.2c0-3.42 2.78-6.2 6.2-6.2zm12 34.2h-24v-20h24v20zm-12-6c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/></svg>
+	
+						<input type="password" class="form__input" placeholder="Password" name="adminPasswordSignIn" required>
+					</div>
+	
+					<a href="#" class="text text--xs text--blue flex-align-self-end text--mt-sm">Forgot your password?</a>
+	
+					<input type="submit" value="Sign in" class="button button--xl button--filled button--mt-sm button--mr-ml-none" name="signInSubmit">
+				</form>
+			</div>
+
 			<div class="footer">
 				<div class="container">
 					<div class="row">
@@ -437,5 +512,6 @@
 		<script src="js/card-list-pagination--active.js"></script>
 		<script src="js/database-request.js"></script>
 		<script src="js/popup-form.js"></script>
+		<script src="magnific-popup/magnific-popup-trigger.js"></script>
 	</body>
 </html>

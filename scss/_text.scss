@@ -43,6 +43,10 @@
 	margin-top: 30px;
 }
 
+.title--mb-xl {
+	margin-bottom: 100px;
+}
+
 .title--mb-lg {
 	margin-bottom: 60px;
 }
@@ -72,6 +76,14 @@
 .text--sm {
 	font-size: 14px;
 	font-weight: 600;
+}
+
+.text--xs {
+	font-size: 14px;
+
+	@media ( min-width: 576px ) {
+		font-size: 18px;
+	}
 }
 
 .text--success {
@@ -104,6 +116,10 @@
 	color: $orange;
 }
 
+.text--mt-sm {
+	margin-top: 10px;
+}
+
 .text--mb-md {
 	margin-bottom: 40px;
 }
@@ -119,6 +135,10 @@
 .title--white, .text--white {
 	color: #fff;
 	border-color: #fff;
+}
+
+.text--blue {
+	color: $blue;
 }
 
 .title--gray {

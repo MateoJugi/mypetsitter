@@ -25,6 +25,14 @@
 	}
 }
 
+.button--orange {
+	background-color: $orange;
+
+	&:hover {
+		background-color: $orange-hover;
+	}
+}
+
 .button--xl {
 	display: flex;
 	justify-content: center;
