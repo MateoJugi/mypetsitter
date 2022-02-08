@@ -80,6 +80,13 @@
 	pointer-events: none;
 	opacity: 0;
 	transition: .3s;
+	padding-right: 0;
+	padding-left: 0;
+
+	@media ( min-width: 400px ) {
+		padding-right: 14px;
+		padding-left: 14px;
+	}
 
 	&:hover {
 		color: $gray-dark;

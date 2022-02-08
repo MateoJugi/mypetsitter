@@ -61,6 +61,18 @@ ul {
   width: 100%;
 }
 
+.col--pr-pl-none {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+@media (min-width: 400px) {
+  .col--pr-pl-none {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
 .hero__wrapper {
   height: 100vh;
   display: flex;
@@ -390,6 +402,15 @@ ul {
   pointer-events: none;
   opacity: 0;
   transition: .3s;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 400px) {
+  .card-list-pagination__item--border-none {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
 }
 
 .card-list-pagination__item--border-none:hover {

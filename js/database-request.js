@@ -63,7 +63,6 @@ $( window ).ready( function () {
 		}
 	};
 
-
 	xmlhttp.open( 'GET', 'php/pagination.php', true );
 	xmlhttp.send();
 } );
@@ -111,51 +110,9 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	$( '.js-filter-service' ).val( '' );
 	$( '.js-filter-price' ).val( '' )
 
-	/* ----- Changing pagination if first page before dots is clicked ----- */
-
-	$( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', function () {
-		$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
-		$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
-
-		$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
-
-		$( '.js-card-list-pagination-item-removable' ).first().addClass( 'card-list-pagination__item--active' );
-
-		pageNumberConditionForPageUp = 3;
-		pageNumberConditionForPageDown = 1;
-
-		a = 0;
-		b = 3;
-		c = 1;
-		d = 4;
-	} )
-
 	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
 
 	let lastPageMinusOne = parseInt( lastPage ) - 1;
-
-	let lastPageMinusTwo = parseInt( lastPage ) - 2;
-
-	/* ----- Changing pagination if last page after dots is clicked ----- */
-
-	$( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', function () {
-		$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
-		$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
-
-		$( '.js-card-list-pagination-item-removable' ).slice( 0, lastPageMinusTwo ).css( 'display', 'none' );
-
-		$( '.js-card-list-pagination-item-removable' ).last().addClass( 'card-list-pagination__item--active' );
-
-		pageNumberConditionForPageUp = parseInt( lastPage ) + 2;
-		pageNumberConditionForPageDown = lastPageMinusOne;
-
-		a = parseInt( lastPage ) - 2;
-		b = parseInt( lastPage ) + 1;
-		c = parseInt( lastPage ) - 1;
-		d = parseInt( lastPage ) + 2;
-
-		console.log("aaaa");
-	} )
 
 	/* ----- Changing pagination depending on clicked one ----- */
 
@@ -229,6 +186,52 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	} else {
 		
 	}
+} );
+
+/* ----- Changing pagination if last page after dots is clicked ----- */
+
+$( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', function () {
+	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
+
+	let lastPageMinusOne = parseInt( lastPage ) - 1;
+
+	let lastPageMinusTwo = parseInt( lastPage ) - 2;
+
+	$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
+	$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
+
+	$( '.js-card-list-pagination-item-removable' ).slice( 0, lastPageMinusTwo ).css( 'display', 'none' );
+
+	$( '.js-card-list-pagination-item-removable' ).last().addClass( 'card-list-pagination__item--active' );
+
+	pageNumberConditionForPageUp = parseInt( lastPage ) + 2;
+	pageNumberConditionForPageDown = lastPageMinusOne;
+
+	a = parseInt( lastPage ) - 2;
+	b = parseInt( lastPage ) + 1;
+	c = parseInt( lastPage ) - 1;
+	d = parseInt( lastPage ) + 2;
+
+	console.log("a= "+a, "b= "+b, "c= "+c, "d= "+d, "Up= "+pageNumberConditionForPageUp, "Down= "+pageNumberConditionForPageDown);
+} );
+
+/* ----- Changing pagination if first page before dots is clicked ----- */
+
+$( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', function () {
+	$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
+	$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
+
+	$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
+
+	$( '.js-card-list-pagination-item-removable' ).first().addClass( 'card-list-pagination__item--active' );
+
+	pageNumberConditionForPageUp = 3;
+	pageNumberConditionForPageDown = 1;
+
+	a = 0;
+	b = 3;
+	c = 1;
+	d = 4;
 } );
 
 /* ------------------------------------------------------------ */

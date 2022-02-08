@@ -72,6 +72,16 @@ $box-shadow-orange: #fe6536 0 0 20px;
 	width: 100%
 }
 
+.col--pr-pl-none {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+
+	@media ( min-width: 400px ) {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}
+
 @import 'hero';
 @import 'site-header';
 @import 'icon-wrapper';
