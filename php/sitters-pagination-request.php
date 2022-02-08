@@ -21,6 +21,8 @@
 
 					<div class="card-list-item__footer">
 						<p class="text text--sm">'.$row["sitterService"].'</p>
+						
+						<p class="text text--sm">'.$row["sitterPreferedPet"].'</p>
 					</div>
 
 					<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'"  data-sitterPrice="'.$row["sitterPrice"].'" data-sitterImage="'.$row["sitterImage"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'">Meet up</a>

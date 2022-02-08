@@ -3,7 +3,7 @@
 
 	$andArray = [];
 
-	foreach ( [ 'sitterLocation', 'sitterService', 'sitterPreferedPet' ] as $key ) { if ( $_GET[$key] ) {
+	foreach ( [ 'sitterLocation', 'sitterService' ] as $key ) { if ( $_GET[$key] ) {
 		$andArray[] = "$key = '$_GET[$key]'";
 	} }
 
@@ -17,6 +17,12 @@
 		$filter .= " AND sitterPrice BETWEEN ". $_GET['sitterMinPrice'] ." AND ". $_GET['sitterMaxPrice'];
 	} else if ( strpos( $filter, 'WHERE' ) !== true && $_GET['sitterMaxPrice'] ) {
 		$filter .= " WHERE sitterPrice BETWEEN ". $_GET['sitterMinPrice'] ." AND ". $_GET['sitterMaxPrice'];
+	}
+
+	if ( strpos( $filter, 'WHERE' ) !== false && $_GET['sitterPreferedPet'] ) {
+		$filter .= ' AND sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
+	} else if ( strpos( $filter, 'WHERE' ) !== true && $_GET['sitterPreferedPet'] ) {
+		$filter .= ' WHERE sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
 	}
 
 	$result = mysqli_query( $con, "SELECT * FROM sitters $filter ORDER BY sitterPrice" );
@@ -37,6 +43,8 @@
 	
 						<div class="card-list-item__footer">
 							<p class="text text--sm">'.$row["sitterService"].'</p>
+							
+							<p class="text text--sm">'.$row["sitterPreferedPet"].'</p>
 						</div>
 	
 						<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'"  data-sitterPrice="'.$row["sitterPrice"].'" data-sitterImage="'.$row["sitterImage"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'">Meet up</a>
