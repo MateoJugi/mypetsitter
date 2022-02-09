@@ -4,6 +4,15 @@ $( window ).ready( function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
+
+			$( '.js-image-popup' ).magnificPopup( {
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-with-zoom',
+				image: {
+					verticalFit: true
+				}
+			} );
 		}
 	};
 
@@ -113,6 +122,15 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
+
+			$( '.js-image-popup' ).magnificPopup( {
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-with-zoom',
+				image: {
+					verticalFit: true
+				}
+			} );
 		}
 	};
 
@@ -260,6 +278,15 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
+
+			$( '.js-image-popup' ).magnificPopup( {
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-with-zoom',
+				image: {
+					verticalFit: true
+				}
+			} );
 		}
 	};
 
