@@ -2,7 +2,7 @@
 	include 'connection.php';
 	include 'number-of-sitters-per-page.php';
 
-	$pageNumber = 3;
+	/* $pageNumber = 3; */
 
 	$result = mysqli_query( $con, "SELECT COUNT( sitterID ) FROM sitters" );
 
@@ -20,7 +20,7 @@
 
 	echo '<a href="#sitters" class="card-list-pagination__item card-list-pagination__item--border-none js-pagination-dots-after">. . .</a>';
 
-	echo '<a href="#sitters" class="card-list-pagination__item card-list-pagination__item--conditional js-card-list-pagination-item js-card-list-pagination-item-conditional-last">'.$numberOfButtons.'</a>';
+	echo '<a href="#sitters" class="card-list-pagination__item card-list-pagination__item--conditional js-card-list-pagination-item js-card-list-pagination-item-conditional-last">'.ceil( $numberOfButtons ).'</a>';
 
 	$con->close();
 ?>

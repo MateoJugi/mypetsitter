@@ -330,3 +330,26 @@ $( document ).on( 'click', '.js-form-submit', function () {
 		$( '.js-form-footer' ).slideDown();
 	}
 } );
+
+/* ----- Sitter sign up request ----- */
+
+$( document ).on( 'click', '.js-sign-up-button', function () {
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+		}
+	};
+
+	let signUpFullName = $( '.js-sign-up-fullname' ).val();
+	let signUpEmail = $( '.js-sign-up-email' ).val();
+	let signUpLocation = $( '.js-sign-up-location' ).val();
+	let signUpPreferedPet = $( '.js-sign-up-prefered-pet' ).val();
+	let signUpService = $( '.js-sign-up-service' ).val();
+	let signUpPrice = $( '.js-sign-up-price' ).val();
+	let signUpImage = $( '.js-sign-up-image' ).val();
+	let signUpPassword = $( '.js-sign-up-password' ).val();
+
+	xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpPassword=' + signUpPassword, true );
+	xmlhttp.send();
+} );

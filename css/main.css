@@ -607,6 +607,16 @@ ul {
   }
 }
 
+.white-pop-up--title-lg .title {
+  font-size: 32px;
+}
+
+@media (min-width: 768px) {
+  .white-pop-up--title-lg .title {
+    font-size: 48px;
+  }
+}
+
 .white-pop-up--bg-img {
   padding-top: 90px;
 }
