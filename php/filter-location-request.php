@@ -12,6 +12,6 @@
 	$sitterLocations = array_unique( $sitterLocations );
 
 	foreach ( $sitterLocations as $index ) {
-		print_r( '<option value="'.$index.'">'.$index.'</option>' );
+		print_r( '<option value="'.$index.'">' );
 	}
 ?>

@@ -74,7 +74,7 @@ $( window ).ready( function () {
 
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
-			$( '.js-filter-location' ).append( this.responseText );
+			$( '.js-filter-location-request' ).append( this.responseText );
 		}
 	};
 
@@ -89,7 +89,7 @@ $( window ).ready( function () {
 
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
-			$( '.js-filter-prefered-pets' ).append( this.responseText );
+			$( '.js-filter-prefered-pets-request' ).append( this.responseText );
 		}
 	};
 
@@ -263,9 +263,9 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 		}
 	};
 
-	let sitterLocation = $( '.js-filter-location' ).find( ':selected' ).attr( 'value' );
-	let sitterService = $( '.js-filter-service' ).find( ':selected' ).attr( 'value' );
-	let sitterPreferedPet = $( '.js-filter-prefered-pets' ).find( ':selected' ).attr( 'value' );
+	let sitterLocation = $( '.js-filter-location' ).val();
+	let sitterService = $( '.js-filter-service' ).val();
+	let sitterPreferedPet = $( '.js-filter-prefered-pets' ).val();
 	let sitterMinPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'min' );
 	let sitterMaxPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'max' );
 

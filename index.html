@@ -305,35 +305,37 @@
 										<div>
 											<div class="filter-form__main">
 												<div class="position-relative">
-													<select type="option" class="filter-form__item js-filter-location">
-														<option value="" selected>Choose location:</option>
-													</select>
+													<input type="text" placeholder="Choose location:" class="filter-form__item input-datalist js-filter-location" list="filter-location">
 
-													<svg class="filter-form__arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+													<datalist class="js-filter-location-request" id="filter-location">
+													</datalist>
+
+													<svg class="input-arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 													</svg>
 												</div>
 
 												<div class="position-relative">
-													<select type="option" class="filter-form__item js-filter-service">
-														<option value="" selected>Choose service:</option>
+													<input type="text" placeholder="Choose pet type:" class="filter-form__item input-datalist js-filter-prefered-pets" list="filter-pets">
 
-														<option value="Pet walking">Pet walking</option>
+													<datalist class="js-filter-prefered-pets-request" id="filter-pets">
+													</datalist>
 
-														<option value="Boarding">Boarding</option>
-
-														<option value="House sitting">House sitting</option>
-													</select>
-
-													<svg class="filter-form__arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+													<svg class="input-arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 													</svg>
 												</div>
 
 												<div class="position-relative">
-													<select type="option" class="filter-form__item js-filter-prefered-pets">
-														<option value="" selected>Choose pet type:</option>
-													</select>
+													<input type="text" placeholder="Choose service:" class="filter-form__item input-datalist js-filter-service" list="filter-servkces">
 
-													<svg class="filter-form__arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+													<datalist id="filter-servkces">
+														<option value="Pet walking">
+
+														<option value="Boarding">
+
+														<option value="House sitting">
+													</datalist>
+
+													<svg class="input-arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 													</svg>
 												</div>
 
@@ -348,7 +350,7 @@
 														<option min="150" max="999">More than 150$ /day</option>
 													</select>
 
-													<svg class="filter-form__arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+													<svg class="input-arrow" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 													</svg>
 												</div>
 											</div>
@@ -438,7 +440,13 @@
 						<svg class="form__icon form-icon-fill" enable-background="new 0 0 128 128" height="128px" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="128px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M64,0C39.699,0,20,19.699,20,44s44,84,44,84s44-59.699,44-84S88.301,0,64,0z M28,44    C28,24.148,44.148,8,64,8s36,16.148,36,36c0,13.828-20.008,47.211-36,70.238C48.008,91.211,28,57.828,28,44z M64,24    c-11.047,0-20,8.953-20,20s8.953,20,20,20s20-8.953,20-20S75.047,24,64,24z M64,56c-6.617,0-12-5.383-12-12s5.383-12,12-12    s12,5.383,12,12S70.617,56,64,56z"/></g></g>
 						</svg>
 
-						<input type="text" class="form__input form__input--orange js-sign-up-location" placeholder="City" >
+						<input type="text" class="form__input form__input--orange js-sign-up-location input-datalist" list="form-input-location" placeholder="City">
+
+						<datalist class="js-form-input-location" id="form-input-location">
+						</datalist>
+
+						<svg class="input-arrow input-arrow--top-sm" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+						</svg>
 					</div>
 
 					<div class="form__item">
@@ -548,5 +556,6 @@
 		<script src="js/database-request.js"></script>
 		<script src="js/popup-form.js"></script>
 		<script src="magnific-popup/magnific-popup-trigger.js"></script>
+		<script src="js/json-location-request.js"></script>
 	</body>
 </html>

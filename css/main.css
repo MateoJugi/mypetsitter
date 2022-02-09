@@ -539,7 +539,6 @@ ul {
 
 .filter-form__item {
   font-size: 18px;
-  border: 0;
   border: 1px solid #e7e7e9;
   color: #6e6d7a;
   border-radius: 8px;
@@ -560,7 +559,15 @@ ul {
   border-color: #fd7034;
 }
 
-.filter-form__arrow {
+.input-datalist {
+  padding-right: 10px;
+}
+
+.input-datalist::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.input-arrow {
   height: 20px;
   width: 20px;
   fill: #bebebe;
@@ -569,6 +576,10 @@ ul {
   position: absolute;
   top: 15px;
   right: 10px;
+}
+
+.input-arrow--top-sm {
+  top: 5px;
 }
 
 .white-pop-up {
