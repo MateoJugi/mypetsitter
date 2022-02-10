@@ -81,6 +81,10 @@ ul {
   pointer-events: all !important;
 }
 
+.google-translate {
+  text-align: center;
+}
+
 .hero__wrapper {
   height: 100vh;
   display: flex;
