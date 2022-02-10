@@ -31,7 +31,7 @@
 		while( $row = mysqli_fetch_array( $result ) ) {
 			echo'<div class="col-12 col-6-sm col-4-lg col-3-xl">
 					<div class="card-list__item">
-						<div class="card-list-item__image js-image-popup" data-mfp-src="'.$row["sitterImage"].'" style="background-image: url('.$row["sitterImage"].');" title="Caption. Can be aligned to any side and contain any HTML."></div>
+						<div class="card-list-item__image js-image-popup" data-mfp-src="'.$row["sitterImage"].'" style="background-image: url('.$row["sitterImage"].');" title="'.$row["sitterAbout"].'"></div>
 	
 						<div class="card-list-item__main">
 							<p class="text text--sm text--border text--mb-xs">'.$row["sitterLocation"].'</p>

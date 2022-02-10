@@ -849,6 +849,11 @@ ul {
   display: none;
 }
 
+.input--invalid {
+  border-color: red;
+  color: red;
+}
+
 .image-galery {
   display: flex;
   flex-wrap: wrap;
@@ -1175,5 +1180,9 @@ ul {
 
 .text--tooltip {
   display: none;
+}
+
+.text--underline {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=main.css.map */

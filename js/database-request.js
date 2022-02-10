@@ -9,6 +9,7 @@ $( window ).ready( function () {
 				type: 'image',
 				closeOnContentClick: true,
 				mainClass: 'mfp-with-zoom',
+				removalDelay: 300,
 				image: {
 					verticalFit: true
 				}
@@ -127,6 +128,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 				type: 'image',
 				closeOnContentClick: true,
 				mainClass: 'mfp-with-zoom',
+				removalDelay: 300,
 				image: {
 					verticalFit: true
 				}
@@ -283,6 +285,7 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 				type: 'image',
 				closeOnContentClick: true,
 				mainClass: 'mfp-with-zoom',
+				removalDelay: 300,
 				image: {
 					verticalFit: true
 				}
@@ -355,6 +358,10 @@ $( document ).on( 'click', '.js-form-submit', function () {
 
 	if( customerFullName && customerEmail && customerEmail.includes( '@' ) && customerEmail.split( '@' ).pop() && customerContactNumber && customerPet && startDate && endDate ) {
 		$( '.js-form-footer' ).slideDown();
+
+		setTimeout( function() {
+			window.location.reload();
+		}, 3000 );
 	}
 } );
 
@@ -365,18 +372,82 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
+			let duplicates = this.responseText;
+
+			let signUpEmail = $( '.js-sign-up-email' ).val();
+
+			if ( duplicates == 0 && signUpEmail ) {
+				$( '.js-sign-up-fullname' ).removeClass( 'input--invalid' );
+
+				var xmlhttp = new XMLHttpRequest();
+
+				xmlhttp.onreadystatechange = function() {
+					if ( this.readyState == 4 && this.status == 200 ) {
+						let duplicates = this.responseText;
+
+						if ( duplicates == 0 ) {
+							$( '.js-sign-up-email' ).removeClass( 'input--invalid' );
+
+							var xmlhttp = new XMLHttpRequest();
+
+							let signUpFullName = $( '.js-sign-up-fullname' ).val();
+							let signUpEmail = $( '.js-sign-up-email' ).val();
+							let signUpLocation = $( '.js-sign-up-location' ).val();
+							let signUpPreferedPet = $( '.js-sign-up-prefered-pet' ).val();
+							let signUpService = $( '.js-sign-up-service' ).val();
+							let signUpPrice = $( '.js-sign-up-price' ).val();
+							let signUpImage = $( '.js-sign-up-image' ).val();
+							let signUpPassword = $( '.js-sign-up-password' ).val();
+
+							let passwordValidation;
+
+							if ( /[A-Z]/.test( signUpPassword ) && /[0-9]/.test( signUpPassword ) ) {
+								passwordValidation = 1;
+
+								$( '.js-sign-up-password' ).removeClass( 'input--invalid' );
+							} else {
+								passwordValidation = 0;
+
+								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
+							}
+
+							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpService && signUpPrice && signUpImage && signUpPassword && passwordValidation ) {
+								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpPassword=' + signUpPassword, true );
+								xmlhttp.send();
+
+								$( '.js-form-footer' ).slideDown();
+
+								setTimeout( function() {
+									window.location.reload();
+								}, 3000 );
+							}
+						} else {
+							$( '.js-sign-up-email' ).addClass( 'input--invalid' );
+						}
+					}
+				};
+
+				let signUpEmail = $( '.js-sign-up-email' ).val();
+
+				xmlhttp.open( 'GET', 'php/sign-up-email-duplicates.php?signUpEmail=' + signUpEmail, true );
+				xmlhttp.send();
+			} else if ( duplicates == 0 && !signUpEmail ) {
+				$( '.js-sign-up-fullname' ).removeClass( 'input--invalid' );
+			}
+			 else {
+				$( '.js-sign-up-fullname' ).addClass( 'input--invalid' );
+			}
 		}
 	};
 
 	let signUpFullName = $( '.js-sign-up-fullname' ).val();
-	let signUpEmail = $( '.js-sign-up-email' ).val();
-	let signUpLocation = $( '.js-sign-up-location' ).val();
-	let signUpPreferedPet = $( '.js-sign-up-prefered-pet' ).val();
-	let signUpService = $( '.js-sign-up-service' ).val();
-	let signUpPrice = $( '.js-sign-up-price' ).val();
-	let signUpImage = $( '.js-sign-up-image' ).val();
-	let signUpPassword = $( '.js-sign-up-password' ).val();
 
-	xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpPassword=' + signUpPassword, true );
+	xmlhttp.open( 'GET', 'php/sign-up-fullname-duplicates.php?signUpFullName=' + signUpFullName, true );
 	xmlhttp.send();
+} );
+
+$( '.js-sign-up-fullname, .js-sign-up-email' ).change( function ( e ) { 
+	e.preventDefault();
+	
+	$( this ).removeClass( 'input--invalid' );
 } );

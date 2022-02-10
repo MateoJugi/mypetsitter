@@ -116,3 +116,8 @@
 .form__footer {
 	display: none;
 }
+
+.input--invalid {
+	border-color: red;
+	color: red;
+}
