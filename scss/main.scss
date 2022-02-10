@@ -86,6 +86,10 @@ $box-shadow-orange: #fe6536 0 0 20px;
 	}
 }
 
+.tooltip-trigger {
+	pointer-events: all !important;
+}
+
 @import 'hero';
 @import 'site-header';
 @import 'icon-wrapper';

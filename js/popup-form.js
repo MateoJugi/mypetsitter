@@ -20,7 +20,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 	$.magnificPopup.open( {
 		items: {
 			src: '<div class="white-pop-up white-pop-up--bg-img">'+
-			'<div class="white-pop-up__image" style="background-image: url(images/content/' + sitterImage + '.jpg);"></div>'+
+			'<div class="white-pop-up__image" style="background-image: url(' + sitterImage + ');"></div>'+
 
 			'<div class="position-relative">'+
 				'<p class="text text--sm text--border text--white text--mb-xs">' + sitterLocation + '</p>'+
@@ -70,7 +70,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 						sitterPreferedPetOptionInput+
 					'</datalist>'+
 
-					'<svg class="input-arrow input-arrow--top-sm" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>'+
+					'<svg class="input-icon input-icon--top-md" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>'+
 					'</svg>'+
 				'</div>'+
 

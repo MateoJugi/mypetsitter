@@ -148,3 +148,16 @@
 .text-transform-uppercase {
 	text-transform: uppercase;
 }
+
+.link {
+	color: $blue;
+	text-decoration: underline;
+
+	&:hover {
+		color: $blue-hover;
+	}
+}
+
+.text--tooltip {
+	display: none;
+}

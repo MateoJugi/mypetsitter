@@ -4,17 +4,15 @@
 	$signUpFullName = $_GET["signUpFullName"];
 	$signUpEmail = $_GET["signUpEmail"];
 	$signUpLocation = $_GET["signUpLocation"];
-	$signUpPreferedPet = " ".$_GET["signUpPreferedPet"];
+	$signUpPreferedPet = $_GET["signUpPreferedPet"];
 	$signUpService = $_GET["signUpService"];
 	$signUpPrice = $_GET["signUpPrice"];
 	$signUpImage = $_GET["signUpImage"];
 	$signUpPassword = $_GET["signUpPassword"];
 
-/* 	echo $signUpFullName, " ", $signUpEmail, " ", $signUpLocation, " ", $signUpPreferedPet, " ", $signUpService, " ", $signUpPrice, " ", $signUpImage, " ", $signUpPassword, " "; */
-
 	/* -----Inserting new sitter in database-----*/
 
-	/* $result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterService) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpService."')"); */
+	$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterService) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpService."')");
 	
 	/* -----Checking if entered pet exists in database----- */
 
@@ -42,8 +40,6 @@
 	while( $row = mysqli_fetch_array( $result3 ) ) {
 		(int) $lastSitterID = $row[0];
 	}
-
-	$lastSitterID++;/* maknit poslin kad dodam mogucnost unosa samog sittera*/
 
 	/* -----Getting ID of entered pet----- */
 

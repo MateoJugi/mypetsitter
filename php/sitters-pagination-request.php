@@ -4,12 +4,12 @@
 
 	$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $perPage;
 
-	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType) AS sitterPreferedPet FROM sitterspreferedpets INNER JOIN sitters ON sitterspreferedpets.sitterID=sitters.sitterID INNER JOIN pets ON sitterspreferedpets.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice LIMIT $offset, $perPage" );
+	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType SEPARATOR', ') AS sitterPreferedPet FROM sitterspreferedpets INNER JOIN sitters ON sitterspreferedpets.sitterID=sitters.sitterID INNER JOIN pets ON sitterspreferedpets.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice LIMIT $offset, $perPage" );
 
 	while( $row = mysqli_fetch_array( $result ) ) {
 		echo '<div class="col-12 col-6-sm col-4-lg col-3-xl">
 				<div class="card-list__item">
-					<div class="card-list-item__image js-image-popup" data-mfp-src="images/content/'.$row["sitterImage"].'.jpg" style="background-image: url(images/content/'.$row["sitterImage"].'.jpg);" title="Caption. Can be aligned to any side and contain any HTML."></div>
+					<div class="card-list-item__image js-image-popup" data-mfp-src="'.$row["sitterImage"].'" style="background-image: url('.$row["sitterImage"].');" title="Caption. Can be aligned to any side and contain any HTML."></div>
 
 					<div class="card-list-item__main">
 						<p class="text text--sm text--border text--mb-xs">'.$row["sitterLocation"].'</p>
