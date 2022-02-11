@@ -370,6 +370,8 @@ $( document ).on( 'click', '.js-form-submit', function () {
 $( document ).on( 'click', '.js-sign-up-button', function () {
 	var xmlhttp = new XMLHttpRequest();
 
+	/* ----- Checking if entered fullname already exists ----- */
+
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			let duplicates = this.responseText;
@@ -378,6 +380,8 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 
 			if ( duplicates == 0 && signUpEmail ) {
 				$( '.js-sign-up-fullname' ).removeClass( 'input--invalid' );
+
+				/* ----- Checking if entered email already exists ----- */
 
 				var xmlhttp = new XMLHttpRequest();
 
@@ -397,7 +401,10 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 							let signUpService = $( '.js-sign-up-service' ).val();
 							let signUpPrice = $( '.js-sign-up-price' ).val();
 							let signUpImage = $( '.js-sign-up-image' ).val();
+							let signUpAbout = $( '.js-sign-up-about' ).val();
 							let signUpPassword = $( '.js-sign-up-password' ).val();
+
+							/* ----- Checking if entered password contains all required characters ----- */
 
 							let passwordValidation;
 
@@ -411,8 +418,8 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpService && signUpPrice && signUpImage && signUpPassword && passwordValidation ) {
-								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpPassword=' + signUpPassword, true );
+							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpService && signUpPrice && signUpImage && signUpPassword && passwordValidation && signUpAbout ) {
+								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
 								xmlhttp.send();
 
 								$( '.js-form-footer' ).slideDown();
@@ -446,8 +453,6 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 	xmlhttp.send();
 } );
 
-$( '.js-sign-up-fullname, .js-sign-up-email' ).change( function ( e ) { 
-	e.preventDefault();
-	
+$( '.js-sign-up-fullname, .js-sign-up-email' ).change( function () { 
 	$( this ).removeClass( 'input--invalid' );
 } );

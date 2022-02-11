@@ -8,12 +8,13 @@
 	$signUpService = $_GET["signUpService"];
 	$signUpPrice = $_GET["signUpPrice"];
 	$signUpImage = $_GET["signUpImage"];
+	$signUpAbout = $_GET["signUpAbout"];
 	$signUpPassword = $_GET["signUpPassword"];
 
 	/* -----Inserting new sitter in database-----*/
 
-	if ( !empty( $signUpFullName ) && !empty( $signUpEmail ) && !empty( $signUpLocation ) && !empty( $signUpPreferedPet ) && !empty( $signUpService ) && !empty( $signUpPrice ) && !empty( $signUpImage ) && !empty( $signUpPassword ) ) {
-		$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterService) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpService."')");
+	if ( !empty( $signUpFullName ) && !empty( $signUpEmail ) && !empty( $signUpLocation ) && !empty( $signUpPreferedPet ) && !empty( $signUpService ) && !empty( $signUpPrice ) && !empty( $signUpImage ) && !empty( $signUpAbout ) && !empty( $signUpPassword ) ) {
+		$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterService, sitterAbout) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpService."', '".$signUpAbout."')");
 		
 		/* -----Checking if entered pet exists in database----- */
 
