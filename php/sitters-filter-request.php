@@ -30,13 +30,13 @@
 	if ( $result && $result->num_rows ) {
 		while( $row = mysqli_fetch_array( $result ) ) {
 			echo'<div class="col-12 col-6-sm col-4-lg col-3-xl">
-					<div class="card-list__item">
+					<div class="card-list__item js-surface-color">
 						<div class="card-list-item__image js-image-popup" data-mfp-src="'.$row["sitterImage"].'" style="background-image: url('.$row["sitterImage"].');" title="'.$row["sitterAbout"].'"></div>
 	
 						<div class="card-list-item__main">
 							<p class="text text--sm text--border text--mb-xs">'.$row["sitterLocation"].'</p>
 	
-							<h5 class="title title--md title--mb-xs">'.$row["sitterFullName"].'</h5>
+							<h5 class="title title--md title--mb-xs js-on-surface-color">'.$row["sitterFullName"].'</h5>
 	
 							<p class="text text--md text--orange">$'.$row["sitterPrice"].'<span class="text text--md"> /day</span></p>
 						</div>
