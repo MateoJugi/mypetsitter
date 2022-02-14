@@ -25,7 +25,7 @@
 		$filter .= ' WHERE sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
 	}
 
-	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType SEPARATOR', ') AS sitterPreferedPet FROM sitterspreferedpets INNER JOIN sitters ON sitterspreferedpets.sitterID=sitters.sitterID INNER JOIN pets ON sitterspreferedpets.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID $filter" );
+	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType SEPARATOR', ') AS sitterPreferedPet FROM sitterspetsandservices INNER JOIN sitters ON sitterspetsandservices.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsandservices.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID $filter" );
 
 	if ( $result && $result->num_rows ) {
 		while( $row = mysqli_fetch_array( $result ) ) {

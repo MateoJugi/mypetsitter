@@ -107,6 +107,19 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
+$( window ).ready( function () {
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			$( '.js-filter-prefered-pets-request-select2' ).append( this.responseText );
+		}
+	};
+
+	xmlhttp.open( 'GET', 'php/filter-prefered-pets-request-select2.php', true );
+	xmlhttp.send();
+} );
+
 /* ------------------------------------------------------------ */
 
 let pageNumberConditionForPageUp = 3;
@@ -418,7 +431,7 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpService && signUpPrice && signUpImage && signUpPassword && passwordValidation && signUpAbout ) {
+							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpService && signUpPrice && signUpImage && signUpPassword && passwordValidation == 1 && signUpAbout ) {
 								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
 								xmlhttp.send();
 
@@ -455,4 +468,27 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 
 $( '.js-sign-up-fullname, .js-sign-up-email' ).change( function () { 
 	$( this ).removeClass( 'input--invalid' );
+} );
+
+/* ----- Sitter sign in request ----- */
+
+$( document ).on( 'click', '.js-sign-in-button', function () {
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			console.log(this.responseText);
+			if ( this.responseText == 0 ) {
+				console.log("nema");
+			} else {
+				console.log("ima");
+			}
+		}
+	};
+
+	let signInEmail = $( '.js-sign-in-email' ).val();
+	let signInPassword = $( '.js-sign-in-password' ).val();
+
+	xmlhttp.open( 'GET', 'php/sitters-sign-in-request.php?signInEmail=' + signInEmail + '&signInPassword=' + signInPassword, true );
+	xmlhttp.send();
 } );

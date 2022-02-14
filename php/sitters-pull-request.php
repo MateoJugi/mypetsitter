@@ -2,7 +2,7 @@
 	include 'connection.php';
 	include 'number-of-sitters-per-page.php';
 
-	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType SEPARATOR', ') AS sitterPreferedPet FROM sitterspreferedpets INNER JOIN sitters ON sitterspreferedpets.sitterID=sitters.sitterID INNER JOIN pets ON sitterspreferedpets.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice LIMIT 0, $perPage" );
+	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType SEPARATOR', ') AS sitterPreferedPet FROM sitterspetsandservices INNER JOIN sitters ON sitterspetsandservices.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsandservices.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice LIMIT 0, $perPage" );
 
 	while( $row = mysqli_fetch_array( $result ) ) {
 		echo '<div class="col-12 col-6-sm col-4-lg col-3-xl">

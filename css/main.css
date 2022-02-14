@@ -830,6 +830,7 @@ ul {
   position: absolute;
   top: 2px;
   left: -1px;
+  z-index: 3;
 }
 
 .form__icon--lg {
@@ -949,6 +950,52 @@ ul {
   transform: rotate(-45deg);
   top: 35px;
   left: 6px;
+}
+
+.select2-selection--multiple {
+  border: 0 !important;
+  border-bottom: 2px solid #bebebe !important;
+  border-radius: 0 !important;
+}
+
+.select2-selection--multiple:focus {
+  outline: none;
+}
+
+.select2-search__field {
+  margin: 0 !important;
+}
+
+.select2-selection__choice {
+  background-color: transparent !important;
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+.select2-selection__choice__remove {
+  border: 0 !important;
+}
+
+.select2-dropdown {
+  border: 0 !important;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.13) !important;
+  font-size: 13px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.select2-results__option {
+  padding-top: 10px !important;
+  padding-right: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 10px !important;
+}
+
+.select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  color: #000 !important;
 }
 
 .button {
