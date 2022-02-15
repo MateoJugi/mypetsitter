@@ -307,12 +307,13 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	};
 
 	let sitterLocation = $( '.js-filter-location' ).val();
-	let sitterService = $( '.js-filter-service' ).val();
+	let sitterPreferedService = $( '.js-filter-service' ).val();
 	let sitterPreferedPet = $( '.js-filter-prefered-pets' ).val();
+
 	let sitterMinPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'min' );
 	let sitterMaxPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'max' );
 
-	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterService=' + sitterService + '&sitterPreferedPet=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
+	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterPreferedService=' + sitterPreferedService + '&sitterPreferedPet=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
 	xmlhttp.send();
 
 	/* ----- Refreshing pagination if filter is clicked ----- */
@@ -411,7 +412,7 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 							let signUpEmail = $( '.js-sign-up-email' ).val();
 							let signUpLocation = $( '.js-sign-up-location' ).val();
 							let signUpPreferedPet = $( '.js-sign-up-prefered-pet' ).val();
-							let signUpService = $( '.js-sign-up-service' ).val();
+							let signUpPreferedService = $( '.js-sign-up-service' ).val();
 							let signUpPrice = $( '.js-sign-up-price' ).val();
 							let signUpImage = $( '.js-sign-up-image' ).val();
 							let signUpAbout = $( '.js-sign-up-about' ).val();
@@ -431,8 +432,8 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpService && signUpPrice && signUpImage && signUpPassword && passwordValidation == 1 && signUpAbout ) {
-								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpService=' + signUpService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
+							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpPassword && passwordValidation == 1 && signUpAbout ) {
+								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpPreferedService=' + signUpPreferedService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
 								xmlhttp.send();
 
 								$( '.js-form-footer' ).slideDown();

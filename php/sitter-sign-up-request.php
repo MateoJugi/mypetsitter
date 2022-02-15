@@ -1,23 +1,22 @@
 <?php
 	include 'connection.php';
 
-	$signUpFullName = mysqli_real_escape_string( $con, $_GET["signUpFullName"] );
-	$signUpEmail = mysqli_real_escape_string( $con, $_GET["signUpEmail"] );
-	$signUpLocation = mysqli_real_escape_string( $con, $_GET["signUpLocation"] );
-	$signUpPreferedPet = mysqli_real_escape_string( $con, $_GET["signUpPreferedPet"] );
-	$signUpService = mysqli_real_escape_string( $con, $_GET["signUpService"] );
-	$signUpPrice = mysqli_real_escape_string( $con, $_GET["signUpPrice"] );
-	$signUpImage = mysqli_real_escape_string( $con, $_GET["signUpImage"] );
-	$signUpAbout = mysqli_real_escape_string( $con, $_GET["signUpAbout"] );
-	$signUpPassword = mysqli_real_escape_string( $con, $_GET["signUpPassword"] );
+	$signUpFullName = $_GET["signUpFullName"];
+	$signUpEmail = $_GET["signUpEmail"];
+	$signUpLocation = $_GET["signUpLocation"];
+	$signUpPreferedPet = $_GET["signUpPreferedPet"];
+	$signUpPreferedService = $_GET["signUpPreferedService"];
+	$signUpPrice = $_GET["signUpPrice"];
+	$signUpImage = $_GET["signUpImage"];
+	$signUpAbout = $_GET["signUpAbout"];
+	$signUpPassword = $_GET["signUpPassword"];
 
 	$signUpPreferedPetArray = explode( ',', $signUpPreferedPet );
+	$signUpPreferedServiceArray = explode( ',', $signUpPreferedService );
 
-	print_r ($signUpPreferedPetArray);
+	if ( !empty( $signUpFullName ) && !empty( $signUpEmail ) && !empty( $signUpLocation ) && !empty( $signUpPreferedPet ) && !empty( $signUpPreferedService ) && !empty( $signUpPrice ) && !empty( $signUpImage ) && !empty( $signUpAbout ) && !empty( $signUpPassword ) ) {
 
-	if ( !empty( $signUpFullName ) && !empty( $signUpEmail ) && !empty( $signUpLocation ) && !empty( $signUpPreferedPet ) && !empty( $signUpService ) && !empty( $signUpPrice ) && !empty( $signUpImage ) && !empty( $signUpAbout ) && !empty( $signUpPassword ) ) {
-
-		$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterService, sitterAbout) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpService."', '".$signUpAbout."')");
+		$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterAbout) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpAbout."')");
 		
 		/* -----Checking if entered pet exists in database----- */
 
@@ -57,7 +56,17 @@
 
 			/* -----Inserting connection between sitter and pet----- */
 
-			$result5 = mysqli_query( $con, "INSERT INTO sitterspetsandservices (sitterID, petID) VALUES ($lastSitterID, $petID)" );
+			$result5 = mysqli_query( $con, "INSERT INTO sitterspetsconnection (sitterID, petID) VALUES ($lastSitterID, $petID)" );
+		}
+
+		foreach ( $signUpPreferedServiceArray as $service ) {
+			$result6 = mysqli_query( $con, "SELECT serviceID FROM services WHERE serviceType = '".$service."'" );
+
+			$serviceID = mysqli_fetch_array( $result6 )[0];
+
+			/* -----Inserting connection between sitter and pet----- */
+
+			$result7 = mysqli_query( $con, "INSERT INTO sittersservicesconnection (sitterID, serviceID) VALUES ($lastSitterID, $serviceID)" );
 		}
 
 		$con->close();

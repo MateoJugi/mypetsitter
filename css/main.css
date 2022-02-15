@@ -913,7 +913,7 @@ ul {
   position: absolute;
   height: 7px;
   width: 100%;
-  background: #fff;
+  background: #f1f1f1;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -1024,6 +1024,16 @@ ul {
   padding-left: 10px;
 }
 
+.dark-theme-wrapper .text {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .dark-theme-wrapper .text {
+    display: block;
+  }
+}
+
 .dark-theme-trigger {
   height: 40px;
   width: 40px;
@@ -1083,6 +1093,10 @@ ul {
 
 .dark-theme-change .theme-surface-fill {
   fill: #f1f1f1;
+}
+
+.dark-theme-change .site-header--sticky .js-site-header-menu span {
+  background-color: #f1f1f1;
 }
 
 .button {

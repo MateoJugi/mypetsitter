@@ -1,7 +1,7 @@
 window.onscroll = function () {
 	let prevScrollpos = window.scrollY;
 
-	if ( prevScrollpos >= 875 ) {
+	if ( prevScrollpos >= 975 ) {
 		let currentScrollPos = window.scrollY;
 
 		document.getElementsByClassName( 'site-header--sticky' )[0].style.zIndex = '2'

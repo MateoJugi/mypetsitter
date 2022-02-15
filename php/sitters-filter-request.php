@@ -3,8 +3,8 @@
 
 	$andArray = [];
 
-	foreach ( [ 'sitterLocation', 'sitterService' ] as $key ) { if ( $_GET[$key] ) {
-		$andArray[] = "$key = '$_GET[$key]'";
+	foreach ( [ 'sitterLocation', 'sitterPreferedPet', 'sitterPreferedService' ] as $key ) { if ( $_GET[$key] ) {
+		$andArray[] = "$key LIKE '%$_GET[$key]%'";
 	} }
 
 	$filter = implode( " AND ", $andArray );
@@ -19,13 +19,7 @@
 		$filter .= " WHERE sitterPrice BETWEEN ". $_GET['sitterMinPrice'] ." AND ". $_GET['sitterMaxPrice'];
 	}
 
-	if ( strpos( $filter, 'WHERE' ) !== false && $_GET['sitterPreferedPet'] ) {
-		$filter .= ' AND sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
-	} else if ( strpos( $filter, 'WHERE' ) !== true && $_GET['sitterPreferedPet'] ) {
-		$filter .= ' WHERE sitterPreferedPet LIKE "%'. $_GET['sitterPreferedPet'] .'%"';
-	}
-
-	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(petType SEPARATOR', ') AS sitterPreferedPet FROM sitterspetsandservices INNER JOIN sitters ON sitterspetsandservices.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsandservices.petID=pets.petID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID $filter" );
+	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(DISTINCT(petType) SEPARATOR ', ') AS sitterPreferedPet, GROUP_CONCAT(DISTINCT(serviceType) SEPARATOR ', ') AS sitterPreferedService FROM sitterspetsconnection INNER JOIN sitters ON sitterspetsconnection.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsconnection.petID=pets.petID INNER JOIN sittersservicesconnection ON sittersservicesconnection.sitterID=sitterspetsconnection.sitterID INNER JOIN services ON sittersservicesconnection.serviceID=services.serviceID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID $filter ORDER BY sitterPrice" );
 
 	if ( $result && $result->num_rows ) {
 		while( $row = mysqli_fetch_array( $result ) ) {
@@ -42,12 +36,12 @@
 						</div>
 	
 						<div class="card-list-item__footer">
-							<p class="text text--sm">'.$row["sitterService"].'</p>
+							<p class="text text--sm">'.$row["sitterPreferedService"].'</p>
 							
 							<p class="text text--sm">'.$row["sitterPreferedPet"].'</p>
 						</div>
 	
-						<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterService="'.$row["sitterService"].'"  data-sitterPrice="'.$row["sitterPrice"].'" data-sitterImage="'.$row["sitterImage"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'">Meet up</a>
+						<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterPreferedService="'.$row["sitterPreferedService"].'"  data-sitterPrice="'.$row["sitterPrice"].'" data-sitterImage="'.$row["sitterImage"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'">Meet up</a>
 					</div>
 				</div>';
 		}

@@ -17,6 +17,14 @@
 	padding-right: 10px;
 	padding-bottom: 5px;
 	padding-left: 10px;
+
+	.text {
+		display: none;
+
+		@media ( min-width: 768px ) {
+			display: block;
+		}
+	}
 }
 
 .dark-theme-trigger {
@@ -79,5 +87,9 @@
 	
 	.theme-surface-fill {
 		fill: #f1f1f1;
+	}
+
+	.site-header--sticky .js-site-header-menu span {
+		background-color: #f1f1f1;
 	}
 }
