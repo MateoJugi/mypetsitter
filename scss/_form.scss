@@ -55,6 +55,11 @@
 			color: $blue;
 		}
 	}
+
+	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
 }
 
 .form__input--orange:focus {
