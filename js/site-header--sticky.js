@@ -4,15 +4,15 @@ window.onscroll = function () {
 	if ( prevScrollpos >= 975 ) {
 		let currentScrollPos = window.scrollY;
 
-		document.getElementsByClassName( 'site-header--sticky' )[0].style.zIndex = '2'
+		$( '.site-header--sticky' ).css( { 'opacity': '1', 'zIndex': '2' } );
 
-		document.getElementsByClassName( 'site-header--sticky' )[0].style.opacity = '1';
+		$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );
 
 		prevScrollpos = currentScrollPos;
 	}
 	else {
-		document.getElementsByClassName( 'site-header--sticky' )[0].style.zIndex = '0'
+		$( '.site-header--sticky' ).css( { 'opacity': '0', 'zIndex': '0' } );
 
-		document.getElementsByClassName( 'site-header--sticky' )[0].style.opacity = '0';
+		$( '.dark-theme-wrapper' ).css( { 'opacity': '0', 'zIndex': '-1' } );
 	}
 }

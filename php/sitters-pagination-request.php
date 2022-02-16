@@ -8,8 +8,8 @@
 
 	while( $row = mysqli_fetch_array( $result ) ) {
 		echo '<div class="col-12 col-6-sm col-4-lg col-3-xl">
-				<div class="card-list__item theme-surface-color">
-					<div class="card-list-item__image js-image-popup" data-mfp-src="'.$row["sitterImage"].'" style="background-image: url('.$row["sitterImage"].');" title="'.$row["sitterAbout"].'"></div>
+				<div class="card-list__item theme-surface-color js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterPreferedService="'.$row["sitterPreferedService"].'"  data-sitterPrice="'.$row["sitterPrice"].'" data-sitterImage="'.$row["sitterImage"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'">
+					<div class="card-list-item__image" data-mfp-src="'.$row["sitterImage"].'" style="background-image: url('.$row["sitterImage"].');"></div>
 
 					<div class="card-list-item__main">
 						<p class="text text--sm text--border text--mb-xs">'.$row["sitterLocation"].'</p>
@@ -25,7 +25,7 @@
 						<p class="text text--sm">'.$row["sitterPreferedPet"].'</p>
 					</div>
 
-					<a href="#rent-pop-up" class="button button--xl button--filled js-popup-form" data-sitterEmail="'.$row["sitterEmail"].'" data-sitterFullName="'.$row["sitterFullName"].'" data-sitterPrice="'.$row["sitterPrice"].'" data-sitterLocation="'.$row["sitterLocation"].'" data-sitterPreferedService="'.$row["sitterPreferedService"].'"  data-sitterPrice="'.$row["sitterPrice"].'" data-sitterImage="'.$row["sitterImage"].'" data-sitterPreferedPet="'.$row["sitterPreferedPet"].'">Meet up</a>
+					<a href="#rent-pop-up" class="button button--xl button--filled">Meet up</a>
 				</div>
 			</div>';
 	}

@@ -362,15 +362,16 @@ $( document ).on( 'click', '.js-form-submit', function () {
 	let customerEmail = $( '.js-popup-customerEmail' ).val();
 	let customerContactNumber = $( '.js-popup-customerContactNumber' ).val();
 	let customerPet = $( '.js-popup-customerPet' ).val();
+	let customerService =  $( '.js-popup-customerService' ).val();
 	let startDate = $( '.js-popup-startDate' ).val();
 	let endDate = $( '.js-popup-endDate' ).val();
 	let customerNotes = $( '.js-popup-customerNotes' ).val();
 	let sitterEmail = $( this ).attr( 'data-sitterEmail' );
 
-	xmlhttp.open( 'GET', 'php/customer-sitter-email-contact.php?customerFullName=' + customerFullName + '&customerEmail=' + customerEmail + '&customerContactNumber=' + customerContactNumber + '&customerPet=' + customerPet + '&startDate=' + startDate + '&endDate=' + endDate + '&customerNotes=' + customerNotes + '&sitterEmail=' + sitterEmail, true );
+	xmlhttp.open( 'GET', 'php/customer-sitter-email-contact.php?customerFullName=' + customerFullName + '&customerEmail=' + customerEmail + '&customerContactNumber=' + customerContactNumber + '&customerPet=' + customerPet + '&customerService=' + customerService + '&startDate=' + startDate + '&endDate=' + endDate + '&customerNotes=' + customerNotes + '&sitterEmail=' + sitterEmail, true );
 	xmlhttp.send();
 
-	if( customerFullName && customerEmail && customerEmail.includes( '@' ) && customerEmail.split( '@' ).pop() && customerContactNumber && customerPet && startDate && endDate ) {
+	if( customerFullName && customerEmail && customerEmail.includes( '@' ) && customerEmail.split( '@' ).pop() && customerContactNumber && customerPet && customerService && startDate && endDate ) {
 		$( '.js-form-footer' ).slideDown();
 
 		setTimeout( function() {
