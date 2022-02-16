@@ -112,6 +112,6 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 		},
 		type: 'inline',
 		removalDelay: 300,
-		mainClass: 'mfp-fade'
+		mainClass: 'mfp-fade',
 	} );
 } );

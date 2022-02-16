@@ -919,7 +919,7 @@ ul {
 .site-header__menu-icon span {
   display: block;
   position: absolute;
-  height: 4.9px;
+  height: 5px;
   width: 100%;
   background: #f1f1f1;
   border-radius: 9px;
@@ -945,7 +945,7 @@ ul {
 }
 
 .site-header__menu-icon span:nth-child(2) {
-  top: 12.6px;
+  top: 12.5px;
   transform-origin: left center;
 }
 
@@ -956,7 +956,7 @@ ul {
 }
 
 .site-header__menu-icon span:nth-child(3) {
-  top: 25.2px;
+  top: 25px;
   transform-origin: left center;
 }
 
@@ -968,8 +968,8 @@ ul {
 
 .site-header__menu-icon.open span:nth-child(1) {
   transform: rotate(45deg);
-  top: 2.1px;
-  left: 4.9px;
+  top: 2px;
+  left: 5px;
 }
 
 @media (min-width: 576px) {
@@ -986,8 +986,8 @@ ul {
 
 .site-header__menu-icon.open span:nth-child(3) {
   transform: rotate(-45deg);
-  top: 25.5px;
-  left: 4.2px;
+  top: 25px;
+  left: 4px;
 }
 
 @media (min-width: 576px) {
@@ -1138,6 +1138,15 @@ ul {
 
 .dark-theme-change .site-header--sticky .js-site-header-menu span {
   background-color: #f1f1f1;
+}
+
+.dark-theme-change .select2-selection--multiple {
+  background-color: transparent !important;
+  border-color: #1e1e1e !important;
+}
+
+.dark-theme-change .select2-selection--multiple:focus {
+  border-color: inherit;
 }
 
 .button {

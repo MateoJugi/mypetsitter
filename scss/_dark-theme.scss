@@ -93,4 +93,13 @@
 	.site-header--sticky .js-site-header-menu span {
 		background-color: #f1f1f1;
 	}
+
+	.select2-selection--multiple {
+		background-color: transparent !important;
+		border-color: #1e1e1e !important;
+
+		&:focus {
+			border-color: inherit;
+		}
+	}
 }

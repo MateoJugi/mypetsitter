@@ -25,7 +25,7 @@
 .site-header__menu-icon span {
 	display: block;
 	position: absolute;
-	height: 4.9px;
+	height: 5px;
 	width: 100%;
 	background: #f1f1f1;
 	border-radius: 9px;
@@ -58,7 +58,7 @@
 }
 
 .site-header__menu-icon span:nth-child( 2 ) {
-	top: 12.6px;
+	top: 12.5px;
 	-webkit-transform-origin: left center;
 	-moz-transform-origin: left center;
 	-o-transform-origin: left center;
@@ -70,7 +70,7 @@
 }
 
 .site-header__menu-icon span:nth-child( 3 ) {
-	top: 25.2px;
+	top: 25px;
 	-webkit-transform-origin: left center;
 	-moz-transform-origin: left center;
 	-o-transform-origin: left center;
@@ -86,8 +86,8 @@
 	-moz-transform: rotate(45deg);
 	-o-transform: rotate(45deg);
 	transform: rotate(45deg);
-	top: 2.1px;
-	left: 4.9px;
+	top: 2px;
+	left: 5px;
 
 	@media ( min-width: 576px ) {
 		top: 3px;
@@ -105,8 +105,8 @@
 	-moz-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-	top: 25.5px;
-	left: 4.2px;
+	top: 25px;
+	left: 4px;
 
 	@media ( min-width: 576px ) {
 		top: 35px;
