@@ -1003,6 +1003,7 @@ ul {
 .select2-selection--multiple {
   border: 0 !important;
   border-bottom: 2px solid #bebebe !important;
+  color: #808080 !important;
   border-radius: 0 !important;
   padding-right: 40px !important;
   padding-left: 30px !important;

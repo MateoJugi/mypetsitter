@@ -482,18 +482,94 @@ $( document ).on( 'click', '.js-profile-delete-button', function () {
 	}, 1500 );
 } );
 
-/* ----- Sitter profile changes click listener ----- */
+/* ----- Sitter profile changes request ----- */
 
 $( document ).on( 'click', '.js-profile-changes-button', function () {
-	sitterDelete( this );
+	var xmlhttp = new XMLHttpRequest();
 
-	setTimeout( function() {
-		sitterSignUp();
-	}, 1000 );
+	let sitterID = $( this ).attr( 'data-sitterID' );
 
-	setTimeout( function() {
-		window.location.href = 'index.php';
-	}, 1500 );
+	/* ----- Checking if entered fullname already exists ----- */
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			let duplicates = this.responseText;
+
+			let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
+
+			if ( duplicates == 0 && profileChangesEmail ) {
+				$( '.js-sitter-profile-changes-fullname' ).removeClass( 'input--invalid' );
+
+				/* ----- Checking if entered email already exists ----- */
+
+				var xmlhttp = new XMLHttpRequest();
+
+				xmlhttp.onreadystatechange = function() {
+					if ( this.readyState == 4 && this.status == 200 ) {
+						let duplicates = this.responseText;
+
+						if ( duplicates == 0 ) {
+							$( '.js-sitter-profile-changes-email' ).removeClass( 'input--invalid' );
+
+							var xmlhttp = new XMLHttpRequest();
+
+							let profileChangesFullName = $( '.js-sitter-profile-changes-fullname' ).val();
+							let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
+							let profileChangesLocation = $( '.js-sitter-profile-changes-location' ).val();
+							let profileChangesPreferedPet = $( '.js-sitter-profile-changes-prefered-pet' ).val();
+							let profileChangesPreferedService = $( '.js-sitter-profile-changes-service' ).val();
+							let profileChangesPrice = $( '.js-sitter-profile-changes-price' ).val();
+							let profileChangesImage = $( '.js-sitter-profile-changes-image' ).val();
+							let profileChangesAbout = $( '.js-sitter-profile-changes-about' ).val();
+							let profileChangesPassword = $( '.js-sitter-profile-changes-password' ).val();
+
+							/* ----- Checking if entered password contains all required characters ----- */
+
+							let passwordValidation;
+
+							if ( /[A-Z]/.test( profileChangesPassword ) && /[0-9]/.test( profileChangesPassword ) ) {
+								passwordValidation = 1;
+
+								$( '.js-sitter-profile-changes-password' ).removeClass( 'input--invalid' );
+							} else {
+								passwordValidation = 0;
+
+								$( '.js-sitter-profile-changes-password' ).addClass( 'input--invalid' );
+							}
+
+							if ( profileChangesEmail && profileChangesEmail && profileChangesEmail.includes( '@' ) && profileChangesEmail.split( '@' ).pop() && profileChangesLocation && profileChangesPreferedPet && profileChangesPreferedService && profileChangesPrice && profileChangesImage && profileChangesPassword && passwordValidation == 1 && profileChangesAbout ) {
+								xmlhttp.open( 'GET', 'php/sitter-profile-changes-request.php?profileChangesFullName=' + profileChangesFullName + '&profileChangesEmail=' + profileChangesEmail + '&profileChangesLocation=' + profileChangesLocation + '&profileChangesPreferedPet=' + profileChangesPreferedPet + '&profileChangesPreferedService=' + profileChangesPreferedService + '&profileChangesPrice=' + profileChangesPrice + '&profileChangesImage=' + profileChangesImage + '&profileChangesAbout=' + profileChangesAbout + '&profileChangesPassword=' + profileChangesPassword + '&profileChangesSitterID=' + sitterID, true );
+								xmlhttp.send();
+
+								$( '.js-form-footer' ).slideDown();
+
+								setTimeout( function() {
+									window.location.href = 'index.php';
+								}, 1500 );
+							}
+						} else {
+							$( '.js-sitter-profile-changes-email' ).addClass( 'input--invalid' );
+						}
+					}
+				};
+
+				let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
+
+				xmlhttp.open( 'GET', 'php/sitter-profile-changes-email-duplicates.php?profileChangesEmail=' + profileChangesEmail + '&sitterID=' + sitterID, true );
+				xmlhttp.send();
+			} else if ( duplicates == 0 && !profileChangesEmail ) {
+				$( '.js-sitter-profile-changes-fullname' ).removeClass( 'input--invalid' );
+			}
+			 else {
+				$( '.js-sitter-profile-changes-fullname' ).addClass( 'input--invalid' );
+			}
+		}
+	};
+
+	let profileChangesFullName = $( '.js-sitter-profile-changes-fullname' ).val();
+
+	xmlhttp.open( 'GET', 'php/sitter-profile-changes-fullname-duplicates.php?profileChangesFullName=' + profileChangesFullName + '&sitterID=' + sitterID, true );
+	xmlhttp.send();
 } );
 
 /* ----- Sitter profile sign out request ----- */
@@ -527,8 +603,6 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			let signInResposne = this.responseText;
-
-			console.log(signInResposne);
 
 			if ( signInResposne == 0 ) {
 				$( '.js-form-footer-login-fail' ).slideDown();
