@@ -86,12 +86,12 @@
 	}
 }
 
-.text--success {
+.text--message {
 	font-size: 20px;
 	width: fit-content;
 	text-align: center;
-	color: #4bb543;
-	border: 2px dotted #4bb543;
+	color: #000;
+	border: 2px dotted #000;
 	border-radius: 8px;
 	padding-top: 5px;
 	padding-right: 5px;
@@ -100,6 +100,16 @@
 	margin-top: 20px;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.text--fail {
+	color: $red;
+	border-color: $red;
+}
+
+.text--success {
+	color: #4bb543;
+	border-color: #4bb543;
 }
 
 .text--border {

@@ -71,7 +71,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 						sitterPreferedPetOptionInput+
 					'</datalist>'+
 
-					'<svg class="input-icon input-icon--top-md" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>'+
+					'<svg class="form__icon form__icon--second" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>'+
 					'</svg>'+
 				'</div>'+
 
@@ -85,7 +85,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 						sitterPreferedServiceOptionInput+
 					'</datalist>'+
 
-					'<svg class="input-icon input-icon--top-md" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>'+
+					'<svg class="form__icon form__icon--second" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>'+
 					'</svg>'+
 				'</div>'+
 

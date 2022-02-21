@@ -33,6 +33,14 @@
 	}
 }
 
+.button--red {
+	background-color: $red;
+
+	&:hover {
+		background-color: $red-hover;
+	}
+}
+
 .button--xl {
 	display: flex;
 	justify-content: center;

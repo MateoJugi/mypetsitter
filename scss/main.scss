@@ -14,7 +14,6 @@ html {
 body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 500;
-	overflow-x: hidden;
 	margin: 0;
 }
 
@@ -41,6 +40,8 @@ $blue-hover: #363c79;
 $orange: #fd7034;
 $orange-hover: #ca5d2e;
 $orange-dark: #fe6536;
+$red: #ff0000;
+$red-hover: #af0000;
 $gray: #f2f2f2;
 $gray-dark: #808080;
 $box-shadow: rgba( 149, 157, 165, 0.2 ) 0 0 20px;
@@ -81,13 +82,9 @@ $box-shadow-orange: #fe6536 0 0 20px;
 	padding-left: 0 !important;
 
 	@media ( min-width: 400px ) {
-		padding-right: 15px;
-		padding-left: 15px;
+		padding-right: 15px !important;
+		padding-left: 15px !important;
 	}
-}
-
-.tooltip-trigger {
-	pointer-events: all !important;
 }
 
 .google-translate {

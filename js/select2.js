@@ -12,7 +12,3 @@ $( '.js-select2--tags' ).select2( {
 } );
 
 $( '.select2-selection' ).addClass( 'form__input' );
-
-$( '.js-select2' ).on( 'change', function () {
-	console.log($(this).val());
-} )

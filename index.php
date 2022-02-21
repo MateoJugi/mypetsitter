@@ -1,3 +1,11 @@
+<?php
+	if ( isset( $_SESSION["signInSitterFullName"] ) ) {
+		session_destroy();
+		session_start();
+	} else {
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,9 +37,9 @@
 							<ul class="site-header__navigation">
 								<li class="site-navigation__item"><a href="#services">Services</a></li>
 
-								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
-
 								<li class="site-navigation__item"><a href="#sitters">Find sitter</a></li>
+
+								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
 							</ul>
 
 							<div class="site-header__navigation">
@@ -54,9 +62,9 @@
 				<ul class="site-header-navigation__inner">
 					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#services">Services</a></li>
 
-					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
+					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
 
-					<li class="site-navigation__item site-navigation__item--filled site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
+					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
 					<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
 						<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
@@ -79,9 +87,9 @@
 							<ul class="site-header__navigation theme-on-surface-color">
 								<li class="site-navigation__item"><a href="#services">Services</a></li>
 
-								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
+								<li class="site-navigation__item"><a href="#sitters">Find sitter</a></li>
 
-								<li class="site-navigation__item site-navigation__item--filled"><a href="#sitters">Find sitter</a></li>
+								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
 							</ul>
 
 							<div class="site-header__navigation">
@@ -104,9 +112,9 @@
 				<ul class="site-header-navigation__inner">
 					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#services">Services</a></li>
 
-					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
+					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
 
-					<li class="site-navigation__item site-navigation__item--filled site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
+					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
 					<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
 						<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
@@ -446,7 +454,7 @@
 						<datalist class="js-form-input-location" id="form-input-location">
 						</datalist>
 
-						<svg class="input-icon input-icon--top-md" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+						<svg class="form__icon form__icon--second" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 						</svg>
 					</div>
 
@@ -457,7 +465,7 @@
 						<select class="js-select2 form__input form__input--orange js-sign-up-prefered-pet js-filter-prefered-pets-request-select2 js-select2--tags theme-surface-color" name="states[]" multiple="multiple" style="width: 100%;" data-placeholder="Prefered pets">
 						</select>
 
-						<svg class="input-icon input-icon--top-md" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+						<svg class="form__icon form__icon--second" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 						</svg>
 					</div>
 
@@ -473,7 +481,7 @@
 							<option value="House sitting">House sitting</option>
 						</select>
 
-						<svg class="input-icon input-icon--top-md" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
+						<svg class="form__icon form__icon--second" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 						</svg>
 					</div>
 
@@ -490,7 +498,7 @@
 
 						<input type="url" class="form__input form__input--orange js-sign-up-image theme-surface-color" placeholder="Image url" required />
 
-						<svg class="input-icon input-icon--top-none tooltip-trigger js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g></svg>
+						<svg class="form__icon form__icon--second form__icon--tooltip js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g></svg>
 
 						<p class="text text--mt-sm text--tooltip">To display the desired image use <a class="link" href="https://postimages.org/" target="_blank">PostImages</a> and get <span class="text text--underline">direct link</span> of your image.</p>
 					</div>
@@ -508,7 +516,7 @@
 	
 						<input type="password" class="form__input form__input--orange js-sign-up-password theme-surface-color" placeholder="Password" required />
 
-						<svg class="input-icon input-icon--top-none tooltip-trigger js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g></svg>
+						<svg class="form__icon form__icon--second form__icon--tooltip js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g></svg>
 
 						<p class="text text--mt-sm text--tooltip">Password must contain at least one uppercase letter and number.</p>
 					</div>
@@ -516,13 +524,13 @@
 					<input type="submit" value="Sign up" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none js-sign-up-button">
 
 					<div class="form__footer js-form-footer">
-						<p class="text--success">Registration has been sent succesfully!</p>
+						<p class="text text--message text--success">Registration has been sent succesfully!</p>
 					</div>
 				</form>
 			</div>
 
 			<div class="white-pop-up white-pop-up--title-lg mfp-hide theme-background-color" id="sign-in-pop-up">
-				<form class="form">
+				<form class="form" enctype="multipart/form-data" onsubmit="return false">
 					<h3 class="title title--lg title--white title--mb-xl theme-on-surface-color">Welcome<br> Back</h3>
 	
 					<div class="form__item">
@@ -537,10 +545,16 @@
 	
 						<input type="password" class="form__input js-sign-in-password theme-surface-color" placeholder="Password" required>
 					</div>
-	
-					<!-- <a href="#" class="text text--xs text--blue flex-align-self-end text--mt-sm">Forgot your password?</a> -->
-	
+
 					<input type="submit" value="Sign in" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-sign-in-button">
+
+					<div class="form__footer js-form-footer-login-fail">
+						<p class="text text--message text--fail">Entered email or password are incorrect.</p>
+					</div>
+
+					<div class="form__footer js-form-footer-login-success">
+						<p class="text text--message text--success">Login successful.</p>
+					</div>
 				</form>
 			</div>
 
@@ -601,7 +615,7 @@
 		<script src="js/site-header-navigation-mobile.js"></script>
 		<script src="js/site-header--sticky.js"></script>
 		<script src="js/card-list-pagination--active.js"></script>
-		<script src="js/database-request.js"></script>
+		<script src="js/xmlhttp-requests.js"></script>
 		<script src="js/popup-form.js"></script>
 		<script src="magnific-popup/magnific-popup-trigger.js"></script>
 		<script src="js/json-location-request.js"></script>

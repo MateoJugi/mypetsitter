@@ -11,19 +11,20 @@
 .site-header--bg-none {
 	background-color: transparent;
 	box-shadow: none;
-
-	* {
-		color: #fff;
-	}
+	color: #fff;
 }
 
 .site-header--sticky {
 	transition: .3s;
 	background-color: #fff;
-	box-shadow: 0 15px 10px -15px rgba( 17, 17, 17, 0.164 );
 	opacity: 0;
 	z-index: 0;
 	position: fixed;
+}
+
+.site-header--color-black {
+	box-shadow: 0 15px 10px -15px rgba( 17, 17, 17, 0.164 );
+	color: #000;
 }
 
 .site-header__inner {

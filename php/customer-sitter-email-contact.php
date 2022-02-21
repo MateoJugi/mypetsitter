@@ -3,12 +3,13 @@
 	$customerEmail = $_GET['customerEmail'];
 	$customerContactNumber = $_GET['customerContactNumber']; 
 	$customerPet = $_GET['customerPet'];
+	$customerService = $_GET['customerService'];
 	$startDate = $_GET['startDate'];
 	$endDate = $_GET['endDate'];
 	$customerNotes = $_GET['customerNotes'];
 	$sitterEmail = $_GET['sitterEmail'];
 
-	if ( !empty( $customerFullName ) && !empty( $customerEmail ) && !empty( $customerContactNumber ) && !empty( $customerPet ) && !empty( $startDate ) && !empty( $endDate ) ) {
+	if ( !empty( $customerFullName ) && !empty( $customerEmail ) && !empty( $customerContactNumber ) && !empty( $customerPet ) && !empty( $customerService ) && !empty( $startDate ) && !empty( $endDate ) ) {
 		$to = "mateojuginovic@gmail.com";
 
 		$subject = 'You have new potential customer';
@@ -27,6 +28,7 @@
 						<p><b>Customer email: </b>'.$customerEmail.'</p>
 						<p><b>Customer contact number: </b>'.$customerContactNumber.'</p>
 						<p><b>Customer pet: </b>'.$customerPet.'</p>
+						<p><b>Customer service: </b>'.$customerService.'</p>
 						<p><b>Start date: </b>'.$startDate.'</p>
 						<p><b>End date: </b>'.$endDate.'</p>
 						<p><b>Customer additional notes: </b>'.$customerNotes.'</p>
@@ -47,6 +49,7 @@
 						<p><b>Customer email: </b>'.$customerEmail.'</p>
 						<p><b>Customer contact number: </b>'.$customerContactNumber.'</p>
 						<p><b>Customer pet: </b>'.$customerPet.'</p>
+						<p><b>Customer service: </b>'.$customerService.'</p>
 						<p><b>Start date: </b>'.$startDate.'</p>
 						<p><b>End date: </b>'.$endDate.'</p>
 					</body>

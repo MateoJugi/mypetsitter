@@ -1,4 +1,22 @@
 $( window ).ready( function () {
+	let windowWidth = window.innerWidth;
+	let perPage;
+
+	if ( windowWidth >= 992 && windowWidth <= 1200 ) {
+		perPage = 6;
+	} else {
+		perPage = 4;
+	}
+
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.open( 'GET', 'php/number-of-sitters-per-page.php?perPage=' + perPage, true );
+	xmlhttp.send();
+} );
+
+/* ----- Adding first 4 sitters to first page ----- */
+
+$( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -21,7 +39,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Adding first 16 sitters to sitter galery ----- */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -36,7 +54,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Generating pagination depending on number of sitters per page ----- */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -77,7 +95,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Inserting options inside location filter selects ----- */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -92,7 +110,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Inserting options inside pets filter selects ----- */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -120,7 +138,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Changing pagination depending on clicked one ----- */
 
 let pageNumberConditionForPageUp = 3;
 let pageNumberConditionForPageDown = 1;
@@ -281,7 +299,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', fu
 	d = 4;
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Sitter list pagination request ----- */
 
 $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	e.preventDefault();
@@ -348,7 +366,7 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	$( '.js-card-list-pagination-item-removable' ).slice( 3 ).css( 'display', 'none' );
 } );
 
-/* ------------------------------------------------------------ */
+/* ----- Connecting sitter and customer via email ----- */
 
 $( document ).on( 'click', '.js-form-submit', function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -380,9 +398,20 @@ $( document ).on( 'click', '.js-form-submit', function () {
 	}
 } );
 
-/* ----- Sitter sign up request ----- */
+/* ----- Sitter profile delete function ----- */
 
-$( document ).on( 'click', '.js-sign-up-button', function () {
+function sitterDelete ( element ) {
+	let profileDeleteSitterID = $( element ).attr( 'data-sitterID' );
+
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.open( 'GET', 'php/sitter-profile-delete-request.php?profileDeleteSitterID=' + profileDeleteSitterID , true );
+	xmlhttp.send();
+}
+
+/* ----- Sitter sign up function ----- */
+
+function sitterSignUp () {
 	var xmlhttp = new XMLHttpRequest();
 
 	/* ----- Checking if entered fullname already exists ----- */
@@ -466,10 +495,55 @@ $( document ).on( 'click', '.js-sign-up-button', function () {
 
 	xmlhttp.open( 'GET', 'php/sign-up-fullname-duplicates.php?signUpFullName=' + signUpFullName, true );
 	xmlhttp.send();
+}
+
+/* ----- Sitter profile delete click listener ----- */
+
+$( document ).on( 'click', '.js-profile-delete-button', function () {
+	sitterDelete( this );
+
+	$( '.js-form-footer-delete' ).slideDown();
+
+	setTimeout( function() {
+		window.location.href='index.php';
+	}, 3000 );
 } );
 
-$( '.js-sign-up-fullname, .js-sign-up-email' ).change( function () { 
-	$( this ).removeClass( 'input--invalid' );
+/* ----- Sitter profile changes click listener ----- */
+
+$( document ).on( 'click', '.js-profile-changes-button', function () {
+	sitterDelete( this );
+
+	setTimeout( function() {
+		sitterSignUp();
+	}, 1000 );
+
+	setTimeout( function() {
+		window.location.href='index.php';
+	}, 3000 );
+} );
+
+/* ----- Sitter profile sign out request ----- */
+
+$( document ).on( 'click', '.js-profile-sign-out-button', function () {
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			setTimeout( function() {
+				window.location.href='index.php';
+			}, 1000 );
+		}
+	}
+
+	xmlhttp.open( 'GET', 'php/sitters-profile-sign-out-request.php', true );
+	xmlhttp.send();
+} );
+
+/* ----- Sitter sign up click listener ----- */
+
+$( document ).on( 'click', '.js-sign-up-button', function () {
+	sitterSignUp();
 } );
 
 /* ----- Sitter sign in request ----- */
@@ -479,11 +553,26 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
-			console.log(this.responseText);
-			if ( this.responseText == 0 ) {
-				console.log("nema");
+			let signInResposne = this.responseText;
+
+			console.log(signInResposne);
+
+			if ( signInResposne == 0 ) {
+				$( '.js-form-footer-login-fail' ).slideDown();
+
+				$( '.js-sign-in-email' ).addClass( 'input--invalid' );
+				$( '.js-sign-in-password' ).addClass( 'input--invalid' );
 			} else {
-				console.log("ima");
+				$( '.js-form-footer-login-fail' ).slideUp();
+
+				$( '.js-sign-in-email' ).removeClass( 'input--invalid' );
+				$( '.js-sign-in-password' ).removeClass( 'input--invalid' );
+
+				$( '.js-form-footer-login-success' ).slideDown();
+
+				setTimeout( function() {
+					window.location.href='profile.php';
+				}, 3000 );
 			}
 		}
 	};
@@ -493,4 +582,9 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 
 	xmlhttp.open( 'GET', 'php/sitters-sign-in-request.php?signInEmail=' + signInEmail + '&signInPassword=' + signInPassword, true );
 	xmlhttp.send();
+} );
+
+
+$( '.js-sign-up-fullname, .js-sign-up-email, .js-sign-up-password, .js-sign-in-email, .js-sign-in-password' ).change( function () { 
+	$( this ).removeClass( 'input--invalid' );
 } );
