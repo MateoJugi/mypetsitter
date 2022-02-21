@@ -2,8 +2,6 @@
 	include 'connection.php';
 	include 'number-of-sitters-per-page.php';
 
-	/* $pageNumber = 3; */
-
 	$result = mysqli_query( $con, "SELECT COUNT( sitterID ) FROM sitters" );
 
 	$numberOfSitters = $result->fetch_array()[0] ?? '';

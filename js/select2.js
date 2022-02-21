@@ -10,5 +10,3 @@ $( '.js-select2--tags' ).select2( {
 		$( this ).data( 'placeholder' );
 	},
 } );
-
-$( '.select2-selection' ).addClass( 'form__input' );

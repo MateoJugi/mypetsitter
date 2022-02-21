@@ -43,10 +43,6 @@ ul {
   display: flex;
 }
 
-.flex-align-self-end {
-  align-self: flex-end;
-}
-
 .display-flex-align-center {
   display: flex;
   align-items: center;
@@ -866,11 +862,6 @@ ul {
   display: none;
 }
 
-.form__footer--red {
-  border-color: #ff0000;
-  color: #ff0000;
-}
-
 .input--invalid {
   border-color: #ff0000;
   color: #ff0000;
@@ -978,32 +969,32 @@ ul {
   }
 }
 
-.site-header__menu-icon.open span:nth-child(1) {
+.site-header__menu-icon.site-header-menu-icon-open span:nth-child(1) {
   transform: rotate(45deg);
   top: 2px;
   left: 5px;
 }
 
 @media (min-width: 576px) {
-  .site-header__menu-icon.open span:nth-child(1) {
+  .site-header__menu-icon.site-header-menu-icon-open span:nth-child(1) {
     top: 3px;
     left: 7px;
   }
 }
 
-.site-header__menu-icon.open span:nth-child(2) {
+.site-header__menu-icon.site-header-menu-icon-open span:nth-child(2) {
   width: 0%;
   opacity: 0;
 }
 
-.site-header__menu-icon.open span:nth-child(3) {
+.site-header__menu-icon.site-header-menu-icon-open span:nth-child(3) {
   transform: rotate(-45deg);
   top: 25px;
   left: 4px;
 }
 
 @media (min-width: 576px) {
-  .site-header__menu-icon.open span:nth-child(3) {
+  .site-header__menu-icon.site-header-menu-icon-open span:nth-child(3) {
     top: 35px;
     left: 6px;
   }
@@ -1014,6 +1005,7 @@ ul {
   border-bottom: 2px solid #bebebe !important;
   border-radius: 0 !important;
   padding-right: 40px !important;
+  padding-left: 30px !important;
 }
 
 .select2-selection--multiple:focus {
@@ -1212,12 +1204,12 @@ ul {
   margin-left: 15px;
 }
 
-.button--ml-sm {
-  margin-left: 10px;
-}
-
 .button--mt-sm {
   margin-top: 20px;
+}
+
+.button--ml-sm {
+  margin-left: 10px;
 }
 
 .button--mr-ml-none {
@@ -1317,16 +1309,6 @@ ul {
   font-weight: 600;
 }
 
-.text--xs {
-  font-size: 14px;
-}
-
-@media (min-width: 576px) {
-  .text--xs {
-    font-size: 18px;
-  }
-}
-
 .text--message {
   font-size: 20px;
   width: fit-content;
@@ -1386,10 +1368,6 @@ ul {
 .title--white, .text--white {
   color: #fff;
   border-color: #fff;
-}
-
-.text--blue {
-  color: #474fa0;
 }
 
 .title--gray {

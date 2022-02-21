@@ -1,3 +1,5 @@
+/* ----- Generating number of sitters per page depending on window width ----- */
+
 $( window ).ready( function () {
 	let windowWidth = window.innerWidth;
 	let perPage;
@@ -22,16 +24,6 @@ $( window ).ready( function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
-
-			$( '.js-image-popup' ).magnificPopup( {
-				type: 'image',
-				closeOnContentClick: true,
-				mainClass: 'mfp-with-zoom',
-				removalDelay: 300,
-				image: {
-					verticalFit: true
-				}
-			} );
 		}
 	};
 
@@ -47,6 +39,16 @@ $( window ).ready( function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-image-galery' ).html( this.responseText );
+
+			$( '.js-image-popup' ).magnificPopup( {
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-with-zoom',
+				removalDelay: 300,
+				image: {
+					verticalFit: true
+				}
+			} );
 		}
 	};
 
@@ -95,7 +97,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ----- Inserting options inside location filter selects ----- */
+/* ----- Inserting options inside location filter select ----- */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -110,7 +112,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-/* ----- Inserting options inside pets filter selects ----- */
+/* ----- Inserting options inside pets filter select ----- */
 
 $( window ).ready( function () {
 	var xmlhttp = new XMLHttpRequest();
@@ -154,16 +156,6 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
-
-			$( '.js-image-popup' ).magnificPopup( {
-				type: 'image',
-				closeOnContentClick: true,
-				mainClass: 'mfp-with-zoom',
-				removalDelay: 300,
-				image: {
-					verticalFit: true
-				}
-			} );
 		}
 	};
 
@@ -209,8 +201,6 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 			pageNumberConditionForPageUp--;
 			pageNumberConditionForPageDown--;
 		}
-	} else {
-		
 	}
 
 	/* ----- Adding dots before pagination items ----- */
@@ -250,8 +240,6 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 			$( '.js-card-list-pagination-item-conditional-last' ).css( 'opacity', '0' );
 			$( '.js-card-list-pagination-item-conditional-last' ).css( 'pointer-events', 'none' );
 		}
-	} else {
-		
 	}
 } );
 
@@ -299,7 +287,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', fu
 	d = 4;
 } );
 
-/* ----- Sitter list pagination request ----- */
+/* ----- Sitters list pagination request ----- */
 
 $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	e.preventDefault();
@@ -311,16 +299,6 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
-
-			$( '.js-image-popup' ).magnificPopup( {
-				type: 'image',
-				closeOnContentClick: true,
-				mainClass: 'mfp-with-zoom',
-				removalDelay: 300,
-				image: {
-					verticalFit: true
-				}
-			} );
 		}
 	};
 
@@ -371,11 +349,6 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 $( document ).on( 'click', '.js-form-submit', function () {
 	var xmlhttp = new XMLHttpRequest();
 
-	xmlhttp.onreadystatechange = function() {
-		if ( this.readyState == 4 && this.status == 200 ) {
-		}
-	};
-
 	let customerFullName = $( '.js-popup-customerFullName' ).val();
 	let customerEmail = $( '.js-popup-customerEmail' ).val();
 	let customerContactNumber = $( '.js-popup-customerContactNumber' ).val();
@@ -394,7 +367,7 @@ $( document ).on( 'click', '.js-form-submit', function () {
 
 		setTimeout( function() {
 			window.location.reload();
-		}, 3000 );
+		}, 1500 );
 	}
 } );
 
@@ -470,7 +443,7 @@ function sitterSignUp () {
 
 								setTimeout( function() {
 									window.location.reload();
-								}, 3000 );
+								}, 1500 );
 							}
 						} else {
 							$( '.js-sign-up-email' ).addClass( 'input--invalid' );
@@ -505,8 +478,8 @@ $( document ).on( 'click', '.js-profile-delete-button', function () {
 	$( '.js-form-footer-delete' ).slideDown();
 
 	setTimeout( function() {
-		window.location.href='index.php';
-	}, 3000 );
+		window.location.href = 'index.php';
+	}, 1500 );
 } );
 
 /* ----- Sitter profile changes click listener ----- */
@@ -519,8 +492,8 @@ $( document ).on( 'click', '.js-profile-changes-button', function () {
 	}, 1000 );
 
 	setTimeout( function() {
-		window.location.href='index.php';
-	}, 3000 );
+		window.location.href = 'index.php';
+	}, 1500 );
 } );
 
 /* ----- Sitter profile sign out request ----- */
@@ -531,7 +504,7 @@ $( document ).on( 'click', '.js-profile-sign-out-button', function () {
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			setTimeout( function() {
-				window.location.href='index.php';
+				window.location.href = 'index.php';
 			}, 1000 );
 		}
 	}
@@ -571,8 +544,8 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 				$( '.js-form-footer-login-success' ).slideDown();
 
 				setTimeout( function() {
-					window.location.href='profile.php';
-				}, 3000 );
+					window.location.href = 'profile.php';
+				}, 1500 );
 			}
 		}
 	};

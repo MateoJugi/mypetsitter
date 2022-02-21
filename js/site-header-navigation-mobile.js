@@ -1,7 +1,7 @@
 $( '.js-site-header-menu' ).click( function( e ) {
 	e.preventDefault();
 
-	$( '.js-site-header-menu' ).toggleClass( 'open' );
+	$( '.js-site-header-menu' ).toggleClass( 'site-header-menu-icon-open' );
 
 	$( '.js-site-header__navigation--mobile' ).slideToggle();
 
@@ -17,5 +17,5 @@ $( '.js-site-navigation-item-mobile' ).click( function () {
 
 	$( '.js-blur' ).toggleClass( 'background-blur' );
 
-	$( '.js-site-header-menu' ).toggleClass( 'open' );
+	$( '.js-site-header-menu' ).toggleClass( 'site-header-menu-icon-open' );
 } );

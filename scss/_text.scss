@@ -78,14 +78,6 @@
 	font-weight: 600;
 }
 
-.text--xs {
-	font-size: 14px;
-
-	@media ( min-width: 576px ) {
-		font-size: 18px;
-	}
-}
-
 .text--message {
 	font-size: 20px;
 	width: fit-content;
@@ -145,10 +137,6 @@
 .title--white, .text--white {
 	color: #fff;
 	border-color: #fff;
-}
-
-.text--blue {
-	color: $blue;
 }
 
 .title--gray {

@@ -2,7 +2,7 @@
 	include 'connection.php';
 	include 'number-of-sitters-per-page.php';
 
-	$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $perPage;
+	$offset = ( ( (int) $_GET['page'] ) - 1 ) * $perPage;
 
 	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(DISTINCT(petType) SEPARATOR ', ') AS sitterPreferedPet, GROUP_CONCAT(DISTINCT(serviceType) SEPARATOR ', ') AS sitterPreferedService FROM sitterspetsconnection INNER JOIN sitters ON sitterspetsconnection.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsconnection.petID=pets.petID INNER JOIN sittersservicesconnection ON sittersservicesconnection.sitterID=sitterspetsconnection.sitterID INNER JOIN services ON sittersservicesconnection.serviceID=services.serviceID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice LIMIT $offset, $perPage" );
 

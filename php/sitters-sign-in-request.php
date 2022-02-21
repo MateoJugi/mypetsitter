@@ -4,10 +4,10 @@
 	$signInEmail = mysqli_real_escape_string( $con, $_GET["signInEmail"] );
 	$signInPassword = mysqli_real_escape_string( $con, $_GET["signInPassword"] );
 
-	$result = mysqli_query( $con, "SELECT * FROM sitters WHERE sitterEmail = BINARY '".$signInEmail."' AND sitterPassword = BINARY '".$signInPassword."'" );
+	$result = mysqli_query( $con, "SELECT * FROM sitters WHERE sitterEmail = BINARY '".$signInEmail."' AND sitterPassword = BINARY '".password_hash( $signInPassword, PASSWORD_DEFAULT )."'" );
 
 	$row = mysqli_num_rows( $result );
-
+	
 	echo $row;
 
 	$rowText = mysqli_fetch_array( $result );
