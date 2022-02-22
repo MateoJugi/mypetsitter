@@ -484,7 +484,7 @@ $( document ).on( 'click', '.js-profile-delete-button', function () {
 
 /* ----- Sitter profile changes request ----- */
 
-$( document ).on( 'click', '.js-profile-changes-button', function () {
+$( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 	var xmlhttp = new XMLHttpRequest();
 
 	let sitterID = $( this ).attr( 'data-sitterID' );
@@ -516,8 +516,8 @@ $( document ).on( 'click', '.js-profile-changes-button', function () {
 							let profileChangesFullName = $( '.js-sitter-profile-changes-fullname' ).val();
 							let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
 							let profileChangesLocation = $( '.js-sitter-profile-changes-location' ).val();
-							let profileChangesPreferedPet = $( '.js-sitter-profile-changes-prefered-pet' ).val();
-							let profileChangesPreferedService = $( '.js-sitter-profile-changes-service' ).val();
+							let profileChangesPreferedPet = $( '.js-sitter-profile-changes-prefered-pets' ).val();
+							let profileChangesPreferedService = $( '.js-sitter-profile-changes-prefered-services' ).val();
 							let profileChangesPrice = $( '.js-sitter-profile-changes-price' ).val();
 							let profileChangesImage = $( '.js-sitter-profile-changes-image' ).val();
 							let profileChangesAbout = $( '.js-sitter-profile-changes-about' ).val();
