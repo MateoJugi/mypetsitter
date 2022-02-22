@@ -1,4 +1,4 @@
 <?php
-	/* $perPage = $_GET["perPage"]; */
-	$perPage = 4;
+	/* $sittersPerPage = $_GET["sittersPerPage"]; */
+	$sittersPerPage = 4;
 ?>

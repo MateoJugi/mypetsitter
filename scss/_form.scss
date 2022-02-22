@@ -39,7 +39,7 @@
 	width: 100%;
 	font-size: 16px;
 	border: 0;
-	border-bottom: 2px solid #bebebe;
+	border-bottom: 2px solid $gray-light;
 	color: $gray-dark;
 	transition: .3s;
 	padding-right: 40px;
@@ -103,8 +103,9 @@
 }
 
 .form__icon--second {
-	fill: #bebebe;
+	fill: $gray-light;
 	pointer-events: none;
+	cursor: pointer;
 	height: 20px;
 	right: 10px;
 	left: auto;

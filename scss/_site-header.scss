@@ -1,6 +1,6 @@
 .site-header {
 	background-color: #fff;
-	box-shadow: 0 15px 10px -15px rgba( 17, 17, 17, 0.164 );
+	box-shadow: 0 15px 10px -15px $box-shadow-light;
 	position: absolute;
 	z-index: 2;
 	top: 0;
@@ -23,7 +23,7 @@
 }
 
 .site-header--color-black {
-	box-shadow: 0 15px 10px -15px rgba( 17, 17, 17, 0.164 );
+	box-shadow: 0 15px 10px -15px $box-shadow-light;
 	color: #000;
 }
 

@@ -10,7 +10,7 @@
 	flex-direction: column;
 	align-items: center;
 	background: #fff;
-	border: 1px solid #fce570;
+	border: 1px solid $yellow;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	transition: .3s;
@@ -42,7 +42,7 @@
 	background: #f4f6f0;
 
 	.dark-theme-trigger__inner {
-		background-color: #1e1e1e;
+		background-color: $black-first;
 		top: -5.6px;
 		left: -9.6px;
 	}
@@ -54,30 +54,30 @@
 	width: 40px;
 	top: 0;
 	left: 0;
-	background: #fce570;
+	background: $yellow;
 	border-radius: 100%;
 	transition: .3s ease-in-out;
 }
 
 .dark-theme-change {
 	.dark-theme-wrapper {
-		background-color: #1e1e1e;
+		background-color: $black-first;
 		border-color: #f4f6f0;
 	}
 
 	.theme-background-color {
-		background-color: #121212;
+		background-color: $black-second;
 	}
 
 	.theme-surface-color {
-		background-color: #1e1e1e;
-		border-color: #121212;
+		background-color: $black-first;
+		border-color: $black-second;
 		box-shadow: none;
 	}
 
 	.form__input.theme-surface-color {
 		background-color: transparent;
-		border-color: #1e1e1e;
+		border-color: $black-first;
 
 		&:focus {
 			border-color: inherit;
@@ -85,19 +85,19 @@
 	}
 
 	.theme-on-surface-color {
-		color: #f1f1f1;
+		color: $gray;
 	}
 	
 	.theme-surface-fill {
-		fill: #f1f1f1;
+		fill: $gray;
 	}
 
 	.site-header--sticky .js-site-header-menu span {
-		background-color: #f1f1f1;
+		background-color: $gray;
 	}
 
 	.select2-selection--multiple {
 		background-color: transparent !important;
-		border-color: #1e1e1e !important;
+		border-color: $black-first !important;
 	}
 }

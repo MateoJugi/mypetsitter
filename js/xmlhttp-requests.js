@@ -2,17 +2,17 @@
 
 $( window ).ready( function () {
 	let windowWidth = window.innerWidth;
-	let perPage;
+	let sittersPerPage;
 
 	if ( windowWidth >= 992 && windowWidth <= 1200 ) {
-		perPage = 6;
+		sittersPerPage = 6;
 	} else {
-		perPage = 4;
+		sittersPerPage = 4;
 	}
 
 	var xmlhttp = new XMLHttpRequest();
 
-	xmlhttp.open( 'GET', 'php/number-of-sitters-per-page.php?perPage=' + perPage, true );
+	xmlhttp.open( 'GET', 'php/number-of-sitters-per-page.php?sittersPerPage=' + sittersPerPage, true );
 	xmlhttp.send();
 } );
 

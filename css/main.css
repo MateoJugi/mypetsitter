@@ -831,6 +831,7 @@ ul {
 .form__icon--second {
   fill: #bebebe;
   pointer-events: none;
+  cursor: pointer;
   height: 20px;
   right: 10px;
   left: auto;
@@ -924,7 +925,7 @@ ul {
   position: absolute;
   height: 5px;
   width: 100%;
-  background: #f1f1f1;
+  background: #f2f2f2;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -1137,15 +1138,15 @@ ul {
 }
 
 .dark-theme-change .theme-on-surface-color {
-  color: #f1f1f1;
+  color: #f2f2f2;
 }
 
 .dark-theme-change .theme-surface-fill {
-  fill: #f1f1f1;
+  fill: #f2f2f2;
 }
 
 .dark-theme-change .site-header--sticky .js-site-header-menu span {
-  background-color: #f1f1f1;
+  background-color: #f2f2f2;
 }
 
 .dark-theme-change .select2-selection--multiple {
@@ -1176,7 +1177,7 @@ ul {
 }
 
 .button--filled:hover {
-  background-color: #30356d;
+  background-color: #363c79;
   color: #fff;
 }
 
