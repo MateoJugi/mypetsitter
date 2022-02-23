@@ -579,9 +579,7 @@ $( document ).on( 'click', '.js-profile-sign-out-button', function () {
 
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
-			setTimeout( function() {
-				window.location.href = 'index.php';
-			}, 1000 );
+			window.location.href = 'index.php';
 		}
 	}
 

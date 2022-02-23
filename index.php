@@ -1,10 +1,5 @@
 <?php
-	if ( isset( $_SESSION["signInSitterFullName"] ) ) {
-		session_destroy();
-		session_start();
-	} else {
-		session_start();
-	}
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>

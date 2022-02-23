@@ -1,10 +1,5 @@
 <?php
-	if ( isset( $_SESSION["signInSitterFullName"] ) ) {
-		session_destroy();
-		session_start();
-	} else {
-		session_start();
-	}
+	session_start();
 
 	$signInSitterID = $_SESSION['signInSitterID'];
 	$signInSitterFullName = $_SESSION['signInSitterFullName'];
@@ -41,7 +36,7 @@
 					<div class="col-12">
 						<div class="site-header__inner">
 							<div class="site-logo theme-on-surface-color js-profile-sign-out-button">
-								<a href="">myPetSitter</a>
+								<a href="#">myPetSitter</a>
 							</div>
 
 							<div>
@@ -158,9 +153,9 @@
 			
 								<input type="submit" value="Save changes" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none js-sitter-profile-changes-button" data-sitterID = "<?php echo $signInSitterID?>">
 
-								<input type="submit" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-button" data-sitterID = "<?php echo $signInSitterID?>">
+								<input type="button" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-button" data-sitterID = "<?php echo $signInSitterID?>">
 
-								<input type="submit" value="Sign out" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-profile-sign-out-button">
+								<input type="button" value="Sign out" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-profile-sign-out-button">
 
 								<div class="form__footer js-form-footer">
 									<p class="text text--message text--success">Changes have been saved succesfully!</p>
@@ -182,7 +177,7 @@
 					<div class="col-12">
 						<div class="footer__inner">
 							<div class="site-logo site-logo--sm theme-on-surface-color js-profile-sign-out-button">
-								<a href="">myPetSitter</a>
+								<a href="#">myPetSitter</a>
 							</div>
 
 							<ul class="social-media-list">
