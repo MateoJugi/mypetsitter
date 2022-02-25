@@ -840,6 +840,11 @@ ul {
 .form__icon--tooltip {
   top: 0;
   pointer-events: all;
+  transition: .3s;
+}
+
+.form__icon--tooltip:hover {
+  fill: #fd7034;
 }
 
 .form__icon--lg {

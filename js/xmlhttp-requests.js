@@ -575,16 +575,7 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 /* ----- Sitter profile sign out request ----- */
 
 $( document ).on( 'click', '.js-profile-sign-out-button', function () {
-	var xmlhttp = new XMLHttpRequest();
-
-	xmlhttp.onreadystatechange = function() {
-		if ( this.readyState == 4 && this.status == 200 ) {
-			window.location.href = 'index.php';
-		}
-	}
-
-	xmlhttp.open( 'GET', 'php/sitters-profile-sign-out-request.php', true );
-	xmlhttp.send();
+	window.location.href = 'index.php';
 } );
 
 /* ----- Sitter sign up click listener ----- */

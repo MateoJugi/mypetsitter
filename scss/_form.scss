@@ -114,6 +114,11 @@
 .form__icon--tooltip {
 	top: 0;
 	pointer-events: all;
+	transition: .3s;
+
+	&:hover {
+		fill: $orange;
+	}
 }
 
 .form__icon--lg {

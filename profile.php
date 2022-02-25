@@ -40,7 +40,7 @@
 							</div>
 
 							<div>
-								<h5 class="title title--md theme-on-surface-color">
+								<h5 class="title title--md theme-on-surface-color js-site-header-profile-sitter-name">
 									<?php
 										echo $signInSitterFullName;
 									?>
@@ -244,3 +244,7 @@
 		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	</body>
 </html>
+
+<?php
+	session_unset();
+?>
