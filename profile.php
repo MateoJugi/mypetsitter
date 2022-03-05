@@ -73,20 +73,20 @@
 				
 									<input type="email" class="form__input form__input--orange js-sitter-profile-changes-email theme-surface-color" placeholder="Email" required value="<?php echo $signInSitterEmail?>"/>
 								</div>
-			
+
 								<div class="form__item">
 									<svg class="form__icon form-icon-fill" enable-background="new 0 0 128 128" height="128px" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="128px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M64,0C39.699,0,20,19.699,20,44s44,84,44,84s44-59.699,44-84S88.301,0,64,0z M28,44    C28,24.148,44.148,8,64,8s36,16.148,36,36c0,13.828-20.008,47.211-36,70.238C48.008,91.211,28,57.828,28,44z M64,24    c-11.047,0-20,8.953-20,20s8.953,20,20,20s20-8.953,20-20S75.047,24,64,24z M64,56c-6.617,0-12-5.383-12-12s5.383-12,12-12    s12,5.383,12,12S70.617,56,64,56z"/></g></g>
 									</svg>
-			
+
 									<input type="text" class="form__input form__input--orange js-sitter-profile-changes-location input-datalist theme-surface-color" list="form-input-location" placeholder="City" required value="<?php echo $signInSitterLocation?>"/>
-			
+
 									<datalist class="js-form-input-location" id="form-input-location">
 									</datalist>
-			
+
 									<svg class="form__icon form__icon--second" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/>
 									</svg>
 								</div>
-			
+
 								<div class="form__item">
 									<svg class="form__icon" enable-background="new 0 0 64 64" height="64px" id="Layer_1" version="1.1" viewBox="0 0 64 64" width="64px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path class="form-icon-fill" d="M61.489,10.88c-1.633-1.645-3.763-2.481-5.909-2.532c-0.024-0.002-0.034-0.008-0.06-0.012  c-1.562-0.168-1.911-1.926-1.911-1.926l-0.018,0.051c-0.303-1.446-0.976-2.83-2.096-3.959c-3.112-3.137-8.179-3.159-11.314-0.047  c-2.84,2.816-3.101,7.219-0.823,10.358L39.35,12.85c0,0,1.31,1.438-0.035,2.771L15.322,39.415c-1.186,1.177-2.213,0.036-2.213,0.036  L13.1,39.497c-3.132-2.6-7.766-2.481-10.718,0.447c-3.135,3.109-3.156,8.177-0.045,11.313c1.043,1.052,2.315,1.705,3.65,2.046  l-0.05,0.031c0,0,1.946,0.389,2.207,2.223c0,0.009,0.003,0.009,0.005,0.015c0.074,2.086,0.898,4.151,2.482,5.747  c3.345,3.375,8.788,3.396,12.161,0.048c2.647-2.62,3.182-6.519,1.69-9.711l0.05,0.021c0,0-1.319-2.487,0.438-4.232l23.065-22.875  c0,0,1.127-1.192,3.17-0.143c0.138,0.07,0.246,0.112,0.338,0.137c3.207,1.62,7.202,1.146,9.896-1.524  C64.812,19.696,64.834,14.251,61.489,10.88z M59.036,20.783c-1.954,1.939-4.991,2.07-7.119,0.446  c-0.036-0.021-0.065-0.03-0.104-0.054c-3.116-1.931-6.939,1.592-6.939,1.592L20.841,46.6c-3.379,3.354-0.87,5.492-0.87,5.492  c1.935,1.948,1.921,5.099-0.027,7.032c-1.951,1.931-5.099,1.918-7.033-0.03c-1.079-1.089-1.536-2.545-1.4-3.956l-0.009,0.006  c0,0,0.252-3.299-1.742-4.017c-0.214-0.087-0.373-0.143-0.373-0.143c-4.029-1.259-4.773-2.362-4.773-2.362  c-1.792-1.81-1.78-4.729,0.027-6.522c1.81-1.793,4.729-1.781,6.522,0.027c0.186,0.188,0.35,0.396,0.498,0.603l0.001-0.003  c0,0,0.009,0.012,0.012,0.021c0.04,0.059,0.07,0.119,0.106,0.178c0.441,0.692,2.119,2.879,4.567,0.452l25.83-25.62  c3.617-3.587,0.529-5.862,0.529-5.862l0.042-0.019c-0.121-0.1-0.256-0.167-0.367-0.279c-1.885-1.901-1.87-4.967,0.027-6.85  c1.897-1.882,4.968-1.87,6.849,0.029c0.898,0.904,1.345,2.069,1.376,3.247l0.015,0.024c0,0,0.589,3.467,4.113,3.463  c0.001,0.001,0.001,0.004,0.002,0.006c1.544-0.132,3.127,0.382,4.305,1.569C61.185,15.222,61.17,18.667,59.036,20.783z"/>
 									</svg>
@@ -235,10 +235,12 @@
 
 			$( document ).ajaxStop( function () {
 				let signInSitterPreferedServices = <?php echo json_encode($signInSitterPreferedServices); ?>;
+
 				let signInSitterPreferedPets = <?php echo json_encode($signInSitterPreferedPets); ?>;
 
-				$( '.js-sitter-profile-changes-prefered-pets' ).val( signInSitterPreferedPets ).trigger('change');
-				$( '.js-sitter-profile-changes-prefered-services' ).val( signInSitterPreferedServices ).trigger('change');
+				$( '.js-sitter-profile-changes-prefered-services' ).val( signInSitterPreferedServices ).trigger( 'change' );
+
+				$( '.js-sitter-profile-changes-prefered-pets' ).val( signInSitterPreferedPets ).trigger( 'change' );
 			} );
 		</script>
 		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

@@ -16,7 +16,7 @@
 	$profileChangesPreferedServiceArray = explode( ',', $profileChangesPreferedService );
 
 	if ( !empty( $profileChangesFullName ) && !empty( $profileChangesEmail ) && !empty( $profileChangesLocation ) && !empty( $profileChangesPreferedPet ) && !empty( $profileChangesPreferedService ) && !empty( $profileChangesPrice ) && !empty( $profileChangesImage ) && !empty( $profileChangesAbout ) && !empty( $profileChangesPassword ) ) {
-		$result = mysqli_query( $con, "UPDATE sitters SET sitterFullName = '".$profileChangesFullName."', sitterEmail = '".$profileChangesEmail."', sitterLocation = '".$profileChangesLocation."', sitterPrice = '".$profileChangesPrice."', sitterImage = '".$profileChangesImage."', sitterPassword = '".password_hash($profileChangesPassword, PASSWORD_DEFAULT)."', sitterAbout = '".$profileChangesAbout."' WHERE sitterID = '".$profileChangesSitterID."'" );
+		$result = mysqli_query( $con, "UPDATE sitters SET sitterFullName = '".$profileChangesFullName."', sitterEmail = '".$profileChangesEmail."', sitterLocation = '".$profileChangesLocation."', sitterPrice = '".$profileChangesPrice."', sitterImage = '".$profileChangesImage."', sitterPassword = '".$profileChangesPassword."', sitterAbout = '".$profileChangesAbout."' WHERE sitterID = '".$profileChangesSitterID."'" );
 
 		$delete = mysqli_query( $con, "DELETE FROM sitterspetsconnection WHERE sitterID = $profileChangesSitterID" );
 		$delete2 = mysqli_query( $con, "DELETE FROM sittersservicesconnection WHERE sitterID = $profileChangesSitterID" );

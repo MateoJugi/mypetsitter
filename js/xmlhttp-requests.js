@@ -367,7 +367,7 @@ $( document ).on( 'click', '.js-form-submit', function () {
 
 		setTimeout( function() {
 			window.location.reload();
-		}, 1500 );
+		}, 2500 );
 	}
 } );
 
@@ -435,15 +435,15 @@ function sitterSignUp () {
 								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpPassword && passwordValidation == 1 && signUpAbout ) {
+							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpImage.includes( 'postimg' ) && signUpPassword && passwordValidation == 1 && signUpAbout ) {
 								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpPreferedService=' + signUpPreferedService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
 								xmlhttp.send();
 
 								$( '.js-form-footer' ).slideDown();
 
-								setTimeout( function() {
+								/* setTimeout( function() {
 									window.location.reload();
-								}, 1500 );
+								}, 2500 ); */
 							}
 						} else {
 							$( '.js-sign-up-email' ).addClass( 'input--invalid' );
@@ -479,7 +479,7 @@ $( document ).on( 'click', '.js-profile-delete-button', function () {
 
 	setTimeout( function() {
 		window.location.href = 'index.php';
-	}, 1500 );
+	}, 2500 );
 } );
 
 /* ----- Sitter profile changes request ----- */
@@ -545,7 +545,7 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 
 								setTimeout( function() {
 									window.location.href = 'index.php';
-								}, 1500 );
+								}, 2500 );
 							}
 						} else {
 							$( '.js-sitter-profile-changes-email' ).addClass( 'input--invalid' );
@@ -608,7 +608,7 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 
 				setTimeout( function() {
 					window.location.href = 'profile.php';
-				}, 1500 );
+				}, 2500 );
 			}
 		}
 	};

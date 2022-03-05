@@ -10,14 +10,12 @@
 	$signUpImage = mysqli_real_escape_string( $con, $_GET["signUpImage"] );
 	$signUpAbout = mysqli_real_escape_string( $con, $_GET["signUpAbout"] );
 	$signUpPassword = mysqli_real_escape_string( $con, $_GET["signUpPassword"] );
-	$profileChangesButton = mysqli_real_escape_string( $con, $_GET["profileChangesButton"] );
-	$profileChangesSitterID = mysqli_real_escape_string( $con, $_GET["profileChangesSitterID"] );
 
 	$signUpPreferedPetArray = explode( ',', $signUpPreferedPet );
 	$signUpPreferedServiceArray = explode( ',', $signUpPreferedService );
 
 	if ( !empty( $signUpFullName ) && !empty( $signUpEmail ) && !empty( $signUpLocation ) && !empty( $signUpPreferedPet ) && !empty( $signUpPreferedService ) && !empty( $signUpPrice ) && !empty( $signUpImage ) && !empty( $signUpAbout ) && !empty( $signUpPassword ) ) {
-		$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterAbout) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".password_hash( $signUpPassword, PASSWORD_DEFAULT )."', '".$signUpAbout."')");
+		$result = mysqli_query( $con, "INSERT INTO sitters (sitterFullName, sitterEmail, sitterLocation, sitterPrice, sitterImage, sitterPassword, sitterAbout) VALUES ('".$signUpFullName."', '".$signUpEmail."', '".$signUpLocation."', '".$signUpPrice."', '".$signUpImage."', '".$signUpPassword."', '".$signUpAbout."')");
 
 		/* -----Checking if entered pet exists in database----- */
 

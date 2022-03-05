@@ -519,7 +519,7 @@
 					<input type="submit" value="Sign up" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none js-sign-up-button">
 
 					<div class="form__footer js-form-footer">
-						<p class="text text--message text--success">Registration has been sent succesfully!</p>
+						<p class="text text--message text--success">Registration has been successful!</p>
 					</div>
 				</form>
 			</div>
