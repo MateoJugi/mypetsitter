@@ -937,6 +937,10 @@ ul {
   width: 50%;
 }
 
+.form__input-pr-md {
+  padding-right: 65px;
+}
+
 .form__input--pl-sm {
   padding-left: 26px;
 }
@@ -974,6 +978,10 @@ ul {
   left: auto;
 }
 
+.form__icon--third {
+  right: 40px;
+}
+
 .form__icon--tooltip {
   top: 0;
   pointer-events: all;
@@ -983,6 +991,20 @@ ul {
 
 .form__icon--tooltip:hover {
   fill: #fd7034;
+}
+
+.form__icon--password-reveal {
+  pointer-events: all;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.form__icon--password-reveal:hover {
+  stroke: #474fa0;
+}
+
+.form__icon--password-reveal-orange:hover {
+  stroke: #fd7034;
 }
 
 .form__icon--lg {
@@ -995,11 +1017,11 @@ ul {
 }
 
 .form-icon-fill {
-  fill: #808080;
+  fill: #bebebe;
 }
 
 .form-icon-stroke {
-  stroke: #808080;
+  stroke: #bebebe;
 }
 
 .form__footer {

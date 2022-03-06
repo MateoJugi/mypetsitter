@@ -75,6 +75,10 @@
 	width: 50%;
 }
 
+.form__input-pr-md {
+	padding-right: 65px;
+}
+
 .form__input--pl-sm {
 	padding-left: 26px;
 }
@@ -111,6 +115,10 @@
 	left: auto;
 }
 
+.form__icon--third {
+	right: 40px;
+}
+
 .form__icon--tooltip {
 	top: 0;
 	pointer-events: all;
@@ -118,6 +126,21 @@
 
 	&:hover {
 		fill: $orange;
+	}
+}
+
+.form__icon--password-reveal {
+	pointer-events: all;
+	transition: .3s;
+
+	&:hover {
+		stroke: $blue;
+	}
+}
+
+.form__icon--password-reveal-orange {
+	&:hover {
+		stroke: $orange;
 	}
 }
 
@@ -131,11 +154,11 @@
 }
 
 .form-icon-fill {
-	fill: $gray-dark;
+	fill: $gray-light;
 }
 
 .form-icon-stroke {
-	stroke: $gray-dark;
+	stroke: $gray-light;
 }
 
 .form__footer {

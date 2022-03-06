@@ -435,7 +435,7 @@ function sitterSignUp () {
 								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpImage.includes( 'postimg' ) && signUpPassword && passwordValidation == 1 && signUpAbout ) {
+							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpImage.includes( 'postimg' ) && signUpPassword && signUpPassword.length > 4 && passwordValidation == 1 && signUpAbout ) {
 								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpPreferedService=' + signUpPreferedService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
 								xmlhttp.send();
 
@@ -537,7 +537,7 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 								$( '.js-sitter-profile-changes-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( profileChangesEmail && profileChangesEmail && profileChangesEmail.includes( '@' ) && profileChangesEmail.split( '@' ).pop() && profileChangesLocation && profileChangesPreferedPet && profileChangesPreferedService && profileChangesPrice && profileChangesImage && profileChangesPassword && passwordValidation == 1 && profileChangesAbout ) {
+							if ( profileChangesEmail && profileChangesEmail && profileChangesEmail.includes( '@' ) && profileChangesEmail.split( '@' ).pop() && profileChangesLocation && profileChangesPreferedPet && profileChangesPreferedService && profileChangesPrice && profileChangesImage && profileChangesPassword  && profileChangesPassword.length > 4 && passwordValidation == 1 && profileChangesAbout ) {
 								xmlhttp.open( 'GET', 'php/sitter-profile-changes-request.php?profileChangesFullName=' + profileChangesFullName + '&profileChangesEmail=' + profileChangesEmail + '&profileChangesLocation=' + profileChangesLocation + '&profileChangesPreferedPet=' + profileChangesPreferedPet + '&profileChangesPreferedService=' + profileChangesPreferedService + '&profileChangesPrice=' + profileChangesPrice + '&profileChangesImage=' + profileChangesImage + '&profileChangesAbout=' + profileChangesAbout + '&profileChangesPassword=' + profileChangesPassword + '&profileChangesSitterID=' + sitterID, true );
 								xmlhttp.send();
 

@@ -141,9 +141,12 @@
 									<svg class="form__icon form__icon--lg" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path class="form-icon-fill" d="M36 16h-2v-4c0-5.52-4.48-10-10-10s-10 4.48-10 10v4h-2c-2.21 0-4 1.79-4 4v20c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4v-20c0-2.21-1.79-4-4-4zm-12-10.2c3.42 0 6.2 2.78 6.2 6.2v4h-12.2v-4h-.2c0-3.42 2.78-6.2 6.2-6.2zm12 34.2h-24v-20h24v20zm-12-6c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
 									</svg>
 				
-									<input type="text" class="form__input form__input--orange js-sitter-profile-changes-password theme-surface-color" placeholder="Password" required value="<?php echo $signInSitterPassword?>"/>
+									<input type="password" class="form__input form__input--orange js-sitter-profile-changes-password js-form-input-password theme-surface-color" placeholder="Password" minlength="5" required value="<?php echo $signInSitterPassword?>"/>
 			
 									<svg class="form__icon form__icon--second form__icon--tooltip js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g>
+									</svg>
+
+									<svg class="form__icon form__icon--second form__icon--third form__icon--password-reveal form__icon--password-reveal-orange form-icon-stroke" enable-background="new 0 0 32 32" id="Editable-line" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="  M16,7C9.934,7,4.798,10.776,3,16c1.798,5.224,6.934,9,13,9s11.202-3.776,13-9C27.202,10.776,22.066,7,16,7z" fill="none" id="XMLID_10_" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><circle cx="16" cy="16" fill="none" id="XMLID_12_" r="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
 									</svg>
 			
 									<p class="text text--mt-sm text--tooltip">Password must contain at least one uppercase letter and number.</p>
@@ -226,6 +229,7 @@
 		<script src="js/select2.js"></script>
 		<script src="js/dark-theme.js"></script>
 		<script src="js/tooltip-trigger.js"></script>
+		<script src="js/input-password-reveal.js"></script>
 		<script>
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement( { pageLanguage: 'en' }, 'google_translate_element' );
