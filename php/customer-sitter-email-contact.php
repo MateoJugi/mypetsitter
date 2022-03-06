@@ -10,7 +10,7 @@
 	$sitterEmail = $_GET['sitterEmail'];
 
 	if ( !empty( $customerFullName ) && !empty( $customerEmail ) && !empty( $customerContactNumber ) && !empty( $customerPet ) && !empty( $customerService ) && !empty( $startDate ) && !empty( $endDate ) ) {
-		$to = "mateojuginovic@gmail.com";
+		$to = $sitterEmail;
 
 		$subject = 'You have new potential customer';
 

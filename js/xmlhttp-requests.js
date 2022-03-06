@@ -441,9 +441,9 @@ function sitterSignUp () {
 
 								$( '.js-form-footer' ).slideDown();
 
-								/* setTimeout( function() {
+								setTimeout( function() {
 									window.location.reload();
-								}, 2500 ); */
+								}, 2500 );
 							}
 						} else {
 							$( '.js-sign-up-email' ).addClass( 'input--invalid' );
@@ -516,8 +516,8 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 							let profileChangesFullName = $( '.js-sitter-profile-changes-fullname' ).val();
 							let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
 							let profileChangesLocation = $( '.js-sitter-profile-changes-location' ).val();
-							let profileChangesPreferedPet = $( '.js-sitter-profile-changes-prefered-pets' ).val();
-							let profileChangesPreferedService = $( '.js-sitter-profile-changes-prefered-services' ).val();
+							let profileChangesPreferedPet = $( '.js-sitter-profile-changes-prefered-pets' ).find( 'option:selected' ).val();
+							let profileChangesPreferedService = $( '.js-sitter-profile-changes-prefered-services' ).find( 'option:selected' ).val();
 							let profileChangesPrice = $( '.js-sitter-profile-changes-price' ).val();
 							let profileChangesImage = $( '.js-sitter-profile-changes-image' ).val();
 							let profileChangesAbout = $( '.js-sitter-profile-changes-about' ).val();
