@@ -103,10 +103,6 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 				'</div>'+
 
 				'<input type="submit" value="Send" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-form-submit" data-sitterEmail="' + sitterEmail + '">'+
-
-				'<div class="form__footer js-form-footer">'+
-					'<p class="text--success">The email has been sent succesfully!</p>'+
-				'</div>'+
 			'</form>'+
 		'</div>',
 		},

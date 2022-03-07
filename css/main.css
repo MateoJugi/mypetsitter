@@ -718,6 +718,14 @@ ul {
   }
 }
 
+.white-pop-up--bg-img {
+  padding-top: 90px;
+}
+
+.white-pop-up--bg-img::before {
+  display: none;
+}
+
 .white-pop-up--title-lg .title {
   font-size: 32px;
 }
@@ -728,12 +736,36 @@ ul {
   }
 }
 
-.white-pop-up--bg-img {
-  padding-top: 90px;
+.white-pop-up--no-before {
+  text-align: center;
 }
 
-.white-pop-up--bg-img::before {
+.white-pop-up--no-before::before {
   display: none;
+}
+
+.white-pop-up--no-before .mfp-close {
+  color: #bebebe !important;
+}
+
+.white-pop-up--success {
+  border: 2px solid #4bb543;
+}
+
+.white-pop-up--success .mfp-close {
+  color: #4bb543 !important;
+}
+
+.white-pop-up--failure {
+  border: 2px solid #ff0000;
+}
+
+.white-pop-up--failure .mfp-close {
+  color: #ff0000 !important;
+}
+
+.white-pop-up--orange-before::before {
+  background-color: #fd7034;
 }
 
 .white-pop-up__image {
@@ -763,10 +795,6 @@ ul {
   border-bottom-right-radius: 20%;
 }
 
-.white-pop-up--orange-before::before {
-  background-color: #fd7034;
-}
-
 .white-pop-up__main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -778,6 +806,11 @@ ul {
       -ms-flex-align: baseline;
           align-items: baseline;
   margin-bottom: 50px;
+}
+
+.white-pop-up__icon {
+  height: 80px;
+  width: 80px;
 }
 
 .footer {
@@ -1024,10 +1057,6 @@ ul {
   stroke: #bebebe;
 }
 
-.form__footer {
-  display: none;
-}
-
 .input--invalid {
   border-color: #ff0000;
   color: #ff0000;
@@ -1193,7 +1222,12 @@ ul {
 }
 
 .select2-search__field {
+  color: inherit;
   margin: 0 !important;
+}
+
+.select2-search__field:focus {
+  color: #fd7034;
 }
 
 .select2-selection__choice {
@@ -1414,6 +1448,40 @@ ul {
   margin-left: 0;
 }
 
+.tooltip {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.tooltip__text {
+  visibility: hidden;
+  position: absolute;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  width: 200px;
+  text-align: center;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.tooltip__text .text--underline {
+  font-size: 16px;
+}
+
+.tooltip:hover .tooltip__text {
+  visibility: visible;
+}
+
+.tooltip-text-visibility {
+  visibility: visible;
+}
+
 .title--xl {
   font-size: 30px;
 }
@@ -1513,7 +1581,6 @@ ul {
   width: fit-content;
   text-align: center;
   color: #000;
-  border: 2px dotted #000;
   border-radius: 8px;
   padding-top: 5px;
   padding-right: 5px;
@@ -1526,12 +1593,10 @@ ul {
 
 .text--fail {
   color: #ff0000;
-  border-color: #ff0000;
 }
 
 .text--success {
   color: #4bb543;
-  border-color: #4bb543;
 }
 
 .text--border {
@@ -1586,10 +1651,6 @@ ul {
 
 .link:hover {
   color: #363c79;
-}
-
-.text--tooltip {
-  display: none;
 }
 
 .text--underline {

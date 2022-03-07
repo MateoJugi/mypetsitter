@@ -12,7 +12,12 @@
 }
 
 .select2-search__field {
+	color: inherit;
 	margin: 0 !important;
+
+	&:focus {
+		color: $orange;
+	}
 }
 
 .select2-selection__choice {

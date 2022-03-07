@@ -24,6 +24,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/grid.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -125,9 +126,11 @@
 			
 									<input type="url" class="form__input form__input--orange js-sitter-profile-changes-image theme-surface-color" placeholder="Image url" required value="<?php echo $signInSitterImage?>"/>
 			
-									<svg class="form__icon form__icon--second form__icon--tooltip js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g></svg>
-			
-									<p class="text text--mt-sm text--tooltip">To display the desired image use <a class="link" href="https://postimages.org/" target="_blank">PostImages</a> and get <span class="text text--underline">direct link</span> of your image.</p>
+									<div class="tooltip js-tooltip">
+										<svg class="form__icon form__icon--second form__icon--tooltip" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g> </svg>
+
+										<p class="tooltip__text">To display the desired image use <a class="link" href="https://postimages.org/" target="_blank">PostImages</a> and get <span class="text text--underline">direct link</span> of your image.<br> (Click to keep active.)</p>
+									</div>
 								</div>
 			
 								<div class="form__item">
@@ -143,13 +146,14 @@
 				
 									<input type="password" class="form__input form__input--orange js-sitter-profile-changes-password js-form-input-password theme-surface-color" placeholder="Password" minlength="5" required value="<?php echo $signInSitterPassword?>"/>
 			
-									<svg class="form__icon form__icon--second form__icon--tooltip js-tooltip-trigger" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g>
-									</svg>
+									<div class="tooltip js-tooltip">
+										<svg class="form__icon form__icon--second form__icon--tooltip" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g> </svg>
+
+										<p class="tooltip__text">Password must contain at least one <span class="text text--underline">uppercase letter</span> and <span class="text text--underline">number.</span><br> (Click to keep active.)</p>
+									</div>
 
 									<svg class="form__icon form__icon--second form__icon--third form__icon--password-reveal form__icon--password-reveal-orange form-icon-stroke" enable-background="new 0 0 32 32" id="Editable-line" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="  M16,7C9.934,7,4.798,10.776,3,16c1.798,5.224,6.934,9,13,9s11.202-3.776,13-9C27.202,10.776,22.066,7,16,7z" fill="none" id="XMLID_10_" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><circle cx="16" cy="16" fill="none" id="XMLID_12_" r="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
 									</svg>
-			
-									<p class="text text--mt-sm text--tooltip">Password must contain at least one uppercase letter and number.</p>
 								</div>
 			
 								<input type="submit" value="Save changes" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none js-sitter-profile-changes-button" data-sitterID = "<?php echo $signInSitterID?>">
@@ -157,14 +161,6 @@
 								<input type="button" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-button" data-sitterID = "<?php echo $signInSitterID?>">
 
 								<input type="button" value="Sign out" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-profile-sign-out-button">
-
-								<div class="form__footer js-form-footer">
-									<p class="text text--message text--success">Changes have been saved succesfully!</p>
-								</div>
-
-								<div class="form__footer js-form-footer-delete">
-									<p class="text text--message text--success">Profile has been deleted succesfully!</p>
-								</div>
 							</form>
 						</div>
 					</div>
@@ -224,12 +220,13 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<script src="magnific-popup/jquery.magnific-popup.js"></script>
 		<script src="js/xmlhttp-requests.js"></script>
 		<script src="js/json-location-request.js"></script>
 		<script src="js/select2.js"></script>
 		<script src="js/dark-theme.js"></script>
-		<script src="js/tooltip-trigger.js"></script>
 		<script src="js/input-password-reveal.js"></script>
+		<script src="js/tooltip-trigger.js"></script>
 		<script>
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement( { pageLanguage: 'en' }, 'google_translate_element' );
@@ -248,6 +245,8 @@
 					$( '.js-sitter-profile-changes-prefered-services' ).val( signInSitterPreferedServices ).trigger( 'change' );
 				}, 1 );
 			} );
+
+			$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );
 		</script>
 		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	</body>

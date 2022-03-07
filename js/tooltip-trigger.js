@@ -1,5 +1,3 @@
-$( '.js-tooltip-trigger' ).click( function ( e ) {
-	e.preventDefault();
-
-	$( this ).next( '.text--tooltip' ).slideToggle();
+$( '.js-tooltip' ).click( function () { 
+	$( this ).find( '.tooltip__text' ).toggleClass( 'tooltip-text-visibility' );
 } );

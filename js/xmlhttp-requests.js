@@ -363,11 +363,15 @@ $( document ).on( 'click', '.js-form-submit', function () {
 	xmlhttp.send();
 
 	if( customerFullName && customerEmail && customerEmail.includes( '@' ) && customerEmail.split( '@' ).pop() && customerContactNumber && customerPet && customerService && startDate && endDate ) {
-		$( '.js-form-footer' ).slideDown();
-
-		setTimeout( function() {
-			window.location.reload();
-		}, 2500 );
+		$.magnificPopup.open( {
+			items: {
+				src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">The email has been sent succesfully.</p></div>',
+				type: 'inline',
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'mfp-fade',
+			}
+		} );
 	}
 } );
 
@@ -439,11 +443,21 @@ function sitterSignUp () {
 								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpPreferedService=' + signUpPreferedService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
 								xmlhttp.send();
 
-								$( '.js-form-footer' ).slideDown();
+								$.magnificPopup.instance.st.callbacks = {
+									close: function() {
+										window.location.reload();
+									}
+								}
 
-								setTimeout( function() {
-									window.location.reload();
-								}, 2500 );
+								$.magnificPopup.open( {
+									items: {
+										src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">Registration has been successful.</p></div>',
+										type: 'inline',
+										midClick: true,
+										removalDelay: 300,
+										mainClass: 'mfp-fade',
+									}
+								} );
 							}
 						} else {
 							$( '.js-sign-up-email' ).addClass( 'input--invalid' );
@@ -470,16 +484,32 @@ function sitterSignUp () {
 	xmlhttp.send();
 }
 
+/* ----- Sitter sign up click listener ----- */
+
+$( document ).on( 'click', '.js-sign-up-button', function () {
+	sitterSignUp();
+} );
+
 /* ----- Sitter profile delete click listener ----- */
 
 $( document ).on( 'click', '.js-profile-delete-button', function () {
 	sitterDelete( this );
 
-	$( '.js-form-footer-delete' ).slideDown();
+	$.magnificPopup.open( {
+		items: {
+			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">Profile has been deleted succesfully.</p></div>',
+			type: 'inline',
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'mfp-fade',
+		}
+	} );
 
-	setTimeout( function() {
-		window.location.href = 'index.php';
-	}, 2500 );
+	$.magnificPopup.instance.st.callbacks = {
+		close: function() {
+			window.location.href = 'index.php';
+		}
+	}
 } );
 
 /* ----- Sitter profile changes request ----- */
@@ -541,11 +571,21 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 								xmlhttp.open( 'GET', 'php/sitter-profile-changes-request.php?profileChangesFullName=' + profileChangesFullName + '&profileChangesEmail=' + profileChangesEmail + '&profileChangesLocation=' + profileChangesLocation + '&profileChangesPreferedPet=' + profileChangesPreferedPet + '&profileChangesPreferedService=' + profileChangesPreferedService + '&profileChangesPrice=' + profileChangesPrice + '&profileChangesImage=' + profileChangesImage + '&profileChangesAbout=' + profileChangesAbout + '&profileChangesPassword=' + profileChangesPassword + '&profileChangesSitterID=' + sitterID, true );
 								xmlhttp.send();
 
-								$( '.js-form-footer' ).slideDown();
+								$.magnificPopup.open( {
+									items: {
+										src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">Changes have been saved succesfully.</p></div>',
+										type: 'inline',
+										midClick: true,
+										removalDelay: 300,
+										mainClass: 'mfp-fade',
+									}
+								} );
 
-								setTimeout( function() {
-									window.location.href = 'index.php';
-								}, 2500 );
+								$.magnificPopup.instance.st.callbacks = {
+									close: function() {
+										window.location.href = 'index.php';
+									}
+								}
 							}
 						} else {
 							$( '.js-sitter-profile-changes-email' ).addClass( 'input--invalid' );
@@ -578,12 +618,6 @@ $( document ).on( 'click', '.js-profile-sign-out-button', function () {
 	window.location.href = 'index.php';
 } );
 
-/* ----- Sitter sign up click listener ----- */
-
-$( document ).on( 'click', '.js-sign-up-button', function () {
-	sitterSignUp();
-} );
-
 /* ----- Sitter sign in request ----- */
 
 $( document ).on( 'click', '.js-sign-in-button', function () {
@@ -594,21 +628,37 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 			let signInResposne = this.responseText;
 
 			if ( signInResposne == 0 ) {
-				$( '.js-form-footer-login-fail' ).slideDown();
+				$.magnificPopup.open( {
+					items: {
+						src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--failure theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 48 48" height="48px" id="Layer_1" version="1.1" viewBox="0 0 48 48" width="48px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Layer_3"><g><path d="M24,0C10.745,0,0,10.745,0,24s10.745,24,24,24s24-10.745,24-24S37.255,0,24,0z M24,44    C12.954,44,4,35.046,4,24S12.954,4,24,4s20,8.954,20,20S35.046,44,24,44z" fill="#ff0000"/><polygon fill="#ff0000" points="33.878,12.003 24,21.88 14.123,12.003 12.003,14.125 21.879,24.001 12.003,33.877 14.126,35.997     24,26.123 33.875,35.997 35.997,33.877 26.122,24.001 35.997,14.125   "/></g></g></svg> <p class="text text--message text--fail">Entered email or password are incorrect.</p></div>',
+						type: 'inline',
+						midClick: true,
+						removalDelay: 300,
+						mainClass: 'mfp-fade',
+					}
+				} );
 
 				$( '.js-sign-in-email' ).addClass( 'input--invalid' );
 				$( '.js-sign-in-password' ).addClass( 'input--invalid' );
 			} else {
-				$( '.js-form-footer-login-fail' ).slideUp();
-
 				$( '.js-sign-in-email' ).removeClass( 'input--invalid' );
 				$( '.js-sign-in-password' ).removeClass( 'input--invalid' );
 
-				$( '.js-form-footer-login-success' ).slideDown();
+				$.magnificPopup.instance.st.callbacks = {
+					close: function() {
+						window.location.href = 'profile.php';
+					}
+				}
 
-				setTimeout( function() {
-					window.location.href = 'profile.php';
-				}, 2500 );
+				$.magnificPopup.open( {
+					items: {
+						src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">Login successful.</p></div>',
+						type: 'inline',
+						midClick: true,
+						removalDelay: 300,
+						mainClass: 'mfp-fade',
+					}
+				} );
 			}
 		}
 	};

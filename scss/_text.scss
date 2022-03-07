@@ -83,7 +83,6 @@
 	width: fit-content;
 	text-align: center;
 	color: #000;
-	border: 2px dotted #000;
 	border-radius: 8px;
 	padding-top: 5px;
 	padding-right: 5px;
@@ -96,12 +95,10 @@
 
 .text--fail {
 	color: $red;
-	border-color: $red;
 }
 
 .text--success {
 	color: $green;
-	border-color: $green;
 }
 
 .text--border {
@@ -154,10 +151,6 @@
 	&:hover {
 		color: $blue-hover;
 	}
-}
-
-.text--tooltip {
-	display: none;
 }
 
 .text--underline {
