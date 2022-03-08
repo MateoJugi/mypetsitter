@@ -16,7 +16,8 @@
 	$profileChangesPreferedServiceArray = explode( ',', $profileChangesPreferedService );
 
 	if ( !empty( $profileChangesFullName ) && !empty( $profileChangesEmail ) && !empty( $profileChangesLocation ) && !empty( $profileChangesPreferedPet ) && !empty( $profileChangesPreferedService ) && !empty( $profileChangesPrice ) && !empty( $profileChangesImage ) && !empty( $profileChangesAbout ) && !empty( $profileChangesPassword ) ) {
-		$result = mysqli_query( $con, "UPDATE sitters SET sitterFullName = '".$profileChangesFullName."', sitterEmail = '".$profileChangesEmail."', sitterLocation = '".$profileChangesLocation."', sitterPrice = '".$profileChangesPrice."', sitterImage = '".$profileChangesImage."', sitterPassword = '".password_hash( $profileChangesPassword, PASSWORD_DEFAULT )."', sitterAbout = '".$profileChangesAbout."' WHERE sitterID = '".$profileChangesSitterID."'" );
+
+		$result = mysqli_query( $con, "UPDATE sitters SET sitterFullName = '" .$profileChangesFullName. "', sitterEmail = '" .$profileChangesEmail. "', sitterLocation = '" .$profileChangesLocation. "', sitterPrice = '" .$profileChangesPrice. "', sitterImage = '" .$profileChangesImage. "', sitterPassword = '" .password_hash( $profileChangesPassword, PASSWORD_DEFAULT ). "', sitterAbout = '" .$profileChangesAbout. "' WHERE sitterID = '" .$profileChangesSitterID. "'" );
 
 		$delete = mysqli_query( $con, "DELETE FROM sitterspetsconnection WHERE sitterID = $profileChangesSitterID" );
 
@@ -37,14 +38,14 @@
 		foreach ( $profileChangesPreferedPetArray as $pet ) {
 			if ( in_array( $pet, $petList ) ) {
 			} else {
-				$result3 = mysqli_query( $con, "INSERT INTO pets (petType) VALUES ('".$pet."')" );
+				$result3 = mysqli_query( $con, "INSERT INTO pets (petType) VALUES ( '" .$pet. "' )" );
 			}
 		}
 
 		/* -----Getting ID of entered pet----- */
 
 		foreach ( $profileChangesPreferedPetArray as $pet ) {
-			$result4 = mysqli_query( $con, "SELECT petID FROM pets WHERE petType = '".$pet."'" );
+			$result4 = mysqli_query( $con, "SELECT petID FROM pets WHERE petType = '" .$pet. "'" );
 
 			$petID = mysqli_fetch_array( $result4 )[0];
 
@@ -56,7 +57,7 @@
 		/* -----Getting ID of entered service----- */
 
 		foreach ( $profileChangesPreferedServiceArray as $service ) {
-			$result6 = mysqli_query( $con, "SELECT serviceID FROM services WHERE serviceType = '".$service."'" );
+			$result6 = mysqli_query( $con, "SELECT serviceID FROM services WHERE serviceType = '" .$service. "'" );
 
 			$serviceID = mysqli_fetch_array( $result6 )[0];
 
@@ -65,6 +66,6 @@
 			$result7 = mysqli_query( $con, "INSERT INTO sittersservicesconnection (sitterID, serviceID) VALUES ($profileChangesSitterID, $serviceID)" );
 		}
 
-		$con->close();
+		$con -> close();
 	}
 ?>

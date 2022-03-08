@@ -1,6 +1,6 @@
 /* ----- Generating number of sitters per page depending on window width ----- */
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	let windowWidth = window.innerWidth;
 	let sittersPerPage;
 
@@ -18,7 +18,7 @@ $( window ).ready( function () {
 
 /* ----- Adding first 4 sitters to first page ----- */
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -33,7 +33,7 @@ $( window ).ready( function () {
 
 /* ----- Adding first 16 sitters to sitter galery ----- */
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -58,7 +58,7 @@ $( window ).ready( function () {
 
 /* ----- Generating pagination depending on number of sitters per page ----- */
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -99,7 +99,7 @@ $( window ).ready( function () {
 
 /* ----- Inserting options inside location filter select ----- */
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -114,7 +114,7 @@ $( window ).ready( function () {
 
 /* ----- Inserting options inside pets filter select ----- */
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -127,7 +127,7 @@ $( window ).ready( function () {
 	xmlhttp.send();
 } );
 
-$( window ).ready( function () {
+$( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -150,7 +150,7 @@ let b = 3;
 let c = 1;
 let d = 4;
 
-$( document ).on( 'click', '.js-card-list-pagination-item', function () {
+$( document ).on( 'click', '.js-card-list-pagination-item', function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -245,7 +245,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function () {
 
 /* ----- Changing pagination if last page after dots is clicked ----- */
 
-$( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', function () {
+$( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', function() {
 	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
 
 	let lastPageMinusOne = parseInt( lastPage ) - 1;
@@ -270,7 +270,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item-conditional-last', fun
 
 /* ----- Changing pagination if first page before dots is clicked ----- */
 
-$( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', function () {
+$( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', function() {
 	$( '.js-card-list-pagination-item' ).css( 'display', 'none' );
 	$( '.js-card-list-pagination-item' ).css( 'display', 'inline-flex' );
 
@@ -289,7 +289,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item-conditional-first', fu
 
 /* ----- Sitters list pagination request ----- */
 
-$( document ).on( 'click', '.js-filter-button', function ( e ) {
+$( document ).on( 'click', '.js-filter-button', function( e ) {
 	e.preventDefault();
 
 	$( '.js-card-list-pagination-item' ).removeClass( 'card-list-pagination__item--active' );
@@ -346,7 +346,7 @@ $( document ).on( 'click', '.js-filter-button', function ( e ) {
 
 /* ----- Connecting sitter and customer via email ----- */
 
-$( document ).on( 'click', '.js-form-submit', function () {
+$( document ).on( 'click', '.js-form-submit', function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	let customerFullName = $( '.js-popup-customerFullName' ).val();
@@ -486,13 +486,13 @@ function sitterSignUp () {
 
 /* ----- Sitter sign up click listener ----- */
 
-$( document ).on( 'click', '.js-sign-up-button', function () {
+$( document ).on( 'click', '.js-sign-up-button', function() {
 	sitterSignUp();
 } );
 
 /* ----- Sitter profile delete click listener ----- */
 
-$( document ).on( 'click', '.js-profile-delete-button', function () {
+$( document ).on( 'click', '.js-profile-delete-button', function() {
 	sitterDelete( this );
 
 	$.magnificPopup.open( {
@@ -514,7 +514,7 @@ $( document ).on( 'click', '.js-profile-delete-button', function () {
 
 /* ----- Sitter profile changes request ----- */
 
-$( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
+$( document ).on( 'click', '.js-sitter-profile-changes-button', function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	let sitterID = $( this ).attr( 'data-sitterID' );
@@ -614,13 +614,13 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function () {
 
 /* ----- Sitter profile sign out request ----- */
 
-$( document ).on( 'click', '.js-profile-sign-out-button', function () {
+$( document ).on( 'click', '.js-profile-sign-out-button', function() {
 	window.location.href = 'index.php';
 } );
 
 /* ----- Sitter sign in request ----- */
 
-$( document ).on( 'click', '.js-sign-in-button', function () {
+$( document ).on( 'click', '.js-sign-in-button', function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {
@@ -670,7 +670,8 @@ $( document ).on( 'click', '.js-sign-in-button', function () {
 	xmlhttp.send();
 } );
 
+/* Remove invalid input warning on input change */
 
-$( '.js-sign-up-fullname, .js-sign-up-email, .js-sign-up-password, .js-sign-in-email, .js-sign-in-password' ).change( function () { 
+$( '.js-sign-up-fullname, .js-sign-up-email, .js-sign-up-password, .js-sign-in-email, .js-sign-in-password' ).change( function() { 
 	$( this ).removeClass( 'input--invalid' );
 } );

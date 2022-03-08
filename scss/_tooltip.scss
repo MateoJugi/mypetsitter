@@ -11,13 +11,26 @@
 	background-color: #000;
 	color: #fff;
 	width: 200px;
+	top: -5px;
+  	right: 40px;
+	bottom: auto;
+	left: auto;
 	text-align: center;
+	border-radius: 6px;
+	z-index: 1;
 	padding-top: 5px;
 	padding-right: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
-	border-radius: 6px;
-	z-index: 1;
+	margin-bottom: 5px;
+  	margin-left: 0;
+
+	@media ( min-width: 850px ) {
+		top: -5px;
+ 		left: 0;
+		bottom: auto;
+		margin-left: 0;
+	}
 
 	.text--underline {
 		font-size: 16px;

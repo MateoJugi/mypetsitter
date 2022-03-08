@@ -25,7 +25,7 @@ $( document ).on( 'click', '.js-popup-form', function( e ) {
 	$.magnificPopup.open( {
 		items: {
 			src: '<div class="white-pop-up white-pop-up--bg-img theme-background-color">'+
-			'<div class="white-pop-up__image" style="background-image: url(' + sitterImage + ');"></div>'+
+			'<div class="white-pop-up__image" style="background-image: url( ' + sitterImage + ' );"></div>'+
 
 			'<div class="position-relative">'+
 				'<p class="text text--sm text--border text--white text--mb-xs">' + sitterLocation + '</p>'+

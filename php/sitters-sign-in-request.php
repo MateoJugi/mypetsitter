@@ -4,7 +4,7 @@
 	$signInEmail = mysqli_real_escape_string( $con, $_GET["signInEmail"] );
 	$signInPassword = mysqli_real_escape_string( $con, $_GET["signInPassword"] );
 
-	$resultPassword = mysqli_query( $con, "SELECT sitterPassword FROM sitters WHERE sitterEmail = BINARY '".$signInEmail."'" );
+	$resultPassword = mysqli_query( $con, "SELECT sitterPassword FROM sitters WHERE sitterEmail = BINARY '" .$signInEmail. "'" );
 
 	$passwordHash = ( array ) null;
 
@@ -17,7 +17,7 @@
 	echo $isPasswordValid;
 
 	if ( !$isPasswordValid == 0 ) {
-		$result = mysqli_query( $con, "SELECT * FROM sitters WHERE sitterEmail = BINARY '".$signInEmail."' AND sitterPassword = BINARY '".$passwordHash[0]."'" );
+		$result = mysqli_query( $con, "SELECT * FROM sitters WHERE sitterEmail = BINARY '" .$signInEmail. "' AND sitterPassword = BINARY '" .$passwordHash[0]. "'" );
 
 		$row = mysqli_num_rows( $result );
 
@@ -26,7 +26,7 @@
 		if ( !$row == 0 ) {
 			/* ----- Selecting sitters prefered pets ----- */
 
-			$result2 = mysqli_query( $con, "SELECT pets.petType FROM sitterspetsconnection INNER JOIN pets ON sitterspetsconnection.petID = pets.petID WHERE sitterID = '".$rowText["sitterID"]."'" );
+			$result2 = mysqli_query( $con, "SELECT pets.petType FROM sitterspetsconnection INNER JOIN pets ON sitterspetsconnection.petID = pets.petID WHERE sitterID = '" .$rowText["sitterID"]. "'" );
 
 			$pets = (array) null;
 
@@ -36,7 +36,7 @@
 
 			/* ----- Selecting sitters prefered service ----- */
 
-			$result3 = mysqli_query( $con, "SELECT services.serviceType FROM sittersservicesconnection INNER JOIN services ON sittersservicesconnection.serviceID = services.serviceID WHERE sitterID = '".$rowText["sitterID"]."'" );
+			$result3 = mysqli_query( $con, "SELECT services.serviceType FROM sittersservicesconnection INNER JOIN services ON sittersservicesconnection.serviceID = services.serviceID WHERE sitterID = '" .$rowText["sitterID"]. "'" );
 
 			$services = (array) null;
 
@@ -44,6 +44,7 @@
 				array_push( $services, $rowText3[0] );
 			}
 
+			/* ini_set( 'session.save_path', DOCUMENT_ROOT .'/_SESSIONS/' ); */
 			session_start();
 
 			$_SESSION["signInSitterID"] = $rowText["sitterID"];
@@ -59,5 +60,5 @@
 		}
 	}
 
-	$con->close();
+	$con -> close();
 ?>

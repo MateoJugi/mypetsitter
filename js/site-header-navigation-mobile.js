@@ -10,7 +10,7 @@ $( '.js-site-header-menu' ).click( function( e ) {
 	$( '.js-blur' ).toggleClass( 'background-blur' );
 } );
 
-$( '.js-site-navigation-item-mobile' ).click( function () { 
+$( '.js-site-navigation-item-mobile' ).click( function() { 
 	$( '.js-site-header__navigation--mobile' ).slideToggle( 'fast' );
 
 	$( 'body' ).toggleClass( 'overflow-hidden' );

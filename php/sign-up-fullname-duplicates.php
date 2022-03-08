@@ -3,7 +3,7 @@
 
 	$signUpFullName = $_GET["signUpFullName"];
 
-	$result = mysqli_query( $con, "SELECT sitterFullName FROM sitters WHERE sitterFullName = '".$signUpFullName."'");
+	$result = mysqli_query( $con, "SELECT sitterFullName FROM sitters WHERE sitterFullName = '" .$signUpFullName. "'");
 
 	$row = mysqli_num_rows( $result );
 

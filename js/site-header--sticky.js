@@ -1,4 +1,4 @@
-window.onscroll = function () {
+window.onscroll = function() {
 	let prevScrollpos = window.scrollY;
 
 	if ( prevScrollpos >= 975 ) {
