@@ -1,21 +1,3 @@
-/* ----- Generating number of sitters per page depending on window width ----- */
-
-$( window ).ready( function() {
-	let windowWidth = window.innerWidth;
-	let sittersPerPage;
-
-	if ( windowWidth >= 992 && windowWidth <= 1200 ) {
-		sittersPerPage = 6;
-	} else {
-		sittersPerPage = 4;
-	}
-
-	var xmlhttp = new XMLHttpRequest();
-
-	xmlhttp.open( 'GET', 'php/number-of-sitters-per-page.php?sittersPerPage=' + sittersPerPage, true );
-	xmlhttp.send();
-} );
-
 /* ----- Adding first 4 sitters to first page ----- */
 
 $( window ).ready( function() {
@@ -365,13 +347,17 @@ $( document ).on( 'click', '.js-form-submit', function() {
 	if( customerFullName && customerEmail && customerEmail.includes( '@' ) && customerEmail.split( '@' ).pop() && customerContactNumber && customerPet && customerService && startDate && endDate ) {
 		$.magnificPopup.open( {
 			items: {
-				src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">The email has been sent succesfully.</p></div>',
+				src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">An email has been sent succesfully.</p></div>',
 				type: 'inline',
 				midClick: true,
 				removalDelay: 300,
 				mainClass: 'mfp-fade',
 			}
 		} );
+
+		setTimeout( function() {
+			$.magnificPopup.close();
+		}, 2000 );
 	}
 } );
 
@@ -458,6 +444,10 @@ function sitterSignUp () {
 										mainClass: 'mfp-fade',
 									}
 								} );
+
+								setTimeout( function() {
+									$.magnificPopup.close();
+								}, 2000 );
 							}
 						} else {
 							$( '.js-sign-up-email' ).addClass( 'input--invalid' );
@@ -510,6 +500,10 @@ $( document ).on( 'click', '.js-profile-delete-button', function() {
 			window.location.href = 'index.php';
 		}
 	}
+
+	setTimeout( function() {
+		$.magnificPopup.close();
+	}, 2000 );
 } );
 
 /* ----- Sitter profile changes request ----- */
@@ -586,6 +580,10 @@ $( document ).on( 'click', '.js-sitter-profile-changes-button', function() {
 										window.location.href = 'index.php';
 									}
 								}
+
+								setTimeout( function() {
+									$.magnificPopup.close();
+								}, 2000 );
 							}
 						} else {
 							$( '.js-sitter-profile-changes-email' ).addClass( 'input--invalid' );
@@ -638,6 +636,10 @@ $( document ).on( 'click', '.js-sign-in-button', function() {
 					}
 				} );
 
+				setTimeout( function() {
+					$.magnificPopup.close();
+				}, 2000 );
+
 				$( '.js-sign-in-email' ).addClass( 'input--invalid' );
 				$( '.js-sign-in-password' ).addClass( 'input--invalid' );
 			} else {
@@ -659,6 +661,10 @@ $( document ).on( 'click', '.js-sign-in-button', function() {
 						mainClass: 'mfp-fade',
 					}
 				} );
+
+				setTimeout( function() {
+					$.magnificPopup.close();
+				}, 2000 );
 			}
 		}
 	};

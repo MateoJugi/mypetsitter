@@ -753,7 +753,7 @@ ul {
 }
 
 .white-pop-up--success .mfp-close {
-  color: #4bb543 !important;
+  display: none;
 }
 
 .white-pop-up--failure {
@@ -761,7 +761,7 @@ ul {
 }
 
 .white-pop-up--failure .mfp-close {
-  color: #ff0000 !important;
+  display: none;
 }
 
 .white-pop-up--orange-before::before {

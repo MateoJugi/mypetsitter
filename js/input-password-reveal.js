@@ -1,4 +1,3 @@
-
 $( '.form__icon--password-reveal' ).click( function() {
 	let revealed = $( '.js-form-input-password' ).attr( 'type' );
 	
