@@ -1,5 +1,4 @@
 <?php
-	/* ini_set( 'session.save_path', DOCUMENT_ROOT .'/_SESSIONS/' ); */
 	session_start();
 
 	$signInSitterID = $_SESSION['signInSitterID'];

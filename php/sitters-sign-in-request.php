@@ -44,7 +44,6 @@
 				array_push( $services, $rowText3[0] );
 			}
 
-			/* ini_set( 'session.save_path', DOCUMENT_ROOT .'/_SESSIONS/' ); */
 			session_start();
 
 			$_SESSION["signInSitterID"] = $rowText["sitterID"];
