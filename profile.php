@@ -222,6 +222,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 		<script src="magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="magnific-popup/magnific-popup-trigger.js"></script>
 		<script src="js/xmlhttp-requests.js"></script>
 		<script src="js/json-location-request.js"></script>
 		<script src="js/select2.js"></script>
@@ -239,12 +240,12 @@
 				let signInSitterPreferedPets = <?php echo json_encode( $signInSitterPreferedPets ) ?>;
 
 				setTimeout( function() {
-					$( '.js-sitter-profile-changes-prefered-pets' ).val( signInSitterPreferedPets ).trigger( 'change' );
-				}, 1 );
+					$( '.js-sitter-profile-changes-prefered-services' ).val( signInSitterPreferedServices ).trigger( 'change' );
+				}, 100 );
 
 				setTimeout( function() {
-					$( '.js-sitter-profile-changes-prefered-services' ).val( signInSitterPreferedServices ).trigger( 'change' );
-				}, 1 );
+					$( '.js-sitter-profile-changes-prefered-pets' ).val( signInSitterPreferedPets ).trigger( 'change' );
+				}, 100 );
 			} );
 
 			$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );

@@ -13,6 +13,14 @@
 	text-align: left;
 }
 
+.section--pt-md {
+	padding-top: 100px;
+
+	@media ( min-width: 992px ) {
+		padding-top: 120px;
+	}
+}
+
 .section--pt-pb-lg {
 	padding-top: 50px;
 	padding-bottom: 50px;

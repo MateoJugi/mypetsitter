@@ -27,7 +27,7 @@
 		}
 	}
 
-	.title {
+	.title, .white-pop-up__main * {
 		z-index: 1;
 	}
 }
@@ -78,6 +78,14 @@
 	}
 }
 
+.white-pop-up--question {
+	border: 2px solid $gray-light;
+
+	.mfp-close {
+		color: $gray-light !important;
+	}
+}
+
 .white-pop-up--orange-before::before {
 	background-color: $orange;
 }
@@ -114,6 +122,10 @@
 	justify-content: space-between;
 	align-items: baseline;
 	margin-bottom: 50px;
+}
+
+.white-pop-up__main--flex-direction-column {
+	flex-direction: column;
 }
 
 .white-pop-up__icon {

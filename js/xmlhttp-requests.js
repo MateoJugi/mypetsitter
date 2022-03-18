@@ -3,13 +3,15 @@
 $( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
+	let windowLocation = window.location.href
+
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
 		}
 	};
 
-	xmlhttp.open( 'GET', 'php/sitters-pull-request.php', true );
+	xmlhttp.open( 'GET', 'php/sitters-pull-request.php?windowLocation=' + windowLocation, true );
 	xmlhttp.send();
 } );
 
@@ -43,6 +45,8 @@ $( window ).ready( function() {
 $( window ).ready( function() {
 	var xmlhttp = new XMLHttpRequest();
 
+	let windowLocation = window.location.href
+
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pagination-buttons' ).html( this.responseText );
@@ -75,7 +79,7 @@ $( window ).ready( function() {
 		}
 	};
 
-	xmlhttp.open( 'GET', 'php/pagination.php', true );
+	xmlhttp.open( 'GET', 'php/pagination.php?windowLocation=' + windowLocation, true );
 	xmlhttp.send();
 } );
 
@@ -135,6 +139,8 @@ let d = 4;
 $( document ).on( 'click', '.js-card-list-pagination-item', function() {
 	var xmlhttp = new XMLHttpRequest();
 
+	let windowLocation = window.location.href
+
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
@@ -143,7 +149,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function() {
 
 	let pageNumber = $( this ).html();
 
-	xmlhttp.open( 'GET', 'php/sitters-pagination-request.php?page=' + pageNumber, true );
+	xmlhttp.open( 'GET', 'php/sitters-pagination-request.php?page=' + pageNumber + '&windowLocation=' + windowLocation, true );
 	xmlhttp.send();
 
 	$( '.js-filter-location' ).val( '' );
@@ -278,6 +284,8 @@ $( document ).on( 'click', '.js-filter-button', function( e ) {
 
 	var xmlhttp = new XMLHttpRequest();
 
+	let windowLocation = window.location.href
+
 	xmlhttp.onreadystatechange = function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			$( '.js-pull-request' ).html( this.responseText );
@@ -291,7 +299,7 @@ $( document ).on( 'click', '.js-filter-button', function( e ) {
 	let sitterMinPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'min' );
 	let sitterMaxPrice = $( '.js-filter-price' ).find( ':selected' ).attr( 'max' );
 
-	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterPreferedService=' + sitterPreferedService + '&sitterPreferedPet=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice, true );
+	xmlhttp.open( 'GET', 'php/sitters-filter-request.php?sitterLocation=' + sitterLocation + '&sitterPreferedService=' + sitterPreferedService + '&sitterPreferedPet=' + sitterPreferedPet + '&sitterMinPrice=' + sitterMinPrice + '&sitterMaxPrice=' + sitterMaxPrice + '&windowLocation=' + windowLocation, true );
 	xmlhttp.send();
 
 	/* ----- Refreshing pagination if filter is clicked ----- */
@@ -483,6 +491,22 @@ $( document ).on( 'click', '.js-sign-up-button', function() {
 /* ----- Sitter profile delete click listener ----- */
 
 $( document ).on( 'click', '.js-profile-delete-button', function() {
+	let deleteSitterID = $( this ).attr( 'data-sitterID' );
+
+	$.magnificPopup.open( {
+		items: {
+			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--white">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-sitterID = "' + deleteSitterID + '">Delete sitter</a></div> </div>',
+			type: 'inline',
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'mfp-fade',
+		}
+	} );
+} );
+
+$( document ).on( 'click', '.js-profile-delete-final-button', function( e ) {
+	e.preventDefault();
+
 	sitterDelete( this );
 
 	$.magnificPopup.open( {
@@ -646,9 +670,17 @@ $( document ).on( 'click', '.js-sign-in-button', function() {
 				$( '.js-sign-in-email' ).removeClass( 'input--invalid' );
 				$( '.js-sign-in-password' ).removeClass( 'input--invalid' );
 
-				$.magnificPopup.instance.st.callbacks = {
-					close: function() {
-						window.location.href = 'profile.php';
+				if ( signInResposne == 2 ) {
+					$.magnificPopup.instance.st.callbacks = {
+						close: function() {
+							window.location.href = 'admin.php';
+						}
+					}
+				} else {
+					$.magnificPopup.instance.st.callbacks = {
+						close: function() {
+							window.location.href = 'profile.php';
+						}
 					}
 				}
 

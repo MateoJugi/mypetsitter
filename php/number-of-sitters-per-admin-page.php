@@ -1,0 +1,3 @@
+<?php
+	$sittersPerAdminPage = 16;
+?>

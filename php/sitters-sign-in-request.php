@@ -1,20 +1,38 @@
 <?php
+	session_start();
 	include 'connection.php';
 
 	$signInEmail = mysqli_real_escape_string( $con, $_GET["signInEmail"] );
 	$signInPassword = mysqli_real_escape_string( $con, $_GET["signInPassword"] );
 
-	$resultPassword = mysqli_query( $con, "SELECT sitterPassword FROM sitters WHERE sitterEmail = BINARY '" .$signInEmail. "'" );
+	$resultAdminPassword = mysqli_query( $con, "SELECT adminPassword FROM admins WHERE adminName = BINARY '" .$signInEmail. "'" );
 
-	$passwordHash = ( array ) null;
+	$adminPasswordHash = ( array ) null;
 
-	while ( $rowPassword = mysqli_fetch_array( $resultPassword ) ) {
-		array_push( $passwordHash, $rowPassword[0] );
+	while ( $rowAdminPassword = mysqli_fetch_array( $resultAdminPassword ) ) {
+		array_push( $adminPasswordHash, $rowAdminPassword[0] );
 	}
 
-	$isPasswordValid = password_verify( $signInPassword, $passwordHash[0] );
+	$isAdminPasswordValid = password_verify( $signInPassword, $adminPasswordHash[0] );
 
-	echo $isPasswordValid;
+	if ( $isAdminPasswordValid ) {
+		echo 2;
+
+		$_SESSION["isAdmin"] = 1;
+		$_SESSION["adminName"] = $signInEmail;
+	} else {
+		$resultPassword = mysqli_query( $con, "SELECT sitterPassword FROM sitters WHERE sitterEmail = BINARY '" .$signInEmail. "'" );
+
+		$passwordHash = ( array ) null;
+
+		while ( $rowPassword = mysqli_fetch_array( $resultPassword ) ) {
+			array_push( $passwordHash, $rowPassword[0] );
+		}
+
+		$isPasswordValid = password_verify( $signInPassword, $passwordHash[0] );
+
+		echo $isPasswordValid;
+	}
 
 	if ( !$isPasswordValid == 0 ) {
 		$result = mysqli_query( $con, "SELECT * FROM sitters WHERE sitterEmail = BINARY '" .$signInEmail. "' AND sitterPassword = BINARY '" .$passwordHash[0]. "'" );
@@ -43,8 +61,6 @@
 			while ( $rowText3 = mysqli_fetch_array( $result3 ) ) {
 				array_push( $services, $rowText3[0] );
 			}
-
-			session_start();
 
 			$_SESSION["signInSitterID"] = $rowText["sitterID"];
 			$_SESSION["signInSitterFullName"] = $rowText["sitterFullName"];

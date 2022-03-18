@@ -1,6 +1,8 @@
 <?php
 	include 'connection.php';
 
+	$windowLocation = $_GET["windowLocation"];
+
 	$andArray = [];
 
 	foreach ( [ 'sitterLocation', 'sitterPreferedPet', 'sitterPreferedService' ] as $key ) { if ( $_GET[$key] ) {
@@ -23,8 +25,14 @@
 
 	if ( $result && $result -> num_rows ) {
 		while( $row = mysqli_fetch_array( $result ) ) {
+			if ( strpos( $windowLocation, "admin.php" ) ) {
+				$button = '<a href="#" class="button button--xl button--filled button--red js-profile-delete-button" data-sitterID = "' .$row["sitterID"]. '">Delete profile</a>';
+			} else {
+				$button = '<a href="#rent-pop-up" class="button button--xl button--filled">Meet up</a>';
+			}
+
 			echo'<div class="col-12 col-6-sm col-4-lg col-3-xl">
-					<div class="card-list__item theme-surface-color js-popup-form" data-sitterEmail="' .$row["sitterEmail"]. '" data-sitterFullName="' .$row["sitterFullName"]. '" data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterLocation="' .$row["sitterLocation"]. '" data-sitterPreferedService="' .$row["sitterPreferedService"]. '"  data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterImage="' .$row["sitterImage"]. '" data-sitterPreferedPet="' .$row["sitterPreferedPet"]. '">
+					<div class="card-list__item theme-surface-color js-popup-form" data-sitterEmail="' .$row["sitterEmail"]. '" data-sitterFullName="' .$row["sitterFullName"]. '" data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterLocation="' .$row["sitterLocation"]. '" data-sitterPreferedService="' .$row["sitterPreferedService"]. '"  data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterImage="' .$row["sitterImage"]. '" data-sitterPreferedPet="' .$row["sitterPreferedPet"]. '" data-sitterID = "' .$row["sitterID"]. '">
 						<div class="card-list-item__image" data-mfp-src="' .$row["sitterImage"]. '" style="background-image: url( ' .$row["sitterImage"]. ' );"></div>
 	
 						<div class="card-list-item__main">
@@ -39,10 +47,10 @@
 							<p class="text text--sm">' .$row["sitterPreferedService"]. '</p>
 							
 							<p class="text text--sm">' .$row["sitterPreferedPet"]. '</p>
-						</div>
+						</div>'.
 	
-						<a href="#rent-pop-up" class="button button--xl button--filled">Meet up</a>
-					</div>
+						$button
+					.'</div>
 				</div>';
 		}
 	} else {

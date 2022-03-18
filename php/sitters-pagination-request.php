@@ -1,14 +1,31 @@
 <?php
 	include 'connection.php';
 	include 'number-of-sitters-per-page.php';
+	include 'number-of-sitters-per-admin-page.php';
 
-	$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $sittersPerPage;
+	$windowLocation = $_GET["windowLocation"];
 
-	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(DISTINCT(petType) SEPARATOR ', ' ) AS sitterPreferedPet, GROUP_CONCAT(DISTINCT(serviceType) SEPARATOR ', ' ) AS sitterPreferedService FROM sitterspetsconnection INNER JOIN sitters ON sitterspetsconnection.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsconnection.petID=pets.petID INNER JOIN sittersservicesconnection ON sittersservicesconnection.sitterID=sitterspetsconnection.sitterID INNER JOIN services ON sittersservicesconnection.serviceID=services.serviceID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice LIMIT $offset, $sittersPerPage" );
+	if ( strpos( $windowLocation, "admin.php" ) ) {
+		$endLimit = "LIMIT 0, $sittersPerAdminPage";
+		$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $sittersPerAdminPage;
+		$limit = "LIMIT $offset, $sittersPerAdminPage";
+	} else {
+		$endLimit = "LIMIT 0, $sittersPerPage";
+		$offset = ( ( ( int ) $_GET['page'] ) - 1 ) * $sittersPerPage;
+		$limit = "LIMIT $offset, $sittersPerPage";
+	}
+
+	$result = mysqli_query( $con, "SELECT * FROM (SELECT sitters.sitterID, GROUP_CONCAT(DISTINCT(petType) SEPARATOR ', ' ) AS sitterPreferedPet, GROUP_CONCAT(DISTINCT(serviceType) SEPARATOR ', ' ) AS sitterPreferedService FROM sitterspetsconnection INNER JOIN sitters ON sitterspetsconnection.sitterID=sitters.sitterID INNER JOIN pets ON sitterspetsconnection.petID=pets.petID INNER JOIN sittersservicesconnection ON sittersservicesconnection.sitterID=sitterspetsconnection.sitterID INNER JOIN services ON sittersservicesconnection.serviceID=services.serviceID GROUP BY sitterID ORDER BY sitterPrice) T INNER JOIN sitters on sitters.sitterID = T.sitterID ORDER BY sitterPrice $limit" );
 
 	while( $row = mysqli_fetch_array( $result ) ) {
+		if ( strpos( $windowLocation, "admin.php" ) ) {
+			$button = '<a href="#" class="button button--xl button--filled button--red js-profile-delete-button" data-sitterID = "' .$row["sitterID"]. '">Delete profile</a>';
+		} else {
+			$button = '<a href="#rent-pop-up" class="button button--xl button--filled">Meet up</a>';
+		}
+
 		echo '<div class="col-12 col-6-sm col-4-lg col-3-xl">
-				<div class="card-list__item theme-surface-color js-popup-form" data-sitterEmail="' .$row["sitterEmail"]. '" data-sitterFullName="' .$row["sitterFullName"]. '" data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterLocation="' .$row["sitterLocation"]. '" data-sitterPreferedService="' .$row["sitterPreferedService"]. '"  data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterImage="' .$row["sitterImage"]. '" data-sitterPreferedPet="' .$row["sitterPreferedPet"]. '">
+				<div class="card-list__item theme-surface-color js-popup-form" data-sitterEmail="' .$row["sitterEmail"]. '" data-sitterFullName="' .$row["sitterFullName"]. '" data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterLocation="' .$row["sitterLocation"]. '" data-sitterPreferedService="' .$row["sitterPreferedService"]. '"  data-sitterPrice="' .$row["sitterPrice"]. '" data-sitterImage="' .$row["sitterImage"]. '" data-sitterPreferedPet="' .$row["sitterPreferedPet"]. '" data-sitterID = "' .$row["sitterID"]. '">
 					<div class="card-list-item__image" data-mfp-src="' .$row["sitterImage"]. '" style="background-image: url( ' .$row["sitterImage"]. ' );"></div>
 
 					<div class="card-list-item__main">
@@ -23,10 +40,10 @@
 						<p class="text text--sm">' .$row["sitterPreferedService"]. '</p>
 						
 						<p class="text text--sm">' .$row["sitterPreferedPet"]. '</p>
-					</div>
+					</div>'.
 
-					<a href="#rent-pop-up" class="button button--xl button--filled">Meet up</a>
-				</div>
+					$button
+				.'</div>
 			</div>';
 	}
 

@@ -9,3 +9,11 @@ $( '.js-pop-up' ).magnificPopup( {
       }
 	}
 } );
+
+/* ----- Close opened popup ----- */
+
+$( document ).on( 'click', '.js-popup-close-button', function( e ) {
+	e.preventDefault();
+
+	$.magnificPopup.close();
+} );
