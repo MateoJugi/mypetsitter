@@ -25,7 +25,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="site-header__inner">
+						<div class="site-header__inner site-header__inner--flex-direction">
 							<div class="site-logo theme-on-surface-color js-profile-sign-out-button">
 								<a href="index.php">myPetSitter</a>
 							</div>

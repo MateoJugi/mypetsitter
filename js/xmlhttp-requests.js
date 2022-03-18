@@ -495,7 +495,7 @@ $( document ).on( 'click', '.js-profile-delete-button', function() {
 
 	$.magnificPopup.open( {
 		items: {
-			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--white">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-sitterID = "' + deleteSitterID + '">Delete sitter</a></div> </div>',
+			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--white">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-sitterID = "' + deleteSitterID + '">Delete profile</a></div> </div>',
 			type: 'inline',
 			midClick: true,
 			removalDelay: 300,

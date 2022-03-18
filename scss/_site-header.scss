@@ -36,6 +36,22 @@
 	padding-bottom: 20px;
 }
 
+.site-header__inner--flex-direction {
+	flex-direction: column;
+
+	.site-logo {
+		margin-bottom: 10px;
+
+		@media ( min-width: 576px ) {
+			margin-bottom: 0;
+		}
+	}
+
+	@media ( min-width: 576px ) {
+		flex-direction: row;
+	}
+}
+
 .site-logo a {
 	font-size: 30px;
 	position: relative;
