@@ -20,6 +20,8 @@ $( window ).ready( function() {
 $( '.js-search-filter' ).keyup( function() { 
 	let searchWord = $( this ).val();
 
+	$( '.js-search-filter' ).val( searchWord );
+
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange = function() {

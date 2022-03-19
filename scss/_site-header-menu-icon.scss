@@ -1,7 +1,10 @@
 .site-header__menu-icon {
 	width: 31.5px;
 	height: 31.5px;
-	position: relative;
+	position: absolute;
+    top: 23px;
+	right: 40px;
+	z-index: 5;
 	-webkit-transform: rotate( 0deg );
 	-moz-transform: rotate( 0deg );
 	-o-transform: rotate( 0deg );
@@ -20,6 +23,10 @@
 	@media ( min-width: 992px ) {
 		display: none;
 	}
+}
+
+.site-header__menu-icon--mobile span {
+	background-color: $gray;
 }
 
 .site-header__menu-icon span {
@@ -79,6 +86,22 @@
 	@media ( min-width: 576px ) {
 		top: 36px;
 	}
+}
+
+.site-header__menu-icon--sticky {
+	position: fixed;
+	
+	span {
+		background-color: #000;
+	}
+}
+
+.site-header__menu-icon--sticky.site-header-menu-icon-open span {
+	background-color: $gray;
+}
+
+.site-header__menu-icon.site-header-menu-icon-open {
+	right: 20px;
 }
 
 .site-header__menu-icon.site-header-menu-icon-open span:nth-child( 1 ) {

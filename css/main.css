@@ -66,9 +66,8 @@ ul {
   overflow: hidden;
 }
 
-.background-blur {
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
+.pointer-events-none {
+  pointer-events: none;
 }
 
 .width-100 {
@@ -151,7 +150,7 @@ ul {
   -webkit-box-shadow: 0 15px 10px -15px rgba(17, 17, 17, 0.164);
           box-shadow: 0 15px 10px -15px rgba(17, 17, 17, 0.164);
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -171,6 +170,16 @@ ul {
   opacity: 0;
   z-index: 0;
   position: fixed;
+}
+
+.site-header--sticky-open {
+  background-color: #111;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.site-header--sticky-open .site-logo {
+  color: #f2f2f2;
 }
 
 .site-header--color-black {
@@ -307,13 +316,26 @@ ul {
 }
 
 .site-header__navigation--mobile {
-  height: 100vh;
-  width: 100%;
-  display: none;
-  position: absolute;
-  top: 85px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  display: block;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 90px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.site-header__navigation--mobile-open {
+  width: 300px;
+}
+
+.site-header__navigation--mobile-open .site-navigation__item--mobile {
+  color: #818181;
 }
 
 .site-header-navigation__inner {
@@ -1154,7 +1176,10 @@ ul {
 .site-header__menu-icon {
   width: 31.5px;
   height: 31.5px;
-  position: relative;
+  position: absolute;
+  top: 23px;
+  right: 40px;
+  z-index: 5;
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: .5s ease-in-out;
@@ -1173,6 +1198,10 @@ ul {
   .site-header__menu-icon {
     display: none;
   }
+}
+
+.site-header__menu-icon--mobile span {
+  background-color: #f2f2f2;
 }
 
 .site-header__menu-icon span {
@@ -1228,6 +1257,22 @@ ul {
   .site-header__menu-icon span:nth-child(3) {
     top: 36px;
   }
+}
+
+.site-header__menu-icon--sticky {
+  position: fixed;
+}
+
+.site-header__menu-icon--sticky span {
+  background-color: #000;
+}
+
+.site-header__menu-icon--sticky.site-header-menu-icon-open span {
+  background-color: #f2f2f2;
+}
+
+.site-header__menu-icon.site-header-menu-icon-open {
+  right: 20px;
 }
 
 .site-header__menu-icon.site-header-menu-icon-open span:nth-child(1) {
@@ -1427,8 +1472,8 @@ ul {
   fill: #f2f2f2;
 }
 
-.dark-theme-change .site-header--sticky .js-site-header-menu span {
-  background-color: #f2f2f2;
+.dark-theme-change .site-header__menu-icon--sticky span {
+  background-color: #fff;
 }
 
 .dark-theme-change .select2-selection--multiple {
