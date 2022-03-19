@@ -15,6 +15,25 @@ $( window ).ready( function() {
 	xmlhttp.send();
 } );
 
+/* ----- Sitters search filter on admin page ----- */
+
+$( '.js-search-filter' ).keyup( function() { 
+	let searchWord = $( this ).val();
+
+	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange = function() {
+		if ( this.readyState == 4 && this.status == 200 ) {
+			$( '.js-card-list-pagination-item' ).removeClass( 'card-list-pagination__item--active' );
+
+			$( '.js-pull-request' ).html( this.responseText );
+		}
+	};
+
+	xmlhttp.open( 'GET', 'php/sitters-search-filter-request.php?searchWord=' + searchWord, true );
+	xmlhttp.send();
+} );
+
 /* ----- Adding first 16 sitters to sitter galery ----- */
 
 $( window ).ready( function() {
@@ -155,7 +174,8 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function() {
 	$( '.js-filter-location' ).val( '' );
 	$( '.js-filter-service' ).val( '' );
 	$( '.js-filter-prefered-pets' ).val( '' );
-	$( '.js-filter-price' ).val( '' )
+	$( '.js-filter-price' ).val( '' );
+	$( '.js-search-filter' ).val( '' )
 
 	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
 
@@ -495,7 +515,7 @@ $( document ).on( 'click', '.js-profile-delete-button', function() {
 
 	$.magnificPopup.open( {
 		items: {
-			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--white">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-sitterID = "' + deleteSitterID + '">Delete profile</a></div> </div>',
+			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--black theme-on-surface-color">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-sitterID = "' + deleteSitterID + '">Delete profile</a></div> </div>',
 			type: 'inline',
 			midClick: true,
 			removalDelay: 300,

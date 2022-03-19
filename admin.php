@@ -30,14 +30,11 @@
 								<a href="index.php">myPetSitter</a>
 							</div>
 
-							<div>
-								<h5 class="title title--md theme-on-surface-color js-site-header-profile-sitter-name">
-									<?php
-										if ( $_SESSION["isAdmin"] == 1 ) {
-											echo $_SESSION["adminName"];
-										}
-									?>
-								</h5>
+							<div class="position-relative">
+								<input type="text" placeholder="Search sitter" class="filter-form__item filter-form__item--mb-none js-search-filter theme-surface-color">
+
+								<svg class="input-icon" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M31 28h-1.59l-.55-.55C30.82 25.18 32 22.23 32 19c0-7.18-5.82-13-13-13S6 11.82 6 19s5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55V31l10 9.98L40.98 38 31 28zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/><path d="M0 0h48v48H0z" fill="none"/>
+								</svg>
 							</div>
 						</div>
 					</div>
@@ -45,53 +42,24 @@
 			</div>
 		</div>
 
-		<div class="site-header site-header--sticky js-site-header theme-surface-color">
+		<div class="site-header site-header--sticky js-site-header-sticky-early-show js-site-header theme-surface-color">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="site-header__inner">
-							<div class="site-logo theme-on-surface-color">
-								<a href="#">myPetSitter</a>
+						<div class="site-header__inner site-header__inner--flex-direction">
+							<div class="site-logo theme-on-surface-color js-profile-sign-out-button">
+								<a href="index.php">myPetSitter</a>
 							</div>
 
-							<ul class="site-header__navigation theme-on-surface-color">
-								<li class="site-navigation__item"><a href="#services">Services</a></li>
+							<div class="position-relative">
+								<input type="text" placeholder="Search sitter" class="filter-form__item filter-form__item--mb-none js-search-filter theme-surface-color">
 
-								<li class="site-navigation__item"><a href="#sitters">Find sitter</a></li>
-
-								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
-							</ul>
-
-							<div class="site-header__navigation">
-								<a href="#sign-up-pop-up" class="button js-pop-up theme-on-surface-color">Sign up</a>
-
-								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
-							</div>
-
-							<div class="site-header__menu-icon site-header__menu-icon--black js-site-header-menu">
-								<span></span>
-								<span></span>
-								<span></span>
+								<svg class="input-icon" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M31 28h-1.59l-.55-.55C30.82 25.18 32 22.23 32 19c0-7.18-5.82-13-13-13S6 11.82 6 19s5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55V31l10 9.98L40.98 38 31 28zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/><path d="M0 0h48v48H0z" fill="none"/>
+								</svg>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="site-header__navigation site-header__navigation--mobile js-site-header__navigation--mobile theme-on-surface-color">
-				<ul class="site-header-navigation__inner">
-					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#services">Services</a></li>
-
-					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#sitters">Find sitter</a></li>
-
-					<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
-
-					<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
-						<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
-
-						<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
-					</li>
-				</ul>
 			</div>
 		</div>
 
@@ -229,7 +197,7 @@
 			</div>
 
 			<div>
-				<p class="text"></p>
+				<p class="text">Dark theme</p>
 			</div>
 		</div>
 
@@ -244,6 +212,7 @@
 		<script src="js/xmlhttp-requests.js"></script>
 		<script src="js/dark-theme.js"></script>
 		<script src="js/card-list-pagination--active.js"></script>
+		<script src="js/site-header--sticky.js"></script>
 		<script>
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement( { pageLanguage: 'en' }, 'google_translate_element' );

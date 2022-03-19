@@ -1,6 +1,16 @@
 window.onscroll = function() {
 	let prevScrollpos = window.scrollY;
 
+	if ( prevScrollpos >= 345 ) {
+		let currentScrollPos = window.scrollY;
+
+		$( '.js-site-header-sticky-early-show' ).css( { 'opacity': '1', 'zIndex': '2' } );
+
+		prevScrollpos = currentScrollPos;
+	} else {
+		$( '.js-site-header-sticky-early-show' ).css( { 'opacity': '0', 'zIndex': '0' } );
+	}
+	
 	if ( prevScrollpos >= 975 ) {
 		let currentScrollPos = window.scrollY;
 
@@ -9,8 +19,7 @@ window.onscroll = function() {
 		$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );
 
 		prevScrollpos = currentScrollPos;
-	}
-	else {
+	} else {
 		$( '.site-header--sticky' ).css( { 'opacity': '0', 'zIndex': '0' } );
 
 		$( '.dark-theme-wrapper' ).css( { 'opacity': '0', 'zIndex': '-1' } );

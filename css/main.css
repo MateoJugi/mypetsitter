@@ -537,7 +537,13 @@ ul {
 }
 
 .section--pt-md {
-  padding-top: 120px;
+  padding-top: 150px;
+}
+
+@media (min-width: 992px) {
+  .section--pt-md {
+    padding-top: 120px;
+  }
 }
 
 .section--pt-pb-lg {
@@ -690,6 +696,10 @@ ul {
 
 .filter-form__item:hover {
   border-color: #fd7034;
+}
+
+.filter-form__item--mb-none {
+  margin-bottom: 0;
 }
 
 .input-datalist {

@@ -211,7 +211,7 @@
 			</div>
 
 			<div>
-				<p class="text"></p>
+				<p class="text">Dark theme</p>
 			</div>
 		</div>
 
