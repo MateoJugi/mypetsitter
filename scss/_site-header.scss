@@ -142,7 +142,7 @@
 
 .site-header__navigation--mobile {
 	display: block;
-	height: 100%; ;
+	height: 100%;
 	width: 0;
 	position: fixed;
 	z-index: 4;
@@ -155,7 +155,11 @@
 }
 
 .site-header__navigation--mobile-open {
-	width: 300px;
+	width: 100%;
+
+	@media ( min-width: 576px ) {
+		width: 300px;
+	}
 
 	.site-navigation__item--mobile {
 		color: #818181;

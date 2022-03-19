@@ -16,19 +16,11 @@ window.onscroll = function() {
 
 		$( '.site-header--sticky' ).css( { 'opacity': '1', 'zIndex': '2' } );
 
-		$( '.site-header__menu-icon' ).css( { 'opacity': '0', 'zIndex': '0' } );
-
-		$( '.site-header__menu-icon--sticky' ).css( { 'opacity': '1', 'zIndex': '5' } );
-
 		$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );
 
 		prevScrollpos = currentScrollPos;
 	} else {
 		$( '.site-header--sticky' ).css( { 'opacity': '0', 'zIndex': '0' } );
-
-		$( '.site-header__menu-icon' ).css( { 'opacity': '1', 'zIndex': '5' } );
-
-		$( '.site-header__menu-icon--sticky' ).css( { 'opacity': '0', 'zIndex': '0' } );
 
 		$( '.dark-theme-wrapper' ).css( { 'opacity': '0', 'zIndex': '-1' } );
 	}

@@ -21,18 +21,6 @@
 	</head>
 
 	<body>
-		<div class="site-header__menu-icon site-header__menu-icon--mobile js-site-header-menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-
-		<div class="site-header__menu-icon site-header__menu-icon--mobile site-header__menu-icon--sticky js-site-header-menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-
 		<div class="site-header site-header--bg-none js-site-header">
 			<div class="container">
 				<div class="row">
@@ -54,6 +42,12 @@
 								<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
 
 								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
+							</div>
+
+							<div class="site-header__menu-icon js-site-header-menu">
+								<span></span>
+								<span></span>
+								<span></span>
 							</div>
 						</div>
 					</div>
@@ -83,6 +77,12 @@
 
 								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
 							</div>
+
+							<div class="site-header__menu-icon site-header__menu-icon--black js-site-header-menu">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -90,6 +90,12 @@
 		</div>
 
 		<div class="site-header__navigation site-header__navigation--mobile js-site-header__navigation--mobile theme-on-surface-color">
+			<div class="site-header__menu-icon site-header__menu-icon--side-navigation js-site-header-menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
 			<ul class="site-header-navigation__inner">
 				<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#services">Services</a></li>
 
