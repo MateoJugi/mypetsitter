@@ -1,6 +1,6 @@
 /* ----- Adding first 4 sitters to first page ----- */
 
-$( window ).ready( function() {
+function sittersPullRequest() {
 	var xmlhttp = new XMLHttpRequest();
 
 	let windowLocation = window.location.href
@@ -13,6 +13,10 @@ $( window ).ready( function() {
 
 	xmlhttp.open( 'GET', 'php/sitters-pull-request.php?windowLocation=' + windowLocation, true );
 	xmlhttp.send();
+}
+
+$( window ).ready( function() {
+	sittersPullRequest();
 } );
 
 /* ----- Sitters search filter on admin page ----- */
@@ -177,7 +181,7 @@ $( document ).on( 'click', '.js-card-list-pagination-item', function() {
 	$( '.js-filter-service' ).val( '' );
 	$( '.js-filter-prefered-pets' ).val( '' );
 	$( '.js-filter-price' ).val( '' );
-	$( '.js-search-filter' ).val( '' )
+	$( '.js-search-filter' ).val( '' );
 
 	let lastPage = $( '.js-card-list-pagination-item' ).last().html();
 
@@ -313,6 +317,8 @@ $( document ).on( 'click', '.js-filter-button', function( e ) {
 			$( '.js-pull-request' ).html( this.responseText );
 		}
 	};
+
+	$( '.js-search-filter' ).val( '' );
 
 	let sitterLocation = $( '.js-filter-location' ).val();
 	let sitterPreferedService = $( '.js-filter-service' ).val();
@@ -461,7 +467,7 @@ function sitterSignUp () {
 
 								$.magnificPopup.instance.st.callbacks = {
 									close: function() {
-										window.location.reload();
+										sittersPullRequest();
 									}
 								}
 

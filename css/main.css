@@ -1206,8 +1206,8 @@ ul {
 
 .site-header__menu-icon--side-navigation {
   position: absolute;
-  top: 23px;
-  left: 20px;
+  top: 20px;
+  right: 20px;
 }
 
 .site-header__menu-icon span {
