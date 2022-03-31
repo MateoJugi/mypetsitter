@@ -602,7 +602,8 @@
 		<script src="js/site-header--sticky.js"></script>
 		<script src="js/card-list-pagination--active.js"></script>
 		<script src="js/xmlhttp-requests.js"></script>
-		<script src="js/popup-form.js"></script>
+		<script src="js/sitter-contact-popup.js"></script>
+		<script src="js/sitter-comments-popup.js"></script>
 		<script src="magnific-popup/magnific-popup-trigger.js"></script>
 		<script src="js/json-location-request.js"></script>
 		<script src="js/select2.js"></script>
