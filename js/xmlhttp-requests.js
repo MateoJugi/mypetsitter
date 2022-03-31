@@ -67,7 +67,7 @@ $( window ).ready( function() {
 
 /* ----- Generating pagination depending on number of sitters per page ----- */
 
-$( window ).ready( function() {
+function paginationRequest() {
 	var xmlhttp = new XMLHttpRequest();
 
 	let windowLocation = window.location.href
@@ -106,6 +106,10 @@ $( window ).ready( function() {
 
 	xmlhttp.open( 'GET', 'php/pagination.php?windowLocation=' + windowLocation, true );
 	xmlhttp.send();
+}
+
+$( window ).ready( function() {
+	paginationRequest();
 } );
 
 /* ----- Inserting options inside location filter select ----- */
@@ -447,6 +451,8 @@ function sitterSignUp () {
 							let signUpAbout = $( '.js-sign-up-about' ).val();
 							let signUpPassword = $( '.js-sign-up-password' ).val();
 
+							let signUpContactNumber = $( '.js-sign-up-contact-number' ).val();
+
 							/* ----- Checking if entered password contains all required characters ----- */
 
 							let passwordValidation;
@@ -461,13 +467,43 @@ function sitterSignUp () {
 								$( '.js-sign-up-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpImage.includes( 'postimg' ) && signUpPassword && signUpPassword.length > 4 && passwordValidation == 1 && signUpAbout ) {
-								xmlhttp.open( 'GET', 'php/sitter-sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpPreferedService=' + signUpPreferedService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword, true );
+							let signUpType = '';
+
+							$( '.js-radio-option-select-item' ).each( function () {
+								if ( $( this ).hasClass( 'radio-option-select__item--active' ) ) {
+									signUpType = $( this ).text();
+								}
+							} );
+
+							if ( signUpType == 'as User' && signUpFullName && signUpEmail && signUpEmail && signUpContactNumber && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpPassword && signUpPassword.length > 4 && passwordValidation == 1 ) {
+
+								xmlhttp.open( 'GET', 'php/sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpContactNumber=' + signUpContactNumber + '&signUpPassword=' + signUpPassword + '&signUpType=' + signUpType, true );
+								xmlhttp.send();
+
+								$.magnificPopup.open( {
+									items: {
+										src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">Registration has been successful.</p></div>',
+										type: 'inline',
+										midClick: true,
+										removalDelay: 300,
+										mainClass: 'mfp-fade',
+									}
+								} );
+
+								setTimeout( function() {
+									$.magnificPopup.close();
+								}, 2000 );
+							}
+
+							if ( signUpType == 'as Sitter' && signUpFullName && signUpEmail && signUpEmail && signUpEmail.includes( '@' ) && signUpEmail.split( '@' ).pop() && signUpLocation && signUpPreferedPet && signUpPreferedService && signUpPrice && signUpImage && signUpImage.includes( 'postimg' ) && signUpPassword && signUpPassword.length > 4 && passwordValidation == 1 && signUpAbout ) {
+
+								xmlhttp.open( 'GET', 'php/sign-up-request.php?signUpFullName=' + signUpFullName + '&signUpEmail=' + signUpEmail + '&signUpLocation=' + signUpLocation + '&signUpPreferedPet=' + signUpPreferedPet + '&signUpPreferedService=' + signUpPreferedService + '&signUpPrice=' + signUpPrice + '&signUpImage=' + signUpImage + '&signUpAbout=' + signUpAbout + '&signUpPassword=' + signUpPassword + '&signUpType=' + signUpType, true );
 								xmlhttp.send();
 
 								$.magnificPopup.instance.st.callbacks = {
 									close: function() {
 										sittersPullRequest();
+										paginationRequest();
 									}
 								}
 

@@ -1,0 +1,31 @@
+.radio-option-select {
+	display: flex;
+	justify-content: center;
+	box-shadow: $box-shadow-dark;
+	border-radius: 10px;
+	margin-bottom: 30px;
+}
+
+.radio-option-select__item {
+	cursor: pointer;
+	width: 50%;
+	text-align: center;
+	transition: .3s;
+	font-size: 18px;
+	border-radius: 8px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+
+	&:hover {
+		color: $orange;
+	}
+}
+
+.radio-option-select__item--active {
+	background-color: $orange;
+	color: $gray;
+
+	&:hover {
+		color: #fff;
+	}
+}
