@@ -401,14 +401,15 @@ $( document ).on( 'click', '.js-form-submit', function() {
 	}
 } );
 
-/* ----- Sitter profile delete function ----- */
+/* ----- Profile delete function ----- */
 
 function sitterDelete ( element ) {
-	let profileDeleteSitterID = $( element ).attr( 'data-sitterID' );
+	let profileDeleteID = $( element ).attr( 'data-profileID' );
+	let profileType = $( element ).attr( 'data-profileType' );
 
 	var xmlhttp = new XMLHttpRequest();
 
-	xmlhttp.open( 'GET', 'php/sitter-profile-delete-request.php?profileDeleteSitterID=' + profileDeleteSitterID , true );
+	xmlhttp.open( 'GET', 'php/profile-delete-request.php?profileDeleteID=' + profileDeleteID + '&profileType=' + profileType , true );
 	xmlhttp.send();
 }
 
@@ -555,11 +556,12 @@ $( document ).on( 'click', '.js-sign-up-button', function() {
 /* ----- Sitter profile delete click listener ----- */
 
 $( document ).on( 'click', '.js-profile-delete-button', function() {
-	let deleteSitterID = $( this ).attr( 'data-sitterID' );
+	let deleteProfileID = $( this ).attr( 'data-profileID' );
+	let deleteProfileType = $( this ).attr( 'data-profileType' );
 
 	$.magnificPopup.open( {
 		items: {
-			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--black theme-on-surface-color">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-sitterID = "' + deleteSitterID + '">Delete profile</a></div> </div>',
+			src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--question theme-background-color"><p class="text text--message text--black theme-on-surface-color">Are you sure you want to delete this profile?</p> <div class="white-pop-up__main--flex-direction-column"> <a href="#" value="Delete profile" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-popup-close-button">Cancel</a> <a href="#" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-final-button" data-profileType = "' + deleteProfileType + '" data-profileID = "' + deleteProfileID + '">Delete profile</a></div> </div>',
 			type: 'inline',
 			midClick: true,
 			removalDelay: 300,
@@ -596,7 +598,7 @@ $( document ).on( 'click', '.js-profile-delete-final-button', function( e ) {
 
 /* ----- Sitter profile changes request ----- */
 
-$( document ).on( 'click', '.js-sitter-profile-changes-button', function() {
+$( document ).on( 'click', '.js-profile-changes-button', function() {
 	var xmlhttp = new XMLHttpRequest();
 
 	let sitterID = $( this ).attr( 'data-sitterID' );
@@ -734,16 +736,22 @@ $( document ).on( 'click', '.js-sign-in-button', function() {
 				$( '.js-sign-in-email' ).removeClass( 'input--invalid' );
 				$( '.js-sign-in-password' ).removeClass( 'input--invalid' );
 
-				if ( signInResposne == 2 ) {
+				if ( signInResposne == 'Admin' ) {
 					$.magnificPopup.instance.st.callbacks = {
 						close: function() {
 							window.location.href = 'admin.php';
 						}
 					}
+				} else if ( signInResposne == 'Sitter' ) {
+					$.magnificPopup.instance.st.callbacks = {
+						close: function() {
+							window.location.href = 'sitterProfile.php';
+						}
+					}
 				} else {
 					$.magnificPopup.instance.st.callbacks = {
 						close: function() {
-							window.location.href = 'profile.php';
+							window.location.href = 'userProfile.php';
 						}
 					}
 				}
@@ -768,7 +776,7 @@ $( document ).on( 'click', '.js-sign-in-button', function() {
 	let signInEmail = $( '.js-sign-in-email' ).val();
 	let signInPassword = $( '.js-sign-in-password' ).val();
 
-	xmlhttp.open( 'GET', 'php/sitters-sign-in-request.php?signInEmail=' + signInEmail + '&signInPassword=' + signInPassword, true );
+	xmlhttp.open( 'GET', 'php/sign-in-request.php?signInEmail=' + signInEmail + '&signInPassword=' + signInPassword, true );
 	xmlhttp.send();
 } );
 

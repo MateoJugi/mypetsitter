@@ -157,9 +157,9 @@
 									</svg>
 								</div>
 			
-								<input type="submit" value="Save changes" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none js-sitter-profile-changes-button" data-sitterID = "<?php echo $signInSitterID ?>">
+								<input type="submit" value="Save changes" class="button button--xl button--filled button--orange button--mt-sm button--mr-ml-none js-profile-changes-button" data-profileType = "sitterProfile" data-profileID = "<?php echo $signInSitterID ?>">
 
-								<input type="button" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-button" data-sitterID = "<?php echo $signInSitterID ?>">
+								<input type="button" value="Delete profile" class="button button--xl button--filled button--red button--mt-sm button--mr-ml-none js-profile-delete-button" data-profileType = "sitterProfile" data-profileID = "<?php echo $signInSitterID ?>">
 
 								<input type="button" value="Sign out" class="button button--xl button--filled button--mt-sm button--mr-ml-none js-profile-sign-out-button">
 							</form>
