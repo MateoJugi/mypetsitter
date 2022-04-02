@@ -601,7 +601,9 @@ $( document ).on( 'click', '.js-profile-delete-final-button', function( e ) {
 $( document ).on( 'click', '.js-profile-changes-button', function() {
 	var xmlhttp = new XMLHttpRequest();
 
-	let sitterID = $( this ).attr( 'data-sitterID' );
+	let profileID = $( this ).attr( 'data-profileID' );
+	let profileType = $( this ).attr( 'data-profileType' );
+	console.log(profileType);
 
 	/* ----- Checking if entered fullname already exists ----- */
 
@@ -609,10 +611,10 @@ $( document ).on( 'click', '.js-profile-changes-button', function() {
 		if ( this.readyState == 4 && this.status == 200 ) {
 			let duplicates = this.responseText;
 
-			let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
+			let profileChangesEmail = $( '.js-profile-changes-email-duplicates' ).val();
 
 			if ( duplicates == 0 && profileChangesEmail ) {
-				$( '.js-sitter-profile-changes-fullname' ).removeClass( 'input--invalid' );
+				$( '.js-profile-changes-fullname-duplicates' ).removeClass( 'input--invalid' );
 
 				/* ----- Checking if entered email already exists ----- */
 
@@ -623,19 +625,21 @@ $( document ).on( 'click', '.js-profile-changes-button', function() {
 						let duplicates = this.responseText;
 
 						if ( duplicates == 0 ) {
-							$( '.js-sitter-profile-changes-email' ).removeClass( 'input--invalid' );
+							$( '.js-profile-changes-email-duplicates' ).removeClass( 'input--invalid' );
 
 							var xmlhttp = new XMLHttpRequest();
 
-							let profileChangesFullName = $( '.js-sitter-profile-changes-fullname' ).val();
-							let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
-							let profileChangesLocation = $( '.js-sitter-profile-changes-location' ).val();
-							let profileChangesPreferedPet = $( '.js-sitter-profile-changes-prefered-pets' ).find( 'option:selected' ).val();
-							let profileChangesPreferedService = $( '.js-sitter-profile-changes-prefered-services' ).find( 'option:selected' ).val();
-							let profileChangesPrice = $( '.js-sitter-profile-changes-price' ).val();
-							let profileChangesImage = $( '.js-sitter-profile-changes-image' ).val();
-							let profileChangesAbout = $( '.js-sitter-profile-changes-about' ).val();
-							let profileChangesPassword = $( '.js-sitter-profile-changes-password' ).val();
+							let profileChangesFullName = $( '.js-profile-changes-fullname' ).val();
+							let profileChangesEmail = $( '.js-profile-changes-email' ).val();
+							let profileChangesLocation = $( '.js-profile-changes-location' ).val();
+							let profileChangesPreferedPet = $( '.js-profile-changes-prefered-pets' ).find( 'option:selected' ).val();
+							let profileChangesPreferedService = $( '.js-profile-changes-prefered-services' ).find( 'option:selected' ).val();
+							let profileChangesPrice = $( '.js-profile-changes-price' ).val();
+							let profileChangesImage = $( '.js-profile-changes-image' ).val();
+							let profileChangesAbout = $( '.js-profile-changes-about' ).val();
+							let profileChangesPassword = $( '.js-profile-changes-password' ).val();
+
+							let profileChangesContactNumber = $( '.js-profile-changes-contact-number' ).val();
 
 							/* ----- Checking if entered password contains all required characters ----- */
 
@@ -644,15 +648,40 @@ $( document ).on( 'click', '.js-profile-changes-button', function() {
 							if ( /[A-Z]/.test( profileChangesPassword ) && /[0-9]/.test( profileChangesPassword ) ) {
 								passwordValidation = 1;
 
-								$( '.js-sitter-profile-changes-password' ).removeClass( 'input--invalid' );
+								$( '.js-profile-changes-password' ).removeClass( 'input--invalid' );
 							} else {
 								passwordValidation = 0;
 
-								$( '.js-sitter-profile-changes-password' ).addClass( 'input--invalid' );
+								$( '.js-profile-changes-password' ).addClass( 'input--invalid' );
 							}
 
-							if ( profileChangesEmail && profileChangesEmail && profileChangesEmail.includes( '@' ) && profileChangesEmail.split( '@' ).pop() && profileChangesLocation && profileChangesPreferedPet && profileChangesPreferedService && profileChangesPrice && profileChangesImage && profileChangesPassword  && profileChangesPassword.length > 4 && passwordValidation == 1 && profileChangesAbout ) {
-								xmlhttp.open( 'GET', 'php/sitter-profile-changes-request.php?profileChangesFullName=' + profileChangesFullName + '&profileChangesEmail=' + profileChangesEmail + '&profileChangesLocation=' + profileChangesLocation + '&profileChangesPreferedPet=' + profileChangesPreferedPet + '&profileChangesPreferedService=' + profileChangesPreferedService + '&profileChangesPrice=' + profileChangesPrice + '&profileChangesImage=' + profileChangesImage + '&profileChangesAbout=' + profileChangesAbout + '&profileChangesPassword=' + profileChangesPassword + '&profileChangesSitterID=' + sitterID, true );
+							if ( profileType == 'sitterProfile' && profileChangesFullName && profileChangesEmail && profileChangesEmail && profileChangesEmail.includes( '@' ) && profileChangesEmail.split( '@' ).pop() && profileChangesLocation && profileChangesPreferedPet && profileChangesPreferedService && profileChangesPrice && profileChangesImage && profileChangesPassword  && profileChangesPassword.length > 4 && passwordValidation == 1 && profileChangesAbout ) {
+								xmlhttp.open( 'GET', 'php/profile-changes-request.php?profileChangesFullName=' + profileChangesFullName + '&profileChangesEmail=' + profileChangesEmail + '&profileChangesLocation=' + profileChangesLocation + '&profileChangesPreferedPet=' + profileChangesPreferedPet + '&profileChangesPreferedService=' + profileChangesPreferedService + '&profileChangesPrice=' + profileChangesPrice + '&profileChangesImage=' + profileChangesImage + '&profileChangesAbout=' + profileChangesAbout + '&profileChangesPassword=' + profileChangesPassword + '&profileChangesProfileID=' + profileID + '&profileType=' + profileType, true );
+								xmlhttp.send();
+
+								$.magnificPopup.open( {
+									items: {
+										src: '<div class="white-pop-up white-pop-up--no-before white-pop-up--success theme-background-color"><svg class="white-pop-up__icon" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256,6.998c-137.533,0-249,111.467-249,249c0,137.534,111.467,249,249,249s249-111.467,249-249  C505,118.464,393.533,6.998,256,6.998z M256,485.078c-126.309,0-229.08-102.771-229.08-229.081  c0-126.31,102.771-229.08,229.08-229.08c126.31,0,229.08,102.771,229.08,229.08C485.08,382.307,382.31,485.078,256,485.078z" fill="#4bb543"/><polygon fill="#4bb543" points="384.235,158.192 216.919,325.518 127.862,236.481 113.72,250.624 216.919,353.803 398.28,172.334   "/></svg> <p class="text text--message text--success">Changes have been saved succesfully.</p></div>',
+										type: 'inline',
+										midClick: true,
+										removalDelay: 300,
+										mainClass: 'mfp-fade',
+									}
+								} );
+
+								$.magnificPopup.instance.st.callbacks = {
+									close: function() {
+										window.location.href = 'index.php';
+									}
+								}
+
+								setTimeout( function() {
+									$.magnificPopup.close();
+								}, 2000 );
+							}
+
+							if ( profileType == 'userProfile' && profileChangesEmail && profileChangesEmail && profileChangesEmail.includes( '@' ) && profileChangesEmail.split( '@' ).pop() && profileChangesFullName && profileChangesContactNumber && profileChangesPassword  && profileChangesPassword.length > 4 && passwordValidation == 1 ) {
+								xmlhttp.open( 'GET', 'php/profile-changes-request.php?profileChangesFullName=' + profileChangesFullName + '&profileChangesContactNumber=' + profileChangesContactNumber + '&profileChangesEmail=' + profileChangesEmail + '&profileChangesPassword=' + profileChangesPassword + '&profileChangesProfileID=' + profileID+ '&profileType=' + profileType, true );
 								xmlhttp.send();
 
 								$.magnificPopup.open( {
@@ -676,27 +705,27 @@ $( document ).on( 'click', '.js-profile-changes-button', function() {
 								}, 2000 );
 							}
 						} else {
-							$( '.js-sitter-profile-changes-email' ).addClass( 'input--invalid' );
+							$( '.js-profile-changes-email-duplicates' ).addClass( 'input--invalid' );
 						}
 					}
 				};
 
-				let profileChangesEmail = $( '.js-sitter-profile-changes-email' ).val();
+				let profileChangesEmail = $( '.js-profile-changes-email-duplicates' ).val();
 
-				xmlhttp.open( 'GET', 'php/sitter-profile-changes-email-duplicates.php?profileChangesEmail=' + profileChangesEmail + '&sitterID=' + sitterID, true );
+				xmlhttp.open( 'GET', 'php/profile-changes-email-duplicates.php?profileChangesEmail=' + profileChangesEmail + '&profileID=' + profileID, true );
 				xmlhttp.send();
 			} else if ( duplicates == 0 && !profileChangesEmail ) {
-				$( '.js-sitter-profile-changes-fullname' ).removeClass( 'input--invalid' );
+				$( '.js-profile-changes-fullname-duplicates' ).removeClass( 'input--invalid' );
 			}
 			 else {
-				$( '.js-sitter-profile-changes-fullname' ).addClass( 'input--invalid' );
+				$( '.js-profile-changes-fullname-duplicates' ).addClass( 'input--invalid' );
 			}
 		}
 	};
 
-	let profileChangesFullName = $( '.js-sitter-profile-changes-fullname' ).val();
+	let profileChangesFullName = $( '.js-profile-changes-fullname-duplicates' ).val();
 
-	xmlhttp.open( 'GET', 'php/sitter-profile-changes-fullname-duplicates.php?profileChangesFullName=' + profileChangesFullName + '&sitterID=' + sitterID, true );
+	xmlhttp.open( 'GET', 'php/profile-changes-fullname-duplicates.php?profileChangesFullName=' + profileChangesFullName + '&profileID=' + profileID, true );
 	xmlhttp.send();
 } );
 

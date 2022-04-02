@@ -59,28 +59,28 @@
 									<svg class="form__icon" data-name="Layer 1" id="Layer_1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><title/><path class="form-icon-fill" d="M24,21A10,10,0,1,1,34,11,10,10,0,0,1,24,21ZM24,5a6,6,0,1,0,6,6A6,6,0,0,0,24,5Z"/><path class="form-icon-fill" d="M42,47H6a2,2,0,0,1-2-2V39A16,16,0,0,1,20,23h8A16,16,0,0,1,44,39v6A2,2,0,0,1,42,47ZM8,43H40V39A12,12,0,0,0,28,27H20A12,12,0,0,0,8,39Z"/>
 									</svg>
 				
-									<input type="text" class="form__input form__input--orange js-sitter-profile-changes-fullname theme-surface-color" placeholder="Full name" required value="<?php echo $userFullName ?>"/>
+									<input type="text" class="form__input form__input--orange js-profile-changes-fullname js-profile-changes-fullname-duplicates theme-surface-color" placeholder="Full name" required value="<?php echo $userFullName ?>"/>
 								</div>
 				
 								<div class="form__item">
 									<svg class="form__icon form-icon-stroke" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
 									</svg>
 				
-									<input type="email" class="form__input form__input--orange js-sitter-profile-changes-email theme-surface-color" placeholder="Email" required value="<?php echo $userEmail ?>"/>
+									<input type="email" class="form__input form__input--orange js-profile-changes-email js-profile-changes-email-duplicates theme-surface-color" placeholder="Email" required value="<?php echo $userEmail ?>"/>
 								</div>
 			
 								<div class="form__item">
 									<svg class="form__icon form__icon--lg" id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g id="Icon-Tag" transform="translate(79.000000, 382.000000)"><path class="form-icon-fill" class="st0" d="M-51-328.9c-1.3,0-2.5-0.5-3.4-1.4l-13.3-13.3c-1.9-1.9-1.9-4.9,0-6.8l17.8-17.8     c1.6-1.6,4.5-2.8,6.7-2.8h11.4c2.6,0,4.8,2.2,4.8,4.8v11.4c0,2.2-1.2,5.1-2.8,6.7l-17.8,17.8C-48.5-329.4-49.7-328.9-51-328.9     L-51-328.9z M-43.2-368c-1.4,0-3.6,0.9-4.6,1.9l-17.8,17.8c-0.7,0.7-0.7,1.8,0,2.5l13.3,13.3c0.7,0.7,1.9,0.7,2.5,0l17.8-17.8     c1-1,1.9-3.1,1.9-4.6v-11.4c0-1-0.8-1.8-1.8-1.8H-43.2L-43.2-368z" id="Fill-129"/><path class="form-icon-fill" class="st0" d="M-39-353.1c-3.2,0-5.9-2.6-5.9-5.9c0-3.2,2.6-5.9,5.9-5.9c3.2,0,5.9,2.6,5.9,5.9     C-33.1-355.8-35.7-353.1-39-353.1L-39-353.1z M-39-362.1c-1.7,0-3.1,1.4-3.1,3.1c0,1.7,1.4,3.1,3.1,3.1c1.7,0,3.1-1.4,3.1-3.1     C-35.9-360.7-37.3-362.1-39-362.1L-39-362.1z" id="Fill-130"/></g></g>
 									</svg>
 			
-									<input type="number" class="form__input form__input--orange js-sitter-profile-changes-price theme-surface-color" placeholder="Contact number" required value="<?php echo $userContactNumber ?>"/>
+									<input type="number" class="form__input form__input--orange js-profile-changes-contact-number theme-surface-color" placeholder="Contact number" required value="<?php echo $userContactNumber ?>"/>
 								</div>
 			
 								<div class="form__item">
 									<svg class="form__icon form__icon--lg" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path class="form-icon-fill" d="M36 16h-2v-4c0-5.52-4.48-10-10-10s-10 4.48-10 10v4h-2c-2.21 0-4 1.79-4 4v20c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4v-20c0-2.21-1.79-4-4-4zm-12-10.2c3.42 0 6.2 2.78 6.2 6.2v4h-12.2v-4h-.2c0-3.42 2.78-6.2 6.2-6.2zm12 34.2h-24v-20h24v20zm-12-6c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
 									</svg>
 				
-									<input type="password" class="form__input form__input--orange js-sitter-profile-changes-password js-form-input-password theme-surface-color" placeholder="Password" minlength="5" required value="<?php echo $userPassword ?>"/>
+									<input type="password" class="form__input form__input--orange js-profile-changes-password js-form-input-password theme-surface-color" placeholder="Password" minlength="5" required value="<?php echo $userPassword ?>"/>
 			
 									<div class="tooltip js-tooltip">
 										<svg class="form__icon form__icon--second form__icon--tooltip" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M64,1C29.3,1,1,29.3,1,64s28.3,63,63,63s63-28.3,63-63S98.7,1,64,1z M64,119C33.7,119,9,94.3,9,64S33.7,9,64,9   s55,24.7,55,55S94.3,119,64,119z"/><rect height="40" width="8" x="60" y="54.5"/><rect height="8" width="8" x="60" y="35.5"/></g>
