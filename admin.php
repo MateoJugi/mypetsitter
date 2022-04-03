@@ -215,9 +215,13 @@
 		<script src="js/card-list-pagination--active.js"></script>
 		<script src="js/site-header--sticky.js"></script>
 		<script>
+			/* ----- Activating Google Translate function ----- */
+
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement( { pageLanguage: 'en' }, 'google_translate_element' );
 			}
+
+			/* ----- Making dark theme button always visible ----- */
 
 			$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );
 		</script>

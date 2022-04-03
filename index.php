@@ -38,7 +38,7 @@
 								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
 							</ul>
 
-							<div class="site-header__navigation">
+							<div class="site-header__navigation js-user-profile-buttons">
 								<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
 
 								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
@@ -72,7 +72,7 @@
 								<li class="site-navigation__item"><a href="#aboutus">About us</a></li>
 							</ul>
 
-							<div class="site-header__navigation">
+							<div class="site-header__navigation js-user-profile-buttons">
 								<a href="#sign-up-pop-up" class="button js-pop-up theme-on-surface-color">Sign up</a>
 
 								<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
@@ -103,7 +103,7 @@
 
 				<li class="site-navigation__item site-navigation__item--mobile js-site-navigation-item-mobile"><a href="#aboutus">About us</a></li>
 
-				<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile">
+				<li class="site-navigation__item site-navigation__item--mobile site-navigation__item--buttons js-site-navigation-item-mobile js-user-profile-buttons">
 					<a href="#sign-up-pop-up" class="button js-pop-up">Sign up</a>
 
 					<a href="#sign-in-pop-up" class="button button--filled js-pop-up">Sign in</a>
@@ -438,7 +438,7 @@
 				</div>
 
 				<div class="form__item js-user-sign-up-item">
-					<svg class="form__icon form__icon--lg" id="Layer_1" style="enable-background:new 0 0 64 64;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g id="Icon-Tag" transform="translate(79.000000, 382.000000)"><path class="form-icon-fill" class="st0" d="M-51-328.9c-1.3,0-2.5-0.5-3.4-1.4l-13.3-13.3c-1.9-1.9-1.9-4.9,0-6.8l17.8-17.8     c1.6-1.6,4.5-2.8,6.7-2.8h11.4c2.6,0,4.8,2.2,4.8,4.8v11.4c0,2.2-1.2,5.1-2.8,6.7l-17.8,17.8C-48.5-329.4-49.7-328.9-51-328.9     L-51-328.9z M-43.2-368c-1.4,0-3.6,0.9-4.6,1.9l-17.8,17.8c-0.7,0.7-0.7,1.8,0,2.5l13.3,13.3c0.7,0.7,1.9,0.7,2.5,0l17.8-17.8     c1-1,1.9-3.1,1.9-4.6v-11.4c0-1-0.8-1.8-1.8-1.8H-43.2L-43.2-368z" id="Fill-129"/><path class="form-icon-fill" class="st0" d="M-39-353.1c-3.2,0-5.9-2.6-5.9-5.9c0-3.2,2.6-5.9,5.9-5.9c3.2,0,5.9,2.6,5.9,5.9     C-33.1-355.8-35.7-353.1-39-353.1L-39-353.1z M-39-362.1c-1.7,0-3.1,1.4-3.1,3.1c0,1.7,1.4,3.1,3.1,3.1c1.7,0,3.1-1.4,3.1-3.1     C-35.9-360.7-37.3-362.1-39-362.1L-39-362.1z" id="Fill-130"/></g></g>
+					<svg class="form__icon" enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="50" width="50"/><path class="form-icon-stroke" d="M30.217,35.252c0,0,4.049-2.318,5.109-2.875  c1.057-0.559,2.152-0.7,2.817-0.294c1.007,0.616,9.463,6.241,10.175,6.739c0.712,0.499,1.055,1.924,0.076,3.32  c-0.975,1.396-5.473,6.916-7.379,6.857c-1.909-0.062-9.846-0.236-24.813-15.207C1.238,18.826,1.061,10.887,1,8.978  C0.939,7.07,6.459,2.571,7.855,1.595c1.398-0.975,2.825-0.608,3.321,0.078c0.564,0.781,6.124,9.21,6.736,10.176  c0.419,0.66,0.265,1.761-0.294,2.819c-0.556,1.06-2.874,5.109-2.874,5.109s1.634,2.787,7.16,8.312  C27.431,33.615,30.217,35.252,30.217,35.252z" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="4"/>
 					</svg>
 
 					<input type="number" class="form__input form__input--orange js-sign-up-contact-number theme-surface-color" placeholder="Contact number" required />
@@ -627,8 +627,18 @@
 		<script src="js/tooltip-trigger.js"></script>
 		<script src="js/radio-option-select.js"></script>
 		<script>
+			/* ----- Activating Google Translate function ----- */
+
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement( { pageLanguage: 'en' }, 'google_translate_element' );
+			}
+
+			/* ----- Adding profile button inside site header navigation if user is signed in ----- */
+
+			let isUserLogedIn = sessionStorage.getItem( 'isUserLogedIn');
+
+			if ( isUserLogedIn == 'yes' ) {
+				$( '.js-user-profile-buttons' ).html( '<a href="#" class="button button--filled js-to-user-profile-page">Profile</a>' );
 			}
 		</script>
 		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

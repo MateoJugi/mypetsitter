@@ -1085,7 +1085,7 @@ ul {
   -webkit-filter: contrast(0.1);
           filter: contrast(0.1);
   position: absolute;
-  left: -27px;
+  left: 0;
 }
 
 .form__input--textarea {
@@ -1797,6 +1797,10 @@ ul {
 .title--white, .text--white {
   color: #fff;
   border-color: #fff;
+}
+
+.text--black {
+  color: #000;
 }
 
 .title--gray {

@@ -230,9 +230,13 @@
 		<script src="js/input-password-reveal.js"></script>
 		<script src="js/tooltip-trigger.js"></script>
 		<script>
+			/* ----- Activating Google Translate function ----- */
+
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement( { pageLanguage: 'en' }, 'google_translate_element' );
 			}
+
+			/* ----- Adding prefered pets and services inside form ----- */
 
 			$( document ).ajaxStop( function() {
 				let signInSitterPreferedServices = <?php echo json_encode( $signInSitterPreferedServices ) ?>;
@@ -247,6 +251,8 @@
 					$( '.js-profile-changes-prefered-pets' ).val( signInSitterPreferedPets ).trigger( 'change' );
 				}, 100 );
 			} );
+
+			/* ----- Making dark theme button always visible ----- */
 
 			$( '.dark-theme-wrapper' ).css( { 'opacity': '1', 'zIndex': '1' } );
 		</script>
